@@ -4,6 +4,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
   <!-- Vendor CSS Files -->
   <link href="<?php echo $baseURL; ?>assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -25,7 +26,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="<?php echo $baseURL; ?>">Mentor</a></h1>
+      <h1 class="logo me-auto"><a href="<?php echo $baseURL; ?>"><img src="assets/img/LogoFinal.jpg"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -37,6 +38,7 @@
           <li class="dropdown"><a href="#"><span>About Pragma</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?php echo $baseURL; ?>about">About Us</a></li>
+              <li><a href="<?php echo $baseURL; ?>why-us">why choose us</a></li>
             </ul>
           </li>
           <li><a href="<?php echo $baseURL; ?>contact">Contact</a></li>

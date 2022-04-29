@@ -1,5 +1,5 @@
 <?php
 
-$baseURL = "http://localhost:3045/RHtechWorld/pragmaEducation/";
+$baseURL = "http://localhost:8008/PragmaEducation/pragmaEducation/";
 
 ?>
