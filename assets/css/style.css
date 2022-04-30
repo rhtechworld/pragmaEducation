@@ -21,6 +21,56 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
+/*login */
+.logintoregister{
+  font-size: 15px;
+}
+.logintoregister a{
+  text-decoration: underline;
+  color:#E61F26;
+}
+
+.login button {
+  background: #E61F26;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+.login-form{ 
+	width:320px;
+	margin:20px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+span{
+	font-size:14px;
+}
+/* Forgot password */
+.forgot-pwd{
+  box-shadow: 0px 0px 15px #0000001a;
+    padding:10px;
+    border:none;
+   
+}
+.forgot-pwd h3{
+  color:#E61F26; 
+}
+.forgot-pwd button{
+  background: #E61F26;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -1404,6 +1454,10 @@ section {
     transform: rotate(360deg);
   }
 }
+/* login */
+
+
+
 
 /* why choose us */
 
