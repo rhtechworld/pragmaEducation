@@ -15,36 +15,24 @@
 </head>
 <main id="main">
   
-<div class="container login" data-aos="fade-up">
-
-<div class="row mt-5">
-<div class="col-lg-6">
-  <img src="assets/img/login.png" class="img-fluid">
-</div>
-<div class="col-lg-6 mt-5 mt-lg-0">
-<form>
-
-  <div class="form-group mb-4 mt-5">
-    <label for="exampleFormControlInput1">Mobile</label>
-    <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Enter Mobile Number">
-  </div>
-  <div class="form-group mb-4">
-    <label for="exampleFormControlInput1">Password</label>
-    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Password">
-  </div>
-  <div class="form-check mb-4">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    Remember Me
-  </label>
-</div>
-
-<div class="mb-4 logintoregister">
-   Not Sign In yet ? <a href="<?php echo $baseURL; ?>register"> Click here to sign up</a>
-</div>
-<div class="text-center"><button type="submit">Login</button></div>
-  </form>
-</div>
+<div class="container login mt-5" data-aos="fade-up">
+<div class="login-form d-block mx-auto">    
+    <form action="/examples/actions/confirmation.php" method="post">
+		<div class="avatar"><i class="bx bxs-lock-alt"></i></div>
+    	<h4 class="modal-title">Login to Your Account</h4>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group small clearfix">
+            <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+        </div> 
+        <input type="submit" class="btn btn-primary btn-block btn-lg d-block mx-auto" value="Login">              
+    </form>			
+    <div class="text-center small">Don't have an account? <a href="<?php echo $baseURL; ?>register">Sign up</a></div>
 </div>
  
  
