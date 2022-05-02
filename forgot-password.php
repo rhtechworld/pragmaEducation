@@ -15,18 +15,24 @@
 </head>
 <main id="main">
   
-<div class="forgot-pwd d-flex justify-content-center align-items-center container mt-5 ">
-
-<form>
-<h3 class="text-center mt-5">Reset password</h3>
-<div class="form-group mt-5 mb-3">
-					<label for="exampleInputEmail1">Enter your email address and we will send you a link to reset your password.</label>
-					<input type="email" class="form-control form-control-sm" placeholder="Enter your email address">
-				</div>
-                <div class="text-center"><button type="submit">Send password reset email</button></div>
-</form>
-
+<div class="container fp mt-5" data-aos="fade-up">
+<div class="login-form d-block mx-auto">    
+    <form action="/examples/actions/confirmation.php" method="post">
+		<div class="avatar"><i class="bx bxs-lock-alt"></i></div>
+    	<h4 class="modal-title">Reset Password</h4>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter Your Email" required="required">
+        </div>
+        
+        
+        <input type="submit" class="btn  btn-block btn-lg d-block mx-auto" value="Send password">              
+    </form>			
+   
 </div>
+ 
+ 
+ 
+
 
 </main>
   

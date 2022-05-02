@@ -18,7 +18,7 @@
 <div class="container login mt-5" data-aos="fade-up">
 <div class="login-form d-block mx-auto">    
     <form action="/examples/actions/confirmation.php" method="post">
-		<div class="avatar"><i class="bx bxs-lock-alt"></i></div>
+		<div class="avatar"><i class="bx bxs-user-circle"></i></div>
     	<h4 class="modal-title">Login to Your Account</h4>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" required="required">
@@ -28,7 +28,7 @@
         </div>
         <div class="form-group small clearfix">
             <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="forgot-link">Forgot Password?</a>
+            <a href="<?php echo $baseURL; ?>forgot-password" class="forgot-link">Forgot Password?</a>
         </div> 
         <input type="submit" class="btn btn-primary btn-block btn-lg d-block mx-auto" value="Login">              
     </form>			
