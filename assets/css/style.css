@@ -4,7 +4,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #444444;
 }
 
@@ -587,7 +587,7 @@ color:white;
   display: inline-block;
 }
 .get-started-btn:hover {
-  background: #3ac162;
+  background: #E61F26;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -1427,7 +1427,7 @@ section {
   display: inline-block;
 }
 .about .content .learn-more-btn:hover {
-  background: #3ac162;
+  background: #E61F26;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -2394,7 +2394,8 @@ p.service_text{
     transition: all 0.5s ease 0s;
 }
 .item:hover{
-    background:#f91942;
+    /* background:#aca9a9; */
+    color:#000;
     box-shadow:0 8px 20px 0px rgba(0, 0, 0, 0.2);
     -webkit-transition: all .5s ease 0;
     transition: all .5s ease 0;
@@ -2408,7 +2409,7 @@ p.service_text{
     transition: all 0.5s ease 0s;
 }
 .item:hover h6, .item:hover p{
-    color:#fff;
+    color:#000;
     -webkit-transition: all .5s ease 0;
     transition: all .5s ease 0;
     transition: all 0.5s ease 0s;
@@ -2628,14 +2629,14 @@ p.service_text{
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 #footer .footer-newsletter form input[type=submit]:hover {
-  background: #3ac162;
+  background: #E61F26;
 }
 #footer .credits {
   padding-top: 5px;
   font-size: 13px;
 }
 #footer .credits a {
-  color: #3ac162;
+  color: #E61F26;
   transition: 0.3s;
 }
 #footer .credits a:hover {
@@ -2656,7 +2657,7 @@ p.service_text{
   transition: 0.3s;
 }
 #footer .social-links a:hover {
-  background: #3ac162;
+  background: #E61F26;
   color: #fff;
   text-decoration: none;
 }
