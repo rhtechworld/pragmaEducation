@@ -1,0 +1,41 @@
+.basecolor
+{
+    color : #E61F26
+}
+.effectthisfont
+{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: normal;
+}
+.newButtonEffect
+{
+    background-color: #E61F26;
+    color: white;
+    border: none;
+}
+
+/* CourseTab View Styles */
+
+.btn-link-ct
+{
+    color:#E61F26;
+    text-decoration: none;
+    border:none;
+    box-shadow:none;
+}
+.main-card-ct
+{
+    border:1px solid black;
+    border-radius:12px;
+    box-shadow:none;
+}
+.main-card-head-ct
+{
+    background-color:white;
+    border-bottom:none;
+    box-shadow:none;
+}
+.hr-ct
+{
+    margin-top: 0em;
+}
