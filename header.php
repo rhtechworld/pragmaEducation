@@ -1,3 +1,5 @@
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  
   <!-- Favicons -->
   <link href="<?php echo $baseURL; ?>assets/new-img/favicon.png" rel="icon">
   <link href="<?php echo $baseURL; ?>assets/new-img/favicon.png" rel="apple-touch-icon">
@@ -19,6 +21,8 @@
   <link href="<?php echo $baseURL; ?>assets/css/style.css" rel="stylesheet">
   <link href="<?php echo $baseURL; ?>assets/css/custom.css" rel="stylesheet">
 
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
 </head>
 
 <body>
@@ -34,8 +38,12 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a href="<?php echo $baseURL; ?>">Home</a></li>
+          <li><a href="<?php echo $baseURL; ?>toppers">Toppers</a></li>
+          <li><a href="<?php echo $baseURL; ?>videos">Videos</a></li>
+          <li><a href="<?php echo $baseURL; ?>faculties">Faculties</a></li>
           <li><a href="<?php echo $baseURL; ?>courses">Courses</a></li>
-        
+          <li><a href="<?php echo $baseURL; ?>downloads">Downloads</a></li>
+          
           <li class="dropdown"><a href="#"><span>About Pragma</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?php echo $baseURL; ?>about">About Us</a></li>

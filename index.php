@@ -21,6 +21,23 @@
 
     <main id="main">
 
+    <!-- ======= Popular Courses Section ======= -->
+    <section id="features" class="features section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="text-center mt-5">
+                    <h3><b>Our Popular Courses</b></h3>
+                </div>
+
+                <div class="row my-auto d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="accordion text-center" id="accordionExample">
+                        <?php include('functions/main-functions/getCourseTabs.php'); ?>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Popular Courses Section -->
+
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
@@ -44,24 +61,6 @@
 
             </div>
         </section><!-- End About Section -->
-
-        <!-- ======= Popular Courses Section ======= -->
-        <section id="features" class="features section-bg">
-            <div class="container" data-aos="fade-up">
-
-                <div class="text-center mt-5">
-                    <h3><b>Our Popular Courses</b></h3>
-                </div>
-
-                <div class="row my-auto d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="accordion text-center" id="accordionExample">
-                        <?php include('functions/main-functions/getCourseTabs.php'); ?>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Popular Courses Section -->
-
 
         <!-- ======= Counts Section ======= -->
         <section id="counts" class="counts">
