@@ -61,19 +61,19 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p><?php echo $mainContactLocation; ?></p>
                             </div>
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <p><?php echo $mainContactEmail; ?></p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
+                                <p><?php echo $mainContactNumberOne; ?></p>
                             </div>
 
                         </div>
@@ -85,13 +85,7 @@
                 </div>
 
             </div>
-            <div class="mt-5" data-aos="fade-up">
-                <iframe style="border:0; width: 100%; height: 350px;"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1956442064734!2d78.38336721435402!3d17.450347605580557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e85be1271b%3A0xec350935717396ea!2sPragma%20Edge%20Software%20Services%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1651246469567!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-            </div>
+            <?php echo $mainContactLocationMap; ?>
         </section><!-- End Contact Section -->
 
     </main><!-- End #main -->

@@ -28,13 +28,13 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Mentor</h3>
+                    <h3>Pragma Edu.</h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        Madhapur <br>
+                        Hyderabad, 500081<br>
+                        India <br><br>
+                        <strong>Phone:</strong> +91 1234567891<br>
+                        <strong>Email:</strong> test@test.com<br>
                     </p>
                 </div>
 
@@ -43,20 +43,20 @@
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Courses</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Why choose us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
+                    <h4>Our Top Courses</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 1</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 2</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 3</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 4</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 5</a></li>
                     </ul>
                 </div>
 
@@ -76,10 +76,10 @@
 
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-                &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Pragma Edu.</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                Designed by <a href="#">RH Tech</a>
+                Designed by <a href="#">Ganesh</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
@@ -111,7 +111,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
+<script src="<?php echo $baseURL; ?>assets/js/custom.js"></script>
+
 </body>
 
 </html>
-<? ob_flush(); ?>
+<?php ob_flush(); ?>

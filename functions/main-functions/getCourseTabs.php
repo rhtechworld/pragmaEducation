@@ -10,8 +10,7 @@ $getCountsqlGetCourceTabs = mysqli_num_rows($sqlGetCourceTabs);
 
 if($getCountsqlGetCourceTabs == 0)
 {
-    //do nothing
-    //echo "Testing";
+    echo '<hr class="hr-ct" /><b>No Courses Found!</b>';
 }
 else
 {
@@ -62,7 +61,7 @@ else
                     $date = $row['date'];
                     $last_updated = $row['last_updated'];
 
-                    echo '<hr class="hr-ct" /><i class="bi bi-arrow-right-circle" style="font-size:14px"></i> '.$course_name.'<br>';
+                    echo '<hr class="hr-ct" /><a href="course-details?course_id='.$course_id.'"><i class="bi bi-arrow-right-circle" style="font-size:14px"></i> '.$course_name.'</a><br>';
 
                 }
             }
