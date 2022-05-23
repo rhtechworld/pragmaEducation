@@ -8,13 +8,13 @@ $ProjectName = "Pragma Education";
 $baseURL = "https://stage.pragmaeducation.com/";
 
 //Defulat Time Zone
-date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set('Asia/Kolkata'); //indian time
 $todayDate = date('d-m-Y'); // 04-05-2022
 $timeNow = date('h:i:s'); // 12:16:00
 $timeDiv = date('A'); // AM or PM
-
+ 
 //database Config
-$conn = mysqli_connect('localhost','pragmaed_ganesh','Ganesh@3045','pragmaed_stage');
+$conn = mysqli_connect('localhost','root','','pragma_education');
 
 //project setups
 $mainContactNumberOne = "+91 1234567891";
