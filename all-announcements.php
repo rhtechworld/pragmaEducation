@@ -14,6 +14,9 @@
 
   <main id="main">
 
+    <div class="text-center basecolor" style="margin-top:75px;">
+      <h5><b>All Updates &<br>Announcements</b></h5>
+    </div>
     <div class="text-center mb-0" style="margin-top:85px;">
         <div class="section-head col-sm-12 mb-0">
           <h4 style="font-size:20px"><span>All Updates &<br>Announcements</span></h4>
