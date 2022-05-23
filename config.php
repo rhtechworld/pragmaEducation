@@ -14,7 +14,7 @@ $timeNow = date('h:i:s'); // 12:16:00
 $timeDiv = date('A'); // AM or PM
 
 //database Config
-$conn = mysqli_connect('localhost','pragmaed_ganesh','Ganesh@3045','pragmaed_stage');
+$conn = mysqli_connect('localhost','root','','pragma_education');
 
 //project setups
 $mainContactNumberOne = "+91 1234567891";
