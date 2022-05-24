@@ -85,7 +85,7 @@
                 </div>
 
             </div>
-            <?php echo $mainContactLocationMap; ?>
+            
         </section><!-- End Contact Section -->
 
     </main><!-- End #main -->
