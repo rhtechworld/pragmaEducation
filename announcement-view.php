@@ -1,4 +1,4 @@
-<?php echo include('config.php'); ?>
+<?php include('config.php'); ?>
 <?php include('functions/main-functions/getAnnouncementView.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
