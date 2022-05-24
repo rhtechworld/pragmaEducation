@@ -15,7 +15,7 @@
 
 <div id="main">
 
-    <div class="section-head col-sm-12 mb-0" style="margin-top:85px;">
+    <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
         <h4 style="font-size:20px"><span>IAS PREPARATION TIPS FROM </span> PRAGMA TOPPERS</h4>
     </div>
 
@@ -25,7 +25,7 @@
 
         <div class="border w-100 p-3">
             
-              <?php include('functions/main-functions/getAllAnnouncements.php'); ?>
+              <?php include('functions/main-functions/getAllToppers.php'); ?>
             
         </div>
         

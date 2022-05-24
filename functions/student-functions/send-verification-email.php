@@ -70,7 +70,7 @@ else
         ';
 
         $to = $sendEMailAddress;
-        $subject = "Your OTP for access to ".$getSessionUserId."-#".rand(1000,999)."";
+        $subject = "Your OTP for access to ".$getSessionUserId."-#".date('dmY')."";
                 
         $header = "From:".$emailSendFromName." <".$emailSendFrom."> \r\n";
         $header .= "MIME-Version: 1.0\r\n";

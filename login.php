@@ -36,13 +36,13 @@
                         </div>
                         <button type="submit" name="proceedForLogin" class="btn btn-block btn-primary w-100 newButtonEffect">Get Me In</button>
                     </form>
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col-md-6 col-lg-6 text-center mt-1 mb-1">
                             <small>Not registered? <a href="<?php echo $baseURL; ?>register" class="basecolor">Register
                                     Now</a></small>
                         </div>
                         <div class="col-md-6 col-lg-6 text-center mt-1 mb-1">
-                            <small><a href="#" class="basecolor">Forgot Password?</a></small>
+                            <small><a href="forgot-password" class="basecolor">Forgot Password?</a></small>
                         </div>
                     </div>
                 </div>

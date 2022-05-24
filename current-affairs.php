@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Free IAS Preparation Material from Pragma | <?php echo $ProjectName; ?></title>
+    <title>PRAGMA CURRENT AFFAIRS | <?php echo $ProjectName; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -16,7 +16,7 @@
 <div id="main">
 
     <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
-        <h4 style="font-size:20px"><span>Free IAS Preparation Material from </span> Pragma</h4>
+        <h4 style="font-size:20px"><span>PRAGMA </span> CURRENT AFFAIRS</h4>
     </div>
 
     <section id="contact" class="contact">
@@ -24,7 +24,7 @@
 
         <div class="border w-100 p-3">
             
-              <?php include('functions/main-functions/getAllDownloads.php'); ?>
+              <?php include('functions/main-functions/getAllCurrentAffairs.php'); ?>
               
         </div>
         
