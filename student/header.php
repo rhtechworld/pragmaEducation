@@ -16,9 +16,15 @@
     <div class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
+    <?php 
+    $directoryURI = $_SERVER['REQUEST_URI'];;
+    $path = parse_url($directoryURI, PHP_URL_PATH);
+    $components = explode('/', $path);
+    $first_part = $components[4];
+    ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="./">Pragma Edu. Office</a>
+            <a class="navbar-brand ps-3" href="./">Pragma Student</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -30,9 +36,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="profile">Profile</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="announcements">Announcements</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,41 +51,27 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Hey <?php echo $student_name_session; ?>,</div>
-                            <a class="nav-link" href="./">
+                            <a class="nav-link <?php if ($first_part=="" || $first_part=="index") {echo "active"; } else  {echo "notActive";}?>" href="./">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Courses
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            <a class="nav-link <?php if ($first_part=="profile") {echo "active"; } else  {echo "notActive";}?>" href="profile">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Profile
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="enrolled-courses">Enrolled Courses</a>
-                                    <a class="nav-link" href="all-courses">All Courese</a>
-                                </nav>
-                            </div>
+                        
+                            <?php include('functions/enrolledCoursesOnMenu.php'); ?>
 
-                            <a class="nav-link" href="./">
-                                <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
-                                Announcements
+                            <div class="sb-sidenav-menu-heading">Available Courses</div>
+
+                            <a class="nav-link <?php if ($first_part=="all-courses") {echo "active"; } else  {echo "notActive";}?>" href="all-courses">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                All Courses
                             </a>
 
                             <div class="sb-sidenav-menu-heading">Actions</div>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsFour" aria-expanded="false" aria-controls="collapseLayoutsFour">
-                                <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
-                                Settings
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayoutsFour" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Profile</a>
-                                </nav>
-                            </div>
-
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?php if ($first_part=="logout") {echo "active"; } else  {echo "notActive";}?>" href="logout">
                                 <div class="sb-nav-link-icon"><i class="fas fa-sign-out"></i></div>
                                 Logout
                             </a>

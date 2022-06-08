@@ -23,6 +23,9 @@
 
   <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
 
+  <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> 
+
 </head>
 
 <?php 

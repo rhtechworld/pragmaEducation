@@ -285,6 +285,84 @@ $(document).ready(function () {
     
   });
 
+
+  //Course Subject Add action
+  $(".subject-js-add").on("click", function () {
+    var button = $(this);
+    var courseId = button.attr("id");
+    var courseName = button.attr("courseNameAtt");
+    var courseType = button.attr("courseSubjectType");
+    var coursePaper = button.attr("CourseSubjectPaper");
+
+    $("#" + courseId).html('<i class="fa fa-spinner fa-spin"></i> Loading...');
+
+    $("#courseSubjectaddCId").val(courseId);
+    $("#addSubjectTypeInput").val(courseType);
+    $("#addSubjectPaperType").val(coursePaper);
+    $("#subjectCourseNameDisplay").html(' -> <b>'+courseName+'</b> / '+courseType+' / Paper-'+coursePaper+'');
+    $("#courseSubjectaddModal").modal("show");
+    $("#" + courseId).html('<i class="fa fa-plus"></i> Add New Subject');
+    
+  });
+
+  //Course Subject edit action
+  $(".subject-js-edit").on("click", function () {
+    var button = $(this);
+    var actionID = button.attr("data-action-id");
+    var courseNameOnJs = button.attr("courseNameOnJs");
+
+    $("#E" + actionID).html('<i class="fa fa-spinner fa-spin"></i>');
+
+    $.ajax({
+      url: "functions/ajax-functions/fetch-course-subject.php",
+      method: "POST",
+      data: { SubId: actionID },
+      dataType: "json",
+      success: function (data) {
+        if (data == "error") {
+          alert("Bad Request!, Something went wrong try again!");
+          location.reload();
+        } else {
+          $('#editSubjectNameInput').val(data.subject_name);
+          $("#courseSubjectIDJsedit").val(data.subject_id);
+          $("#editSubjectStatus").val(data.status);
+          $("#subjectCourseNameDisplayEdit").html(' -> <b>'+courseNameOnJs+'</b> / '+data.subject_type+' / Paper-'+data.subject_paper+'');
+          $("#courseSubjectEditModal").modal("show");
+          $("#E" + actionID).html('<i class="fa fa-edit"></i> Edit');
+        }
+      },
+    });
+  });
+
+  //Course Subject delete action
+  $(".subject-js-delete").on("click", function () {
+    var button = $(this);
+    var actionID = button.attr("data-action-id");
+    var courseNameOnJs = button.attr("courseNameOnJs");
+
+    $("#D" + actionID).html('<i class="fa fa-spinner fa-spin"></i>');
+
+    $.ajax({
+      url: "functions/ajax-functions/fetch-course-subject.php",
+      method: "POST",
+      data: { SubId: actionID },
+      dataType: "json",
+      success: function (data) {
+        if (data == "error") {
+          alert("Bad Request!, Something went wrong try again!");
+          location.reload();
+        } else {
+          $('#DeleteSubjectNameInput').val(data.subject_name);
+          $("#courseSubjectIDJsDelete").val(data.subject_id);
+          $("#DeleteSubjectStatus").val(data.status);
+          $("#subjectCourseNameDisplayDelete").html(' -> <b>'+courseNameOnJs+'</b> / '+data.subject_type+' / Paper-'+data.subject_paper+'');
+          $("#courseSubjectDeleteModal").modal("show");
+          $("#D" + actionID).html('<i class="fa fa-trash"></i> Delete');
+        }
+      },
+    });
+  });
+
 });
 
 //get Courses List By Courses Tab
@@ -300,10 +378,36 @@ function getCourseListOnCourseTab(tabid)
   xhttp.send();
 }
 
+
+//get Subject Types By Course
+function getSubjectTypeByCourse(crsid)
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("getSubjectTypesByCourse").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "functions/ajax-functions/fetch-subject-type-by-course.php?crsId="+crsid, true);
+  xhttp.send();
+}
+
+
+
+
 //Add Preview Link
 function AddPreviewLink(previewId)
 {
-   $('#previewVideo').attr("href","https://drive.google.com/uc?id="+previewId+"&export=view");
-   $('#previewVideoOnModalOnAdd').attr("href","https://drive.google.com/uc?id="+previewId+"&export=view");
-   $('#previewVideoOnModalOnAddTwo').attr("href","https://drive.google.com/uc?id="+previewId+"&export=view");
+
+   if(previewId == '' || previewId == null)
+   {
+      $('#previewVideo').attr("href","#");
+   }
+   else
+   {
+      $('#previewVideo').attr("href","https://drive.google.com/uc?id="+previewId+"&export=view");
+      $('#previewVideoOnModalOnAdd').attr("href","https://drive.google.com/uc?id="+previewId+"&export=view");
+      $('#previewVideoOnModalOnAddTwo').attr("href","https://drive.google.com/uc?id="+previewId+"&export=view");
+   }
+   
 }

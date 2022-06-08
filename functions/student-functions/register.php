@@ -16,7 +16,7 @@ if(isset($_POST['proceedRegsiter']))
 
     if($getCountOfSearch == 0)
     {
-        $std_id = rand(1000000,9999999);
+        $std_id = rand(1000000000000,9999999999999);
         $passTudentID = "S".$std_id."";
 
         //insert user data

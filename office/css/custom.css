@@ -1,3 +1,11 @@
+.basecolor
+{
+    color : #E61F26;
+}
+.bg-dark-new {
+  --bs-bg-opacity: 1;
+  background-color: #E61F26 !important;
+}
 .spinner {
     position: absolute;
   top: 48%;

@@ -22,7 +22,7 @@ if(isset($_POST['addCourseDetails']))
             $courseViewScheduleInput = "#";
         }
 
-        $crsid = rand(100000,999999);
+        $crsid = rand(100000000,999999999);
         $courseIdNew = "C".$crsid."";
 
         //insert Course Details

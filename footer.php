@@ -1,20 +1,16 @@
 <!-- CourseTabDetailsModal -->
-<div class="modal fade" id="courseTabModal" tabindex="-1" role="dialog" aria-labelledby="courseTabModal"
+<div class="modal fade" id="aboutSoftware" tabindex="-1" role="dialog" aria-labelledby="aboutSoftware"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="aboutSoftware"><i class="bi bi-info-circle"></i> About</h5>
             </div>
             <div class="modal-body">
-                ...
+            Version : <b>1.0.0</b> ( Initial Release )
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -81,7 +77,7 @@
                 &copy; Copyright <strong><span>Pragma Education</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                <a href="#"><i class="bi bi-info-circle"></i> About</a> | Designed & Developed by <a href="#">Ganesh</a>
+                <a href="#" data-toggle="modal" data-target="#aboutSoftware"><i class="bi bi-info-circle"></i> About</a> | Designed & Developed by <a href="#">Ganesh</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">

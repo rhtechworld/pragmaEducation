@@ -4,7 +4,7 @@
 if(isset($_POST['newCourseTab']))
 {
     $courseTabName =mysqli_real_escape_string($conn, $_POST['courseTabName']);   
-    $crsTabId = rand(100000,999999);
+    $crsTabId = rand(100000000,999999999);
     $courseTabId = "CT".$crsTabId."";
 
     $lastUpdated = date('d-m-Y, h:i A');

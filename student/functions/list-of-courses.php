@@ -75,11 +75,7 @@
                             }
 
                             $giveAccessToEnrollCourse = '
-                            <form action="access-course?cid='.$course_id.'&ct='.$course_tab_id.'" method="POST">
-                                <input type="hidden" name="accessCourseId" id="accessCourseId" value="'.$course_id.'">
-                                <input type="hidden" name="accessRollId" id="accessRollId" value="'.$assign_id.'">
-                                <input type="submit" class="btn btn-success btn-sm" name="actionAccessCourse" id="actionAccessCourse" value="Enrolled, Access Now">
-                                </form>
+                            <a class="btn btn-success btn-sm" name="actionAccessCourse" href="course-dashboard?course_id='.$course_id.'&assign_id='.$assign_id.'&verifyenrolled=true&accessCourse=true">Access Course</a>
                             ';
                         }
 

@@ -15,7 +15,7 @@ else
 
             if($getCountOfCoursesInDB == 0)
             {
-                $faqsShowForThis = "<b>No FAQ's....<br><br></b>";
+                echo  "<b>No FAQ's....<br><br></b>";
             }
             else
             {
