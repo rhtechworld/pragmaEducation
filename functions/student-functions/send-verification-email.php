@@ -1,6 +1,6 @@
 <?php
 
-include('./config.php');
+include('../../config.php');
 
 session_start();
 $getMobileNumber = mysqli_real_escape_string($conn,$_GET['sessionUser']);
