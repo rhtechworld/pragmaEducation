@@ -16,6 +16,12 @@
     <div class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
+    <?php 
+    $directoryURI = $_SERVER['REQUEST_URI'];;
+    $path = parse_url($directoryURI, PHP_URL_PATH);
+    $components = explode('/', $path);
+    $first_part = $components[4];
+    ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="./">Pragma Edu. Office</a>
@@ -32,7 +38,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="exit-session">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,7 +49,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="./">
+                            <a class="nav-link <?php if ($first_part=="" || $first_part=="index") {echo "active"; } else  {echo "notActive";}?>" href="./">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -53,10 +59,10 @@
                                 Course Tabs
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="add-new-courseTab" || $first_part=="course-tabs") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="course-tabs">Courses Tabs</a>
-                                    <a class="nav-link" href="add-new-courseTab">Add New Course Tab</a>
+                                    <a class="nav-link <?php if ($first_part=="course-tabs") {echo "active"; } else  {echo "notActive";}?>" href="course-tabs">Courses Tabs</a>
+                                    <a class="nav-link <?php if ($first_part=="add-new-courseTab") {echo "active"; } else  {echo "notActive";}?>" href="add-new-courseTab">Add New Course Tab</a>
                                 </nav>
                             </div>
 
@@ -65,10 +71,21 @@
                                 Courses
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutsOne" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="courses-list" || $first_part=="add-new-course") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsOne" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="courses-list">Courses List</a>
-                                    <a class="nav-link" href="add-new-course">Add New Course</a>
+                                    <a class="nav-link <?php if ($first_part=="courses-list") {echo "active"; } else  {echo "notActive";}?>" href="courses-list">Courses List</a>
+                                    <a class="nav-link <?php if ($first_part=="add-new-course") {echo "active"; } else  {echo "notActive";}?>" href="add-new-course">Add New Course</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsSeven" aria-expanded="false" aria-controls="collapseLayoutsSeven">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Subjects & Topics
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse <?php if ($first_part=="course-subjects") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsSeven" aria-labelledby="headingSeven" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link <?php if ($first_part=="course-subjects") {echo "active"; } else  {echo "notActive";}?>" href="course-subjects">Course -> Subjects</a>
                                 </nav>
                             </div>
 
@@ -77,22 +94,11 @@
                                 Students
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="students-list" || $first_part=="add-new-student" || $first_part=="search-student") {echo "show"; } else  {echo "notActive";}?>" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="students-list">Students List</a>
-                                    <a class="nav-link" href="add-new-student">Add New Student</a>
-                                    <a class="nav-link" href="search-student">Search Student</a>
-                                </nav>
-                            </div>
-
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesVideos" aria-expanded="false" aria-controls="collapsePagesVideos">
-                                <div class="sb-nav-link-icon"><i class="fas fa-video"></i></div>
-                                Course Videos
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePagesVideos" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="all-course-videos">All Course Videos</a>
+                                    <a class="nav-link <?php if ($first_part=="students-list") {echo "active"; } else  {echo "notActive";}?>" href="students-list">Students List</a>
+                                    <a class="nav-link <?php if ($first_part=="add-new-student") {echo "active"; } else  {echo "notActive";}?>" href="add-new-student">Add New Student</a>
+                                    <a class="nav-link <?php if ($first_part=="search-student") {echo "active"; } else  {echo "notActive";}?>" href="search-student">Search Student</a>
                                 </nav>
                             </div>
 
@@ -102,10 +108,10 @@
                                 Announcements
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutsTwo" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="announcements" || $first_part=="add-new-announcement") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsTwo" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="announcements">Announcements</a>
-                                    <a class="nav-link" href="add-new-announcement">Add New </a>
+                                    <a class="nav-link <?php if ($first_part=="announcements") {echo "active"; } else  {echo "notActive";}?>" href="announcements">Announcements</a>
+                                    <a class="nav-link <?php if ($first_part=="add-new-announcement") {echo "active"; } else  {echo "notActive";}?>" href="add-new-announcement">Add New </a>
                                 </nav>
                             </div>
 
@@ -114,10 +120,10 @@
                                 Discount Offers
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutsThree" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="discount-offers" || $first_part=="add-new-offer") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsThree" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="discount-offers">All Offers</a>
-                                    <a class="nav-link" href="add-new-offer">Add New </a>
+                                    <a class="nav-link <?php if ($first_part=="discount-offers") {echo "active"; } else  {echo "notActive";}?>" href="discount-offers">All Offers</a>
+                                    <a class="nav-link <?php if ($first_part=="add-new-offer") {echo "active"; } else  {echo "notActive";}?>" href="add-new-offer">Add New </a>
                                 </nav>
                             </div>
 
@@ -128,12 +134,16 @@
                             </a>
                             <div class="collapse" id="collapseLayoutsFour" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Profile</a>
-                                    <a class="nav-link" href="#">Payments</a>
+                                    <a class="nav-link" href="prasettings">Tax Settings</a>
                                 </nav>
                             </div>
 
+                            <div class="sb-sidenav-menu-heading">Account Actions</div>
                             <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Profile
+                            </a>
+                            <a class="nav-link" href="exit-session">
                                 <div class="sb-nav-link-icon"><i class="fas fa-sign-out"></i></div>
                                 Logout
                             </a>
@@ -141,7 +151,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Pragma Admin
+                        <?php echo $admin_name_onSession; ?>
                     </div>
                 </nav>
             </div>

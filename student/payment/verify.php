@@ -44,21 +44,22 @@ if (empty($_POST['razorpay_payment_id']) === false)
     $course_tab_id = $_SESSION['assign_course_tab_id'];
     $course_id = $_SESSION['assign_course_id'];
     $rz_oid = $_SESSION['razorpay_order_id'];
+    $rz_payAmount = $_SESSION['razorpay_paid_amount'];
     $rz_payid = $_POST['razorpay_payment_id'];
 
         //new assign Id
-        $enrollId = rand(100000000,999999999);
+        $enrollId = "E".rand(100000000000,999999999999)."";
 
 if ($success === true)
 {
     
     //insert Transaction
-    $insertIntoTxns = mysqli_query($conn,"INSERT INTO student_txns(student_id, student_email, txn_id, razorpay_order_id, razorpay_payment_id, razorpay_reason, course_id, assign_id, date, status, isDeleted, last_updated)
-    VALUES('$student_id_session','$student_email_session','$newTransId','$rz_oid','$rz_payid','Payment Success','$course_id','$enrollId','$lastUpdated','0','0','$lastUpdated')");
+    $insertIntoTxns = mysqli_query($conn,"INSERT INTO student_txns(student_id, student_email, txn_id, razorpay_order_id, razorpay_payment_id, razorpay_reason, paid_amount, course_id, assign_id, date, status, isDeleted, last_updated)
+    VALUES('$student_id_session','$student_email_session','$newTransId','$rz_oid','$rz_payid','Payment Success','$rz_payAmount','$course_id','$enrollId','$todayDate','0','0','$lastUpdated')");
 
     //insert into ASSIGN details
     $assignCourseNow = mysqli_query($conn,"INSERT INTO course_assigned(assign_id, student_id, student_email, course_tab_id, course_id, video_id, date, status, isDeleted, last_updated)
-    VALUES('$enrollId','$student_id_session','$student_email_session','$course_tab_id','$course_id','','$lastUpdated','0','0','$lastUpdated')");
+    VALUES('$enrollId','$student_id_session','$student_email_session','$course_tab_id','$course_id','','$todayDate','0','0','$lastUpdated')");
 
     $html = "<p>Your payment was successful</p>
              <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
@@ -77,8 +78,8 @@ else
 {
 
     //insert Transaction
-    $insertIntoTxns = mysqli_query($conn,"INSERT INTO student_txns(student_id, student_email, txn_id, razorpay_order_id, razorpay_payment_id, razorpay_reason, course_id, assign_id, date, status, isDeleted, last_updated)
-    VALUES('$student_id_session','$student_email_session','$newTransId','$rz_oid','$rz_payid','$error','$course_id','$enrollId','$lastUpdated','1','0','$lastUpdated')");
+    $insertIntoTxns = mysqli_query($conn,"INSERT INTO student_txns(student_id, student_email, txn_id, razorpay_order_id, razorpay_payment_id, razorpay_reason, paid_amount, course_id, assign_id, date, status, isDeleted, last_updated)
+    VALUES('$student_id_session','$student_email_session','$newTransId','$rz_oid','$rz_payid','$error','$rz_payAmount','$course_id','$enrollId','$todayDate','1','0','$lastUpdated')");
 
     $html = "<p>Your payment failed</p>
              <p>{$error}</p>";

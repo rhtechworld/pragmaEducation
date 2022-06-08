@@ -14,7 +14,7 @@ if(isset($_SESSION['student_email']))
     if($getCOuntOnSessionUser == 0)
     {
         echo '<script>alert("Somthing Wrong, Session Expired! Redirecting...")</script>';
-        header('refresh:../login?sessionStatus=Expired');
+        header('location:../login?sessionStatus=Expired');
     }
     else
     {
@@ -41,6 +41,15 @@ if(isset($_SESSION['student_email']))
                 $otp_for_access_session = $row['otp_for_access'];
                 $verify_state_access_session = $row['verify_state'];
                 $status_access_session = $row['status'];
+
+                if($two_fa_access_session == 1)
+                {
+                    $updateProfileCHeck = "checked";
+                }
+                else
+                {
+                    $updateProfileCHeck = "";
+                }
             }
             
         }
@@ -49,6 +58,6 @@ if(isset($_SESSION['student_email']))
 else
 {
     echo '<script>alert("Session Expired! Redirecting...")</script>';
-    header('refresh:../login?sessionStatus=Expired');
+    header('location:../login?sessionStatus=Expired');
 }
 ?>

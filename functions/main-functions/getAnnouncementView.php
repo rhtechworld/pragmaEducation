@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 include('./config.php');
 
 $ann_id = mysqli_real_escape_string($conn,$_GET['ann_id']);

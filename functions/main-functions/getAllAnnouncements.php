@@ -24,10 +24,11 @@ else
         $status = $row['status'];
         $isDeleted = $row['isDeleted'];
         $date = $row['date'];
+        $last_updated = $row['last_updated'];
 
         echo
         '
-        <b><i class="bi bi-bell-fill" style="color:#E61F26;font-size:14px"></i></b> <a href="'.$baseURL.'announcement-view?ann_id='.$ann_id.'" style="color:black">'.$ann_title.'</a><hr>
+        <b><g style="font-size:12px;color:#C5C5C5">'.$last_updated.'</g><br><i class="bi bi-bell-fill" style="color:#E61F26;font-size:14px"></i></b> <a href="'.$baseURL.'announcement-view?ann_id='.$ann_id.'" style="color:black">'.$ann_title.'</a><hr>
 
         ';
     }

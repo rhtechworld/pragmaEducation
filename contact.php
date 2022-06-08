@@ -1,4 +1,4 @@
-<?php echo include('config.php'); ?>
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +85,7 @@
                 </div>
 
             </div>
-            <?php echo $mainContactLocationMap; ?>
+            
         </section><!-- End Contact Section -->
 
     </main><!-- End #main -->

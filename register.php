@@ -1,4 +1,4 @@
-<?php echo include('config.php'); ?>
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +95,7 @@
                         </div>
                         <button type="submit" id="proceedRegisterButton" name="proceedRegsiter" class="btn btn-block btn-primary w-100 newButtonEffect">Register Me</button>
                     </form>
-                    <div class="row">
+                    <div class="row mt-2">
                         <div class="col-md-12 col-lg-12 text-center mt-1 mb-1">
                             <small>Already registered? <a href="<?php echo $baseURL; ?>login" class="basecolor">Login here</a></small>
                         </div>

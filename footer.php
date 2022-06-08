@@ -1,71 +1,69 @@
 <!-- CourseTabDetailsModal -->
-<div class="modal fade" id="courseTabModal" tabindex="-1" role="dialog" aria-labelledby="courseTabModal"
+<div class="modal fade" id="aboutSoftware" tabindex="-1" role="dialog" aria-labelledby="aboutSoftware"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="aboutSoftware"><i class="bi bi-info-circle"></i> About</h5>
             </div>
             <div class="modal-body">
-                ...
+            Version : <b>1.0.0</b> ( Initial Release )
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- ======= Footer ======= -->
-<footer id="footer">
+<footer id="footer" class="border-top border-bottom">
 
     <div class="footer-top">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Pragma Edu.</h3>
-                    <p>
+                <img src="<?php echo $baseURL; ?>assets/new-img/Pragma-Education-Web.png" width="170" height="60">
+                    <p class="mt-2">
                         Madhapur <br>
                         Hyderabad, 500081<br>
                         India <br><br>
-                        <strong>Phone:</strong> +91 1234567891<br>
-                        <strong>Email:</strong> test@test.com<br>
+                        <strong>Phone:</strong> <a class="basecolor" href="tel:<?php echo $mainContactNumberOnLink; ?>"><?php echo $mainContactNumberOne; ?></a><br>
+                        <strong>Email:</strong> <a class="basecolor" href="mailto:<?php echo $mainContactEmail; ?>"><?php echo $mainContactEmail; ?></a><br>
                     </p>
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Courses</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Why choose us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>about">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>courses">Courses</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>why-us">Why choose us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Top Courses</h4>
+                    <h4>Top Useful Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 1</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 2</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 3</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 4</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Course 5</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>toppers">Toppers</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>videos">Videos</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>downloads">Downloads</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>current-affairs">Current Affairs</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>faculties">Faculties</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <h4>Get Free Current Affairs Updates <b class="basecolor">Pragma</b></h4>
+                    <p>Please Enter Your Email ID and Hit the Subscribe Button Below to Join others to Receive Free Updates</p>
                     <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
+                        <input type="email" placeholder="Enter Email Address" name="email"><input type="submit" value="Subscribe">
                     </form>
+                    <hr>
+                    OR, you can contact us at <a class="basecolor" href="mailto:<?php echo $mainContactEmail; ?>"><?php echo $mainContactEmail; ?></a>
                 </div>
 
             </div>
@@ -76,10 +74,10 @@
 
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
-                &copy; Copyright <strong><span>Pragma Edu.</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Pragma Education</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                Designed by <a href="#">Ganesh</a>
+                <a href="#" data-toggle="modal" data-target="#aboutSoftware"><i class="bi bi-info-circle"></i> About</a> | Designed & Developed by <a href="#">Ganesh</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">

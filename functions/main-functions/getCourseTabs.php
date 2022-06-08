@@ -36,7 +36,7 @@ else
                 <div class="card mt-2 text-center main-card-ct">
                     <div class="card-header text-center my-auto main-card-head-ct" id="heading'.$passthisIncrement.'">
                         <h5 class="mb-0">
-                            '.$course_tab_name.'
+                            <b>'.$course_tab_name.'</b>
                         </h5>
                     </div>
             </a>
@@ -61,7 +61,7 @@ else
                     $date = $row['date'];
                     $last_updated = $row['last_updated'];
 
-                    echo '<hr class="hr-ct" /><a href="course-details?course_id='.$course_id.'"><i class="bi bi-arrow-right-circle" style="font-size:14px"></i> '.$course_name.'</a><br>';
+                    echo '<a class="mb-3 mt-2" href="course-details?course_id='.$course_id.'"><b><i class="bi bi-arrow-right-circle" style="font-size:14px"></i> '.$course_name.'</a></b><br>';
 
                 }
             }

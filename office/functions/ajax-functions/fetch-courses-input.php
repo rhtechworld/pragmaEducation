@@ -15,7 +15,7 @@ if($getCountOfDetails == 0)
 else
 {
     echo '<label for="course"><b>Select Course:</b> </label>
-    <select class="form-control" id="course" name="course" required>
+    <select class="form-control" id="course" name="course" onchange="getSubjectTypeByCourse(this.value)" required>
     <option value="">-- Select Course --</option>';
 
     while($row = mysqli_fetch_array($checkCoursesByTabInDB))

@@ -37,5 +37,10 @@
 }
 .hr-ct
 {
-    margin-top: 0em;
+    margin-top: 20px;
+}
+
+.home-desc
+{
+    display: none;
 }

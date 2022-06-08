@@ -327,7 +327,6 @@
     </div>
 </div>
 
-
 <!-- Video Delete Modal -->
 <div class="modal fade" id="courseVideoDeleteModal" tabindex="-1" role="dialog" aria-labelledby="courseVideoDeleteModal"
     aria-hidden="true">
@@ -401,6 +400,155 @@
             <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" name="addCourseVideo" class="btn btn-primary">Add New</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subject Add Modal -->
+<div class="modal fade" id="courseSubjectaddModal" tabindex="-1" role="dialog" aria-labelledby="courseVideoaddModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="courseVideoaddModal">Add New Subject <b id="subjectCourseNameDisplay"></b></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+            <div class="modal-body">
+                <form action="" method="POST">
+
+                    <input type="hidden" class="form-control" id="courseSubjectaddCId" name="courseSubjectaddCId" required readonly>
+
+                    <div class="form-group"> 
+                        <label for="addSubjectNameInput">Subject Name</label>
+                        <input type="text" class="form-control" id="addSubjectNameInput" name="addSubjectNameInput" placeholder="Enter Video Title" required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="addSubjectTypeInput">Subject Type</label>
+                        <select class="form-control" id="addSubjectTypeInput" name="addSubjectTypeInput" required>
+                        <option value="">-- Select Subject Type --</option>
+                        <option value="Prelims">Prelims</option>
+                        <option value="Mains">Mains</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="addSubjectPaperType">Subject Paper</label>
+                        <select class="form-control" id="addSubjectPaperType" name="addSubjectPaperType" required>
+                        <option value="">-- Select Paper --</option>
+                        <option value="1">Paper - 1</option>
+                        <option value="2">Paper - 2</option>
+                        <option value="3">Paper - 3</option>
+                        <option value="4">Paper - 4</option>
+                        <option value="5">Paper - 5</option>
+                        <option value="6">Paper - 6</option>
+                        <option value="7">Paper - 7</option>
+                        <option value="8">Paper - 8</option>
+                        <option value="9">Paper - 9</option>
+                        </select>
+                    </div> -->
+                    <input type="hidden" id="addSubjectTypeInput" name="addSubjectTypeInput" >
+                    <input type="hidden" id="addSubjectPaperType" name="addSubjectPaperType" >
+
+                    <div class="form-group">
+                        <label for="addSubjectStatus">Subject Status</label>
+                        <select class="form-control" id="addSubjectStatus" name="addSubjectStatus" required>
+                        <option value="">-- Select Status --</option>
+                        <option value="0">Active (Public)</option>
+                        <option value="1">InActive (Private)</option>
+                        </select>
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="addSubjectDesc"><b>Subject Basic Description :</b> (What contains in subject) </label>
+                        <textarea class="form-control" id="editor" name="addSubjectDesc" rows="15" cols="80" placeholder="What contains in subject..." required></textarea>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="addNewCourseSubject" class="btn btn-primary">Add New</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subject Edit Modal -->
+<div class="modal fade" id="courseSubjectEditModal" tabindex="-1" role="dialog" aria-labelledby="courseSubjectEditModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="courseSubjectEditModal">Edit Subject <b id="subjectCourseNameDisplayEdit"></b></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+            <div class="modal-body">
+                <form action="" method="POST">
+
+                    <input type="hidden" class="form-control" id="courseSubjectIDJsedit" name="courseSubjectIDJsedit" required readonly>
+
+                    <div class="form-group"> 
+                        <label for="editSubjectNameInput">Subject Name</label>
+                        <input type="text" class="form-control" id="editSubjectNameInput" name="editSubjectNameInput" placeholder="Enter Video Title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editSubjectStatus">Subject Status</label>
+                        <select class="form-control" id="editSubjectStatus" name="editSubjectStatus" required>
+                        <option value="">-- Select Status --</option>
+                        <option value="0">Active (Public)</option>
+                        <option value="1">InActive (Private)</option>
+                        </select>
+                    </div> 
+
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="editNewCourseSubject" class="btn btn-primary">Update New</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subject Edit Modal -->
+<div class="modal fade" id="courseSubjectDeleteModal" tabindex="-1" role="dialog" aria-labelledby="courseSubjectDeleteModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="courseSubjectDeleteModal">Delete Subject <b id="subjectCourseNameDisplayDelete"></b></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+            <div class="modal-body">
+                <form action="" method="POST">
+
+                    <input type="hidden" class="form-control" id="courseSubjectIDJsDelete" name="courseSubjectIDJsDelete" required readonly>
+
+                    <div class="form-group"> 
+                        <label for="DeleteSubjectNameInput">Subject Name</label>
+                        <input type="text" class="form-control" id="DeleteSubjectNameInput" name="DeleteSubjectNameInput" placeholder="Enter Video Title" required readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="DeleteSubjectStatus">Subject Status</label>
+                        <select class="form-control" id="DeleteSubjectStatus" name="DeleteSubjectStatus" required readonly>
+                        <option value="">-- Select Status --</option>
+                        <option value="0">Active (Public)</option>
+                        <option value="1">InActive (Private)</option>
+                        </select>
+                    </div> 
+
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="DeleteNewCourseSubject" class="btn btn-danger">Delete Now</button>
                 </form>
             </div>
         </div>

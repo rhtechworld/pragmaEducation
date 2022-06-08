@@ -1,4 +1,4 @@
-<?php echo include('config.php'); ?>
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +15,7 @@
 
 <div id="main">
 
-    <div class="section-head col-sm-12 mb-0" style="margin-top:85px;">
+    <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
         <h4 style="font-size:20px"><span>Free IAS Preparation Material from </span> Pragma</h4>
     </div>
 
@@ -24,9 +24,8 @@
 
         <div class="border w-100 p-3">
             
-              <b><i class="bi bi-file-pdf" style="color:#E61F26;font-size:14px"></i></b> <a href="sample-free-downloads" style="color:black">Science & Technology</a><hr>
-              <b><i class="bi bi-file-pdf" style="color:#E61F26;font-size:14px"></i></b> <a href="sample-free-downloads" style="color:black">Government Schemes</a><hr>
-            
+              <?php include('functions/main-functions/getAllDownloads.php'); ?>
+              
         </div>
         
       </div>

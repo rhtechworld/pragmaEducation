@@ -1,4 +1,4 @@
-<?php echo include('config.php'); ?>
+<?php include('config.php'); ?>
 <?php include('functions/main-functions/getAnnouncementView.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
-        <div class="text-left basecolor" style="margin-top:75px;">
+        <div class="text-left basecolor" style="margin-top:105px;">
            <h5><?php echo $ann_title; ?></h5>
            <p style="font-size:13px;color:#B1B1B1"><?php echo $ann_date; ?> | by <?php echo $ann_by; ?></p>
         </div>
@@ -37,7 +37,7 @@
         </div>
       </div>
     </section><!-- End Announcements Section -->
-
+    
   </main><!-- End #main -->
 
   <?php include('footer.php'); ?>

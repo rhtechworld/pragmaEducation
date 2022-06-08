@@ -1,4 +1,4 @@
-<?php echo include('config.php'); ?>
+<?php include('config.php'); ?>
 <?php include('functions/main-functions/getCourceDetails.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
 
     <main id="main">
 
-        <div class="section-head col-sm-12 mb-0 text-center" style="margin-top:85px;">
+        <div class="section-head col-sm-12 mb-0 text-center" style="margin-top:105px;">
             <h4 style="font-size:20px;"><span>Course</span> Details</h4>
         </div>
 

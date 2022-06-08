@@ -53,11 +53,7 @@ else
                         <hr style="margin:0">
                         <div class="row">
                             <div class="col-md-6 col-lg-6 text-center mt-2 mb-1">
-                                <form action="access-course?cid='.$course_id.'&ct='.$course_tab_id.'" method="POST">
-                                <input type="hidden" name="accessCourseId" id="accessCourseId" value="'.$course_id.'">
-                                <input type="hidden" name="accessRollId" id="accessRollId" value="'.$assign_id.'">
-                                <input type="submit" class="btn btn-success btn-sm" name="actionAccessCourse" id="actionAccessCourse" value="Access Course">
-                                </form>
+                                <a class="btn btn-success btn-sm" name="actionAccessCourse" href="course-dashboard?course_id='.$course_id.'&assign_id='.$assign_id.'&verifyenrolled=true&accessCourse=true">Access Course</a>
                             </div>
                             <div class="col-md-6 col-lg-6 text-center mt-2 mb-1 my-auto">
                                 Roll ID : '.$assign_id.'

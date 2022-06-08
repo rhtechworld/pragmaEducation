@@ -76,6 +76,7 @@
     $_SESSION['assign_student_email'] = $student_email_session;
     $_SESSION['assign_course_tab_id'] = $course_tab_id;
     $_SESSION['assign_course_id'] = $course_id;
+    $_SESSION['razorpay_paid_amount'] = $finalPriceToPay;
 
     // Create the Razorpay Order
 

@@ -5,20 +5,21 @@
 $ProjectName = "Pragma Education";
 
 //Base URL
-$baseURL = "https://stage.pragmaeducation.com/";
+$baseURL = "http://localhost:3045/RHtechWorld/pragmaEducation/";
 
 //Defulat Time Zone
 date_default_timezone_set('Asia/Kolkata'); //indian time
 $todayDate = date('d-m-Y'); // 04-05-2022
 $timeNow = date('h:i:s'); // 12:16:00
 $timeDiv = date('A'); // AM or PM
- 
+$lastUpdated = date('d-m-Y, h:i A');
 //database Config
 $conn = mysqli_connect('localhost','root','','pragma_education');
 
 //project setups
 $mainContactNumberOne = "+91 1234567891";
 $mainContactNumberTwo = "+91 1234567891";
+$mainContactNumberOnLink = "911234567891";
 
 $mainContactEmail = "123@somthing.com";
 
