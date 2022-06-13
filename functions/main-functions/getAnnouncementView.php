@@ -13,7 +13,7 @@ if(empty($ann_id) && $ann_id)
 else
 {
     //check annid in database
-    $searchInDb = mysqli_query($conn,"SELECT * FROM announcements WHERE ann_id='$ann_id' AND isDeleted='0'");
+    $searchInDb = mysqli_query($conn,"SELECT * FROM announcements WHERE status='0' AND ann_id='$ann_id' AND isDeleted='0'");
     $getCountOfList = mysqli_num_rows($searchInDb);
 
     if($getCountOfList == 0)

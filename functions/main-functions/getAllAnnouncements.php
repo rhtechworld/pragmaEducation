@@ -4,7 +4,7 @@ include('./config.php');
 
 //get course tabs from db
 
-$sqlGetAnnouncements = mysqli_query($conn,"SELECT * FROM announcements WHERE isDeleted='0' ORDER BY id DESC");
+$sqlGetAnnouncements = mysqli_query($conn,"SELECT * FROM announcements WHERE status='0' AND isDeleted='0' ORDER BY id DESC");
 
 $getCountsqlGetAnnouncements = mysqli_num_rows($sqlGetAnnouncements);
 

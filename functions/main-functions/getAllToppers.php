@@ -4,7 +4,7 @@ include('./config.php');
 
 //get course tabs from db
 
-$sqlGettoppers = mysqli_query($conn,"SELECT * FROM toppers WHERE isDeleted='0' ORDER BY id DESC");
+$sqlGettoppers = mysqli_query($conn,"SELECT * FROM toppers WHERE status='0' AND isDeleted='0' ORDER BY id DESC");
 
 $getCountsqlGettoppers = mysqli_num_rows($sqlGettoppers);
 

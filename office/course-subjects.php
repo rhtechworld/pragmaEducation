@@ -56,6 +56,7 @@
                                         <button type="submit" name="AddNewCourseSubjects" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Add New Course Subject / Topics</button>
                                         </div>
                                     </div>
+                                    
                                 </form>
                             </div>
                         </div>

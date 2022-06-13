@@ -15,6 +15,8 @@ else
     while($row = mysqli_fetch_array($getSessionDetailsOfAdmin))
     {
         $admin_name_onSession = $row['admin_name'];
+        $admin_id_onSession = $row['admin_id'];
+        $username_onSession = $row['username'];
     }
 }
 ?>

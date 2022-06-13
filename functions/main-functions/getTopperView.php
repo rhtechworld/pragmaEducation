@@ -13,7 +13,7 @@ if(empty($tpr_id))
 else
 {
     //check annid in database
-    $searchInDb = mysqli_query($conn,"SELECT * FROM toppers WHERE tpr_id='$tpr_id' AND isDeleted='0'");
+    $searchInDb = mysqli_query($conn,"SELECT * FROM toppers WHERE tpr_id='$tpr_id' AND status='0' AND isDeleted='0'");
     $getCountOfList = mysqli_num_rows($searchInDb);
 
     if($getCountOfList == 0)
@@ -36,7 +36,7 @@ else
     }
 
     //selectfirstrandpost
-    $getRandOnePost = mysqli_query($conn,"SELECT * FROM toppers WHERE isDeleted='0' AND tpr_id<>'$tpr_id' ORDER BY RAND() LIMIT 1");
+    $getRandOnePost = mysqli_query($conn,"SELECT * FROM toppers WHERE status='0' AND isDeleted='0' AND tpr_id<>'$tpr_id' ORDER BY RAND() LIMIT 1");
     while($row = mysqli_fetch_array($getRandOnePost))
         {
             $tpr_id_refOne = $row['tpr_id'];
@@ -48,7 +48,7 @@ else
 
 
         //selectsecondrandpost
-    $getRandTwoPost = mysqli_query($conn,"SELECT * FROM toppers WHERE isDeleted='0' AND tpr_id<>'$tpr_id' ORDER BY RAND() LIMIT 1");
+    $getRandTwoPost = mysqli_query($conn,"SELECT * FROM toppers WHERE status='0' AND isDeleted='0' AND tpr_id<>'$tpr_id' ORDER BY RAND() LIMIT 1");
     while($row = mysqli_fetch_array($getRandTwoPost))
         {
             $tpr_id_refTwo = $row['tpr_id'];

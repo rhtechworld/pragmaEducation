@@ -20,7 +20,7 @@
     $directoryURI = $_SERVER['REQUEST_URI'];;
     $path = parse_url($directoryURI, PHP_URL_PATH);
     $components = explode('/', $path);
-    $first_part = $components[4];
+    $first_part = $components[2];
     ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
@@ -36,7 +36,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="profile-settings">Profile</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="exit-session">Logout</a></li>
                     </ul>
@@ -102,6 +102,20 @@
                                 </nav>
                             </div>
 
+                            <div class="sb-sidenav-menu-heading">UI Addons</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsTwoNine" aria-expanded="false" aria-controls="collapseLayoutsTwoNine">
+                                <div class="sb-nav-link-icon"><i class="fas fa-display"></i></div>
+                                Display Add-ons
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse <?php if ($first_part=="display-toppers" || $first_part=="display-downloads" || $first_part=="display-current-affairs") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsTwoNine" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link <?php if ($first_part=="display-toppers") {echo "active"; } else  {echo "notActive";}?>" href="display-toppers">Toppers</a>
+                                    <a class="nav-link <?php if ($first_part=="display-downloads") {echo "active"; } else  {echo "notActive";}?>" href="display-downloads">Downloads</a>
+                                    <a class="nav-link <?php if ($first_part=="display-current-affairs") {echo "active"; } else  {echo "notActive";}?>" href="display-current-affairs">Current Affairs</a>
+                                </nav>
+                            </div>
+
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsTwo" aria-expanded="false" aria-controls="collapseLayoutsTwo">
                                 <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
@@ -126,20 +140,14 @@
                                     <a class="nav-link <?php if ($first_part=="add-new-offer") {echo "active"; } else  {echo "notActive";}?>" href="add-new-offer">Add New </a>
                                 </nav>
                             </div>
-
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsFour" aria-expanded="false" aria-controls="collapseLayoutsFour">
+                            
+                            <a class="nav-link <?php if ($first_part=="system-settings") {echo "active"; } else  {echo "notActive";}?>" href="system-settings">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                                 Settings
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutsFour" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="prasettings">Tax Settings</a>
-                                </nav>
-                            </div>
 
                             <div class="sb-sidenav-menu-heading">Account Actions</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="profile-settings">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Profile
                             </a>

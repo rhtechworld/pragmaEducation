@@ -13,7 +13,7 @@ if(empty($ca_id))
 else
 {
     //check annid in database
-    $searchInDb = mysqli_query($conn,"SELECT * FROM current_affairs WHERE ca_id='$ca_id' AND isDeleted='0'");
+    $searchInDb = mysqli_query($conn,"SELECT * FROM current_affairs WHERE status='0' AND ca_id='$ca_id' AND isDeleted='0'");
     $getCountOfList = mysqli_num_rows($searchInDb);
 
     if($getCountOfList == 0)
@@ -36,7 +36,7 @@ else
     }
 
     //selectfirstrandpost
-    $getRandOnePost = mysqli_query($conn,"SELECT * FROM current_affairs WHERE isDeleted='0' AND ca_id<>'$ca_id' ORDER BY RAND() LIMIT 1");
+    $getRandOnePost = mysqli_query($conn,"SELECT * FROM current_affairs WHERE status='0' AND isDeleted='0' AND ca_id<>'$ca_id' ORDER BY RAND() LIMIT 1");
     while($row = mysqli_fetch_array($getRandOnePost))
         {
             $ca_id_refOne = $row['ca_id'];
@@ -48,7 +48,7 @@ else
 
 
         //selectsecondrandpost
-    $getRandTwoPost = mysqli_query($conn,"SELECT * FROM current_affairs WHERE isDeleted='0' AND ca_id<>'$ca_id' ORDER BY RAND() LIMIT 1");
+    $getRandTwoPost = mysqli_query($conn,"SELECT * FROM current_affairs WHERE status='0' AND isDeleted='0' AND ca_id<>'$ca_id' ORDER BY RAND() LIMIT 1");
     while($row = mysqli_fetch_array($getRandTwoPost))
         {
             $ca_id_refTwo = $row['ca_id'];

@@ -9,7 +9,7 @@ if(empty($course_id_url) && $course_id_url)
 else
 {
     //check coursein db
-    $checkCourseInDb = mysqli_query($conn,"SELECT * FROM course_details WHERE course_id='$course_id_url' AND isDeleted='0'");
+    $checkCourseInDb = mysqli_query($conn,"SELECT * FROM course_details WHERE  course_id='$course_id_url' AND isDeleted='0'");
     $getCuntOfCourseInDb = mysqli_num_rows($checkCourseInDb);
 
     if($getCuntOfCourseInDb == 0)

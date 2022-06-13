@@ -20,7 +20,7 @@
     $directoryURI = $_SERVER['REQUEST_URI'];;
     $path = parse_url($directoryURI, PHP_URL_PATH);
     $components = explode('/', $path);
-    $first_part = $components[4];
+    $first_part = $components[2];
     ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->

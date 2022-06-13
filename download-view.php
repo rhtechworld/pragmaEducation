@@ -25,14 +25,14 @@
 
         <div class="w-100 p-3 mt-3">  
             <?php echo $dwn_desc; ?>
-            <?php 
-            if($dwn_link != '' || $dwn_link == null) 
+            <?php
+            if($dwn_link == '#' || $dwn_link == null) 
             { 
-                echo '<br><br><b><a href="'.$dwn_link.'" target="_blank" style="color:#E61F26">CLICK HERE TO DOWNLOAD</a></b>'; 
+                echo '';
             }
             else
             {
-                echo '';
+                echo '<br><br><b><a href="'.$dwn_link.'" target="_blank" style="color:#E61F26">CLICK HERE TO DOWNLOAD</a></b>'; 
             } 
             ?>
         </div>

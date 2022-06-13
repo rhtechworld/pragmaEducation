@@ -26,13 +26,13 @@
         <div class="w-100 p-3 mt-3">  
             <?php echo $tpr_desc; ?>
             <?php 
-            if($tpr_link != '' || $tpr_link == null) 
+            if($tpr_link == '#' || $tpr_link == null) 
             { 
-                echo '<br><br><b><a href="'.$tpr_link.'" target="_blank" style="color:#E61F26">CLICK HERE TO DOWNLOAD</a></b>'; 
+                echo '';
             }
             else
             {
-                echo '';
+                echo '<br><br><b><a href="'.$tpr_link.'" target="_blank" style="color:#E61F26">CLICK HERE TO DOWNLOAD</a></b>'; 
             } 
             ?>
         </div>

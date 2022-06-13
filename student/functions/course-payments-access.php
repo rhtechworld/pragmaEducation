@@ -71,7 +71,7 @@
                                 </tr>
                                 <tr>
                                 <th scope="col">Date & Time</th>
-                                <td>'.$date_onPayments.'</td>
+                                <td>'.$last_updated_onPayments.'</td>
                                 </tr>
                                 <tr>
                                 <th scope="col">Payment Status</th>

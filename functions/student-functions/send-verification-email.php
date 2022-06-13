@@ -86,7 +86,7 @@ else
             }
             else if($getSessionAction == 'twoFactor')
             {
-                header('location:/two-factor');
+                header('location:/two-factor?mailSent=true');
             }
             else
             {

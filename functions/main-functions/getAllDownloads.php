@@ -4,7 +4,7 @@ include('./config.php');
 
 //get course tabs from db
 
-$sqlGetDownloads = mysqli_query($conn,"SELECT * FROM downloads WHERE isDeleted='0' ORDER BY id DESC");
+$sqlGetDownloads = mysqli_query($conn,"SELECT * FROM downloads WHERE status='0' AND isDeleted='0' ORDER BY id DESC");
 
 $getCountsqlGetDownloads = mysqli_num_rows($sqlGetDownloads);
 
