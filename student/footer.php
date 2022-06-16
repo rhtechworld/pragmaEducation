@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <b>Version :</b>  1.0 ( initial release )<br>
-                                    <b>Software By :</b> <a href="https://ganeshbondla.in/"><i>Ganesh Bondla</i></a>
+                                    <b>Software By :</b> <a href="https://ganeshbondla.in/" target="_blank"><i>Ganesh Bondla</i></a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -80,7 +80,7 @@
             }
             }
         </script>
-        
+
         <script>
 
             $(document).ready(function() {

@@ -77,7 +77,7 @@
                 &copy; Copyright <strong><span>Pragma Education</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                <a href="#" data-toggle="modal" data-target="#aboutSoftware"><i class="bi bi-info-circle"></i> About</a> | Designed & Developed by <a href="#">Ganesh</a>
+                <a href="#" data-toggle="modal" data-target="#aboutSoftware"><i class="bi bi-info-circle"></i> About</a> | Designed & Developed by <a href="https://ganeshbondla.in/" target="_blank">Ganesh Bondla</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
