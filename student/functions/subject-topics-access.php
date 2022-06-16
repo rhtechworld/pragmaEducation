@@ -1,7 +1,7 @@
 <?php
 
                     //get classesdepnds on subject
-                    $getClassesDependsOnSubjectDb = mysqli_query($conn,"SELECT * FROM subject_topics WHERE course_id='$assigned_course_id' AND subject_id='$assigned_course_subject_id' AND isDeleted='0'");
+                    $getClassesDependsOnSubjectDb = mysqli_query($conn,"SELECT * FROM subject_topics WHERE course_id='$assigned_course_id' AND subject_id='$assigned_course_subject_id' AND status='0' AND isDeleted='0'");
                     $getClassesDependsOnSubjectDbCount = mysqli_num_rows($getClassesDependsOnSubjectDb);
 
                     if($getClassesDependsOnSubjectDbCount == 0)

@@ -15,7 +15,17 @@ if(isset($_GET['studentId']))
     }
     else
     {
-        //do nothing
+        while($row = mysqli_fetch_array($checkStudentIdInDbNow))
+        {
+            $student_id = $row['student_id'];
+            $student_name = $row['student_name'];
+            $student_email = $row['student_email'];
+            $student_number = $row['student_number'];
+            $date = $row['date'];
+            $status = $row['status'];
+            $isDeleted = $row['isDeleted'];
+            $last_updated = $row['last_updated'];
+        }
     }
 }
 else

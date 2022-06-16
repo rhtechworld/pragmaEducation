@@ -1,7 +1,7 @@
 <?php
 
                 //get Subjects as per the papers
-                $getSubjectsOnUpdates = mysqli_query($conn,"SELECT * FROM course_updates WHERE course_id='$course_id_CourseDashboard' AND status='0' AND isDeleted='0' ORDER BY id DESC");
+                $getSubjectsOnUpdates = mysqli_query($conn,"SELECT * FROM course_updates WHERE course_id='$course_id_CourseDashboard' AND status='0' AND isDeleted='0' ORDER BY id DESC LIMIT 8");
                 $getCountSubjectsOnUpdates = mysqli_num_rows($getSubjectsOnUpdates);
 
                 if($getCountSubjectsOnUpdates == 0)

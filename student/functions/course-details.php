@@ -59,6 +59,7 @@ $urlCourseIdOnGet = mysqli_real_escape_string($conn, $_GET['cid']);
             if($getCOuntOfOffers == 0)
             {
                 //do nothing
+                $addOfferHere = 0;
                 $finalPriceToPay = $course_price;
             }
             else
@@ -78,7 +79,38 @@ $urlCourseIdOnGet = mysqli_real_escape_string($conn, $_GET['cid']);
                 //getFinalPrice
                 $addOfferHere = $course_price * $offer_at / 100;
                 $finalPriceToPay = $course_price - $addOfferHere;
+
             } 
+
+            //get tax detailsNow
+            $getTaxDetailsOfPayment = mysqli_query($conn,"SELECT * FROM tax_details WHERE tax_id='160714733045' AND status='1' AND isDeleted='0'");
+            $CountOngetTaxDetailsOfPayment = mysqli_num_rows($getTaxDetailsOfPayment);
+
+            if($CountOngetTaxDetailsOfPayment == 0)
+            {
+                //if tax disbaled
+                $taxEnabled = false;
+                $calsi_TaxNow = 0;
+                $database_tax_nameNew = '-';
+                $database_tax_at = 0;
+                $AfterTaxFinalPriceIsThisToPay = $finalPriceToPay;
+            }
+            else
+            {
+                $taxEnabled = true;
+                //if tax enabled
+                while($row = mysqli_fetch_array($getTaxDetailsOfPayment))
+                {
+                    $database_tax_name = $row['tax_name'];
+                    $database_tax_at = $row['tax_at'];
+                }
+
+                $database_tax_nameNew = ''.$database_tax_name.'@'.$database_tax_at.'%';
+                $calsi_TaxNow = $finalPriceToPay * $database_tax_at / 100;
+                $AfterTaxFinalPriceIsThisToPay = $finalPriceToPay + $calsi_TaxNow;
+
+            }
+
             
             //check enrolled or not
             $checkCourseEnrolledment = mysqli_query($conn,"SELECT * FROM course_assigned WHERE student_id='$student_id_session' AND course_id='$course_id' AND isDeleted='0' AND status='0'");

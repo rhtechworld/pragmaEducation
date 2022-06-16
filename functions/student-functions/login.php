@@ -23,6 +23,12 @@ else
     $showThisMsgOnLoginPage = "";
 }
 
+if(isset($_GET['action']) && isset($_GET['id']))
+{
+    $mainActionOnLogin = mysqli_real_escape_string($conn,$_GET['action']);
+    $mainActionOnLoginId = mysqli_real_escape_string($conn,$_GET['id']);
+}
+
 if(isset($_POST['proceedForLogin']))
 {
     $username = mysqli_real_escape_string($conn,$_POST['username']);
@@ -89,7 +95,14 @@ if(isset($_POST['proceedForLogin']))
                             $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1' WHERE student_id='$student_id'");
                             
                             //redirect to student dashboard
-                            header('location:./student/');
+                            if($mainActionOnLogin == '' || $mainActionOnLogin == null && $mainActionOnLoginId == '' || $mainActionOnLoginId == null)
+                            {
+                                header('location:./student/');
+                            }
+                            else
+                            {
+                                header('location:./student/enroll-course?cid='.$mainActionOnLoginId.'');
+                            }
                         }
                     }
                     else

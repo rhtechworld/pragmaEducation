@@ -33,6 +33,8 @@
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <?php
+
+                                            $checkStudentIdInDbNow = mysqli_query($conn,"SELECT * FROM students WHERE student_id='$getUrlStudentId'");
                                             while($row = mysqli_fetch_array($checkStudentIdInDbNow))
                                             {
                                                 $student_id = $row['student_id'];
@@ -51,6 +53,7 @@
                                                 if($getCntOfStudentAccess == 0)
                                                 {
                                                     //DO NOTHING
+                                                    echo 'error';
                                                 }
                                                 else
                                                 {
@@ -63,47 +66,50 @@
                                                         $verify_state_access = $row['verify_state'];
                                                         $status_access = $row['status'];
                                                     }
-                                                }
-
-                                                //status show
-                                                if($verify_state_access == 0)
-                                                {
-                                                    $status = '<span class="badge badge-danger">Not Verified</span>';
-                                                }
-                                                else
-                                                {
-                                                    $status = '<span class="badge badge-success">Verified</span>';
-                                                }
-                                                echo '
                                                 
-                                                <table class="table">
-                                                    <tbody>
-                                                        <tr>
-                                                        <th scope="row">Student Id</th>
-                                                        <td>'.$student_id.'</td>
-                                                        </tr>
-                                                        <tr>
-                                                        <th scope="row">Name</th>
-                                                        <td>'.$student_name.'</td>
-                                                        </tr>
-                                                        <tr>
-                                                        <th scope="row">Email</th>
-                                                        <td>'.$student_email.'</td>
-                                                        </tr>
-                                                        <tr>
-                                                        <tr>
-                                                        <th scope="row">Mobile</th>
-                                                        <td>'.$student_number.'</td>
-                                                        </tr>
-                                                        <tr>
-                                                        <th scope="row">Student Status</th>
-                                                        <td>'.$status.'</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
 
-                                                ';
+                                                    //status show
+                                                    if($verify_state_access == 0)
+                                                    {
+                                                        $status = '<span class="badge badge-danger">Not Verified</span>';
+                                                    }
+                                                    else
+                                                    {
+                                                        $status = '<span class="badge badge-success">Verified</span>';
+                                                    }
+
+                                                    echo '
+                                                    
+                                                    <table class="table">
+                                                        <tbody>
+                                                            <tr>
+                                                            <th scope="row">Student Id</th>
+                                                            <td>'.$student_id.'</td>
+                                                            </tr>
+                                                            <tr>
+                                                            <th scope="row">Name</th>
+                                                            <td>'.$student_name.'</td>
+                                                            </tr>
+                                                            <tr>
+                                                            <th scope="row">Email</th>
+                                                            <td>'.$student_email.'</td>
+                                                            </tr>
+                                                            <tr>
+                                                            <tr>
+                                                            <th scope="row">Mobile</th>
+                                                            <td>'.$student_number.'</td>
+                                                            </tr>
+                                                            <tr>
+                                                            <th scope="row">Student Status</th>
+                                                            <td>'.$status.'</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                    ';
+                                                }
                                             }
+
                                         ?>
                                     </div>
                                     </div>
@@ -118,6 +124,8 @@
                                     </div>
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body">
+                                        <a href="student-courses-action?action=addNew&studentId=<?php echo $getUrlStudentId; ?>&enId=<?php echo rand(10000,99999); ?>&studentVerify=true"><b><i class="fa fa-plus"></i> Enroll New Course (Manually)</b></a>
+                                        <hr>
                                         <?php
 
                                             //get courses enrolled
@@ -155,7 +163,17 @@
                                                         $course_name = $row['course_name'];
                                                     }
 
-                                                    echo '<i class="fa fa-chevron-circle-right"></i> <b>'.$course_name.'</b><hr>';
+                                                    //status show
+                                                    if($status_forMenu == 0)
+                                                    {
+                                                        $showStatus = '<span class="badge badge-success"><i class="fa fa-eye"></i> Active</span>';
+                                                    }
+                                                    else
+                                                    {
+                                                        $showStatus = '<span class="badge badge-danger"><i class="fa fa-lock"></i> InActive</span>';
+                                                    }
+
+                                                    echo '<i class="fa fa-chevron-circle-right"></i> <b>'.$course_name.'</b> :  '.$showStatus.'<br> <div class="mt-3"> [ '.$assign_id_forMenu.' ] <a href="student-courses-action?action=editOne&studentId='.$getUrlStudentId.'&enId='.$assign_id_forMenu.'&studentVerify=true" class="ml-3" href=""><i class="fa fa-edit"></i> Edit</a> <a href="student-courses-action?action=deleteOne&studentId='.$getUrlStudentId.'&enId='.$assign_id_forMenu.'&studentVerify=true" class="ml-4" href=""><i class="fa fa-trash"></i> Delete</a></div><hr>';
                                                 }
                                             }
                                         ?>
@@ -212,7 +230,13 @@
                                                     $razorpay_order_id_paymentDetails = $row['razorpay_order_id'];
                                                     $razorpay_payment_id_paymentDetails = $row['razorpay_payment_id'];
                                                     $razorpay_reason_paymentDetails = $row['razorpay_reason'];
+                                                    $course_amount_paymentDetails = $row['course_amount'];
                                                     $paid_amount_paymentDetails = $row['paid_amount'];
+                                                    $pay_tax_at_paymentDetails = $row['pay_tax_at'];
+                                                    $pay_tax_paymentDetails = $row['pay_tax'];
+                                                    $pay_discount_paymentDetails = $row['pay_discount'];
+                                                    $pay_coupon_paymentDetails = $row['pay_coupon'];
+                                                    $pay_total_paymentDetails = $row['pay_total'];
                                                     $course_id_paymentDetails = $row['course_id'];
                                                     $assign_id_paymentDetails = $row['assign_id'];
                                                     $date_paymentDetails = $row['date'];
@@ -241,13 +265,20 @@
                                                         $course_name = $row['course_name'];
                                                     }
 
+                                                    $tooltipHtmlHere = '<br>
+                                                    Course Fee : ₹'.number_format($course_amount_paymentDetails,2).'<br>
+                                                    Discount ('.$pay_coupon_paymentDetails.') : - ₹'.number_format($pay_discount_paymentDetails,2).'<br>
+                                                    Tax ('.$pay_tax_at_paymentDetails.') : ₹'.number_format($pay_tax_paymentDetails,2).'<hr>
+                                                    Total Paid : <b>₹'.number_format($paid_amount_paymentDetails,2).'</b><br><br>
+                                                    ';
+
                                                     echo '
                                                     <tr>
                                                         <td>'.$slNO++.'</td>
                                                         <td>'.$last_updated_paymentDetails.'</td>
                                                         <td>'.$txn_id_paymentDetails.'</td>
                                                         <td>'.$razorpay_payment_id_paymentDetails.'</td>
-                                                        <td>₹'.number_format($paid_amount_paymentDetails,2).'</td>
+                                                        <td>₹'.number_format($paid_amount_paymentDetails,2).' <a href="#" data-toggle="tooltip" data-html="true" title="'.$tooltipHtmlHere.'"><i class="fa fa-info-circle"></i></a></td>
                                                         <td>'.$showThisIsAsPaymentStatus.'</td>
                                                         <td>'.$assign_id_paymentDetails.'</td>
                                                         <td>'.$course_name.'</td>
@@ -269,4 +300,9 @@
                 </main>
                <?php include('inc/modals.php'); ?>
                <?php include('footer.php'); ?>
+               <script>
+                $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip({html:true});   
+                });
+                </script>
                

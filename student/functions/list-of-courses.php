@@ -58,6 +58,48 @@
                             $isDeleted = $row['isDeleted'];
                         }
 
+                        //get all Offers
+                        $getAllOffers = mysqli_query($conn,"SELECT * FROM course_early_bird_offers WHERE course_id='$course_id' AND isDeleted='0' AND status='0'");
+                        $getCOuntOfOffers = mysqli_num_rows($getAllOffers);
+
+                        if($getCOuntOfOffers == 0)
+                        {
+                            //do nothing
+                            $finalPriceToPay = $course_price;
+                            $cutOffPriceToShow = '';
+                            $discountAlertShow = '';
+                        }
+                        else
+                        {
+                            while($row = mysqli_fetch_array($getAllOffers))
+                            {
+                                $course_id = $row['course_id'];
+                                $offer_id = $row['offer_id'];
+                                $offer_name = $row['offer_name'];
+                                $offer_at = $row['offer_at'];
+                                $status = $row['status'];
+                                $date = $row['date'];
+                                $isDeleted = $row['isDeleted'];
+                                $last_updated = $row['last_updated'];
+                            }
+
+                            //getFinalPrice
+                            $addOfferHere = $course_price * $offer_at / 100;
+                            $finalPriceToPay = $course_price - $addOfferHere;
+                            $cutOffPriceToShow = '<small><s>₹'.number_format($course_price).'</s></small>';
+
+                            $discountAlertShow = '<div class="alert alert-success"> '.$offer_name.' @ '.$offer_at.'%</div>';
+                        } 
+
+
+                        if($course_price == 0 || $course_price == '' || $course_price == null)
+                        {
+                            $thenShowCoursePrice = "<b>FREE</b>";
+                        }
+                        else
+                        {
+                            $thenShowCoursePrice = "".$cutOffPriceToShow." ₹".number_format($finalPriceToPay,2)."";
+                        }
 
                         //check enrolled or not
                         $checkCourseEnrolledment = mysqli_query($conn,"SELECT * FROM course_assigned WHERE student_id='$student_id_session' AND course_id='$course_id' AND isDeleted='0' AND status='0'");
@@ -80,13 +122,14 @@
                         }
 
                         echo '
-                            <div class="mb-2 col-md-4 col-lg-4 p-2 text-center">
+                            <div class="mb-2 col-md-4 col-lg-4 p-2 text-center my-auto">
                                 <div class="card p-2 shadow" style="border:1px solid black">
                                     <b class="mt-2 mb-2" style="font-size:19px">'.$course_name.'</b>
+                                    '.$discountAlertShow.'
                                     <hr style="margin:0">
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6 text-center mt-2 mb-1 my-auto">
-                                        <b>₹ '.number_format($course_price,2).'</b>
+                                        <b>'.$thenShowCoursePrice.'</b>
                                         </div>
                                         <div class="col-md-6 col-lg-6 text-center mt-2 mb-1">
                                             '.$giveAccessToEnrollCourse.'

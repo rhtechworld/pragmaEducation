@@ -18,10 +18,40 @@
             <b><?php echo $assigned_assign_id; ?></b> | <b><a
                     href="course-payment?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Payment History</a></b>
             <hr>
+            <?php echo $showInactiveNote; ?>
             <div class="accordion" id="accordionCoursePrelims">
             <div class="row">
-                <?php include('functions/course-payments-access.php'); ?>
+            <?php 
+                    if($CourseThingsAccessOnStatus == '0')
+                    {
+                        ?>
+                             <?php include('functions/course-payments-access.php'); ?>
+                        <?php
+                    }
+                    else
+                    {
+                        //do nothing
+                    }
+                ?>
+               
             </div>
         </div>
     </main>
-    <?php include('footer.php');
+    <?php include('footer.php'); ?>
+    <script>
+    var actionCourseId = '<?php echo $assigned_course_id; ?>';
+    $("#collapseArrow"+actionCourseId).html('<i class="fas fa-angle-down"></i>');
+    $("#Clps"+actionCourseId).addClass("active");
+    $("#payment"+actionCourseId).addClass("active");
+    $("#sidenavAccordionCourse"+actionCourseId).addClass("show");
+    </script>
+    <script>
+                $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip(
+                    {
+                        html:true,
+                        container: 'body'
+                    }
+                    );   
+                });
+                </script>

@@ -80,12 +80,13 @@
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsSeven" aria-expanded="false" aria-controls="collapseLayoutsSeven">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Subjects & Topics
+                                Courses & Updates
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse <?php if ($first_part=="course-subjects") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsSeven" aria-labelledby="headingSeven" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="course-subjects" || $first_part=="course-updates-actions") {echo "show"; } else  {echo "notActive";}?>" id="collapseLayoutsSeven" aria-labelledby="headingSeven" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link <?php if ($first_part=="course-subjects") {echo "active"; } else  {echo "notActive";}?>" href="course-subjects">Course -> Subjects</a>
+                                    <a class="nav-link <?php if ($first_part=="course-updates-actions") {echo "active"; } else  {echo "notActive";}?>" href="course-updates-actions">Course Updates</a>
                                 </nav>
                             </div>
 

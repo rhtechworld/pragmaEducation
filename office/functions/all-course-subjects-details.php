@@ -10,11 +10,13 @@ if(isset($_GET['courseTab']) && isset($_GET['course']) && isset($_GET['subjectTy
 
     if($subjectPaper == 0)
     {
-        $subjectPaper = 'No Paper';
+        $subjectPaper = '0';
+        $subjectPaper_show = 'Direct Access';
     }
     else
     {
         $subjectPaper = $subjectPaper;
+        $subjectPaper_show = 'Paper-'.$subjectPaper.'';
     }
 
 

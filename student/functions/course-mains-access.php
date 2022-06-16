@@ -1,7 +1,7 @@
 <?php
 
                 //get Subjects as per the papers
-                $getSubjectsOnMains = mysqli_query($conn,"SELECT * FROM subjects WHERE subject_type='Mains' AND course_id='$course_id_CourseDashboard' AND isDeleted='0' GROUP BY subject_paper");
+                $getSubjectsOnMains = mysqli_query($conn,"SELECT * FROM subjects WHERE subject_type='Mains' AND course_id='$course_id_CourseDashboard' AND isDeleted='0' AND status='0' GROUP BY subject_paper");
                 $getCountSubjectsOnMains = mysqli_num_rows($getSubjectsOnMains);
 
                 if($getCountSubjectsOnMains == 0)

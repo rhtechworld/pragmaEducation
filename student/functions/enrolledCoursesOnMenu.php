@@ -69,19 +69,19 @@
 
                                     echo '
                                     
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#sidenavAccordionCourse'.$course_id_course_OnMenu.'" aria-expanded="false" aria-controls="sidenavAccordionCourse'.$course_id_course_OnMenu.'">
+                                    <a class="nav-link collapsed" href="#" id="Clps'.$course_id_courseDetails_OnMenu.'" data-bs-toggle="collapse" data-bs-target="#sidenavAccordionCourse'.$course_id_course_OnMenu.'" aria-expanded="false" aria-controls="sidenavAccordionCourse'.$course_id_course_OnMenu.'">
                                         <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                            '.$course_name_courseDetails_OnMenu.'
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                            '.$course_name_courseDetails_OnMenu.' <g id="collapseArrow'.$course_id_courseDetails_OnMenu.'" class="ml-4"><i class="fas fa-angle-right"></i></g>
+                                        
                                     </a>
                                     <div class="collapse" id="sidenavAccordionCourse'.$course_id_course_OnMenu.'" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionCourse'.$course_id_course_OnMenu.'">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="course-dashboard?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-dashboard pr-2"></i> Dashboard</a>
-                                            <a class="nav-link" href="course-prelims?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-star pr-2"></i> Prelims</a>
-                                            <a class="nav-link" href="course-mains?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-star pr-2"></i> Mains</a>
-                                            <a class="nav-link" href="course-updates?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-bell pr-2"></i> Updates</a>
-                                            <a class="nav-link" href="course-payment?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-credit-card pr-2"></i> Payment History</a>
-                                            <a class="nav-link" href="course-faqs?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-question pr-2"></i> FAQs</a>
+                                            <a class="nav-link" id="dashboard'.$course_id_courseDetails_OnMenu.'" href="course-dashboard?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-dashboard pr-2"></i> Dashboard</a>
+                                            <a class="nav-link" id="prelims'.$course_id_courseDetails_OnMenu.'" href="course-prelims?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-star pr-2"></i> Prelims</a>
+                                            <a class="nav-link" id="mains'.$course_id_courseDetails_OnMenu.'" href="course-mains?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-star pr-2"></i> Mains</a>
+                                            <a class="nav-link" id="updates'.$course_id_courseDetails_OnMenu.'" href="course-updates?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-bell pr-2"></i> Updates</a>
+                                            <a class="nav-link" id="payment'.$course_id_courseDetails_OnMenu.'" href="course-payment?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-credit-card pr-2"></i> Payment History</a>
+                                            <a class="nav-link" id="faqs'.$course_id_courseDetails_OnMenu.'" href="course-faqs?course_id='.$course_id_courseDetails_OnMenu.'&assign_id='.$assign_id_forMenu.'&verifyenrolled=true&accessCourse=true"><i style="font-size:12px;" class="fas fa-question pr-2"></i> FAQs</a>
                                         </nav>
                                     </div>
                                     

@@ -1,7 +1,7 @@
 <?php
 
                 //get Subjects as per the papers
-                $getSubjectsOnPrilims = mysqli_query($conn,"SELECT * FROM subjects WHERE subject_type='Prelims' AND course_id='$course_id_CourseDashboard' AND isDeleted='0' GROUP BY subject_paper");
+                $getSubjectsOnPrilims = mysqli_query($conn,"SELECT * FROM subjects WHERE subject_type='Prelims' AND course_id='$course_id_CourseDashboard' AND isDeleted='0' AND status='0' GROUP BY subject_paper");
                 $getCountSubjectsOnPrilims = mysqli_num_rows($getSubjectsOnPrilims);
 
                 if($getCountSubjectsOnPrilims == 0)
@@ -23,13 +23,22 @@
                         $isDeleted = $row['isDeleted'];
                         $last_updated = $row['last_updated'];
 
+                        if($subject_paper == 0 || $subject_paper == 'No Paper')
+                        {
+                            $show_subject_paper = "Direct Access";
+                        }
+                        else
+                        {
+                            $show_subject_paper = 'Paper - '.$subject_paper.'';
+                        }
+
                         echo '
                         <div class="col-md-6 col-lg-6">
                         <div class="card mb-3 rounded" style="border:1px solid black">
                             <div class="card-header" id="headingOne'.$subject_paper.'">
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'.$subject_paper.'" aria-expanded="true" aria-controls="collapse'.$subject_paper.'">
-                                <b>Paper - '.$subject_paper.'</b> : '.$subject_type.' -> Subjects ( '.$course_name_CourseDashboard.' )
+                                <b>'.$show_subject_paper.'</b> : '.$subject_type.' -> Subjects ( '.$course_name_CourseDashboard.' )
                                 </button>
                             </h2>
                             </div>

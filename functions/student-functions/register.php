@@ -9,7 +9,7 @@ if(isset($_POST['proceedRegsiter']))
 
     $firstLayerEncription = md5($password);
     $secondLayerEncription = sha1($firstLayerEncription);
-
+        
     //checkuserindb
     $checkUserInDb = mysqli_query($conn,"SELECT * FROM student_access WHERE student_email='$username' OR student_mobile='$number' AND isDeleted='0'");
     $getCountOfSearch = mysqli_num_rows($checkUserInDb);
@@ -20,8 +20,8 @@ if(isset($_POST['proceedRegsiter']))
         $passTudentID = "S".$std_id."";
 
         //insert user data
-        $insertIntoStudents = mysqli_query($conn,"INSERT INTO students(student_id, student_name, student_email, student_number, date, status, isDeleted)
-        VALUES('$passTudentID','$name','$username','$number','$todayDate','0','0')");
+        $insertIntoStudents = mysqli_query($conn,"INSERT INTO students(student_id, student_name, student_email, student_number, date, status, isDeleted, last_updated)
+        VALUES('$passTudentID','$name','$username','$number','$todayDate','0','0','$lastUpdated')");
 
         $verifyOTP = rand(100000,999999);
         $sessionKey = base64_encode($username);
@@ -32,7 +32,7 @@ if(isset($_POST['proceedRegsiter']))
 
         session_start();
         $_SESSION['student_session_id'] = $passTudentID;
-        header('location:/functions/student-functions/send-verification-email?sessionUser='.$number.'&sessionUserId='.$passTudentID.'&sessionKey='.$sessionKey.'&action=newUser');
+        header('location:./functions/student-functions/send-verification-email?sessionUser='.$number.'&sessionUserId='.$passTudentID.'&sessionKey='.$sessionKey.'&action=newUser');
 
     }
     else

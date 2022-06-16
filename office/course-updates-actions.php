@@ -8,15 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Course Subjects | <?php echo $ProjectName; ?></title>
+        <title>Course Updates| <?php echo $ProjectName; ?></title>
         <?php include('header.php'); ?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h5 class="mt-4">Course Subjects</h5>
-                        <?php include('functions/all-course-subject-actions.php'); ?>
+                        <h5 class="mt-4">Course Updates</h5>
+                        <?php include('functions/all-course-updates-actions.php'); ?>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Course Subjects </li>
+                            <li class="breadcrumb-item active">Course Updates </li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -43,17 +43,12 @@
                                          <div id="getCoursesByTab"></div>
                                         
                                     </div>
-                                    <div class="form-group">
-                                        
-                                         <div id="getSubjectTypesByCourse"></div>
-                                        
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
-                                        <button type="submit" name="viewCourseSubjects" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> View Course Subjects / Topics</button>
+                                        <button type="submit" name="viewCourseUpdates" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> View Course Updates</button>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
-                                        <button type="submit" name="AddNewCourseSubjects" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Add New Course Subject / Topics</button>
+                                        <button type="submit" name="AddNewCourseUpdates" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Add New Course Update</button>
                                         </div>
                                     </div>
 

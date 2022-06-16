@@ -24,12 +24,25 @@
                         $razorpay_order_id_onPayments = $row['razorpay_order_id'];
                         $razorpay_payment_id_onPayments = $row['razorpay_payment_id'];
                         $razorpay_reason_onPayments = $row['razorpay_reason'];
-                        $course_id_onPayments = $row['course_id'];
+                        $course_amount_paymentDetails = $row['course_amount'];
+                        $paid_amount_paymentDetails = $row['paid_amount'];
+                        $pay_tax_at_paymentDetails = $row['pay_tax_at'];
+                        $pay_tax_paymentDetails = $row['pay_tax'];
+                        $pay_discount_paymentDetails = $row['pay_discount'];
+                        $pay_coupon_paymentDetails = $row['pay_coupon'];
+                        $pay_total_paymentDetails = $row['pay_total'];
                         $assign_id_onPayments = $row['assign_id'];
                         $date_onPayments = $row['date'];
                         $status_onPayments = $row['status'];
                         $isDeleted_onPayments = $row['isDeleted'];
                         $last_updated_onPayments = $row['last_updated'];
+
+                        $tooltipHtmlHere = '<br>
+                        Course Fee : ₹'.number_format($course_amount_paymentDetails,2).'<br>
+                        Discount ('.$pay_coupon_paymentDetails.') : - ₹'.number_format($pay_discount_paymentDetails,2).'<br>
+                        Tax ('.$pay_tax_at_paymentDetails.') : ₹'.number_format($pay_tax_paymentDetails,2).'<hr>
+                        Total Paid : <b>₹'.number_format($paid_amount_paymentDetails,2).'</b><br><br>
+                        ';
 
                         echo '
                         <div class="col-md-12 col-lg-12">
@@ -51,7 +64,7 @@
                                 </tr>
                                 <tr>
                                 <th scope="col">Total amount</th>
-                                <td>₹ '.number_format($paid_amount_onPayments,2).'</td>
+                                <td>₹ '.number_format($paid_amount_onPayments,2).' <a href="#" data-toggle="tooltip" data-html="true" title="'.$tooltipHtmlHere.'"><i class="fa fa-info-circle"></i></a></td>
                                 </tr>
                                 <tr>
                                 <th scope="col">Pay Via</th>

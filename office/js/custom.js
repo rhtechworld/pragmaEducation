@@ -365,6 +365,8 @@ $(document).ready(function () {
 
 });
 
+document.getElementById("addCourseUpdatesHere").style.display = "none";
+
 //get Courses List By Courses Tab
 function getCourseListOnCourseTab(tabid)
 {
@@ -372,12 +374,12 @@ function getCourseListOnCourseTab(tabid)
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      document.getElementById("getCoursesByTab").innerHTML = this.responseText;
+     document.getElementById("addCourseUpdatesHere").style.display = "block";
     }
   };
   xhttp.open("GET", "functions/ajax-functions/fetch-courses-input.php?TabId="+tabid, true);
   xhttp.send();
 }
-
 
 //get Subject Types By Course
 function getSubjectTypeByCourse(crsid)
@@ -391,9 +393,6 @@ function getSubjectTypeByCourse(crsid)
   xhttp.open("GET", "functions/ajax-functions/fetch-subject-type-by-course.php?crsId="+crsid, true);
   xhttp.send();
 }
-
-
-
 
 //Add Preview Link
 function AddPreviewLink(previewId)
