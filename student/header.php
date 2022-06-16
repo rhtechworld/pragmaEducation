@@ -12,7 +12,7 @@
         <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
         <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> 
     </head>
-    <body class="sb-nav-fixed">
+    <body oncontextmenu="return false" class="sb-nav-fixed">
     <div class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
