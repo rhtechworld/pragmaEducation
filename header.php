@@ -61,11 +61,29 @@ $first_part = $components[1];
             </ul>
           </li>
           <li><a class="<?php if ($first_part=="contact") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>contact">Contact</a></li>
-          <li class="dropdown"><a href="#" class="<?php if ($first_part=="login" || $first_part=="register") {echo "active"; } else  {echo "notActive";}?>"><span>Student Access</span> <i class="bi bi-chevron-down"></i></a>
+          <?php
+          session_start();
+          if(isset($_SESSION['student_email']) && isset($_SESSION['student_id']))
+          {
+            ?>
+            <li class="dropdown"><a href="#"><span><u><?php echo $_SESSION['student_name']; ?></u></span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="<?php echo $baseURL; ?>student/">Dashboard</a></li>
+              <li><a href="<?php echo $baseURL; ?>student/logout">Logout</a></li>
+            </ul>
+            <?php
+          }
+          else
+          {
+            ?>
+            <li class="dropdown"><a href="#" class="<?php if ($first_part=="login" || $first_part=="register") {echo "active"; } else  {echo "notActive";}?>"><span>Student Access</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="<?php if ($first_part=="login") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>login">Login</a></li>
               <li><a class="<?php if ($first_part=="register") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>register">Register</a></li>
             </ul>
+            <?php
+          }
+          ?>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

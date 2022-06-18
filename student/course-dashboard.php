@@ -23,21 +23,21 @@
                     {
                         ?>
                             <div class="row text-center my-auto border">
-                                <div class="col-md-6 col-lg-6 p-2 my-auto">
+                                <div class="col-md-4 col-lg-4 p-2 my-auto">
                                 <table class="table text-left">
                                     <tbody>
                                         <tr>
-                                        <th scope="row"><?php echo $course_name_CourseDashboard; ?> <b>Prelims</th>
+                                        <th scope="row"><b>Prelims <i class="fa fa-arrow-circle-right"></i></th>
                                         <td><b><?php echo $countgetCountOfPrimlisFromDataBase; ?></b></td>
                                         </tr>
                                         <tr>
-                                        <th scope="row"><?php echo $course_name_CourseDashboard; ?> <b>Mains</th>
+                                        <th scope="row"><b>Mains <i class="fa fa-arrow-circle-right"></i></th>
                                         <td><b><?php echo $countgetCountOfMainsFromDataBase; ?></b></td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 </div>                              
-                                <div class="col-md-6 col-lg-6 p-2 text-center my-auto">
+                                <div class="col-md-8 col-lg-8 p-2 text-center my-auto">
                                     <b>Advertisement</b>
                                 </div>
                             </div>

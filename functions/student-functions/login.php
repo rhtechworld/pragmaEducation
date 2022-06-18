@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 if(isset($_GET['logoutAccounts']))
 {
     
@@ -21,6 +23,27 @@ if(isset($_GET['logoutAccounts']))
 else
 {
     $showThisMsgOnLoginPage = "";
+}
+
+if(isset($_GET['singleLogin']))
+{
+    $singleLoginIssueThis = $_GET['singleLogin'];
+
+    if($singleLoginIssueThis == true)
+    {
+        $showThisMsgOnLoginPageNew = 
+        '<div class="alert alert-warning text-center">
+         New Device Login Alert, Sorry we are allowing only one login for account. <a href="./functions/student-functions/logout-all-accounts"><b>Logout All & Login again</b></a>
+        </div>';
+    }
+    else
+    {
+        $showThisMsgOnLoginPageNew = "";
+    }
+}
+else
+{
+    $showThisMsgOnLoginPageNew = "";
 }
 
 if(isset($_GET['action']) && isset($_GET['id']))
@@ -84,15 +107,18 @@ if(isset($_POST['proceedForLogin']))
                         }
                         else
                         {
+
+                            $running_session_key = md5(rand());
+
                             //if verified
                             session_start();
                             $_SESSION['student_id'] = $student_id;
                             $_SESSION['student_email'] = $student_email;
-                            $_SESSION['session_key'] = $session_key;
+                            $_SESSION['session_key'] = $running_session_key;
                             $_SESSION['student_name'] = $studentNameInDB;
 
                             //makelogincount
-                            $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1' WHERE student_id='$student_id'");
+                            $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1', session_key='$running_session_key' WHERE student_id='$student_id'");
                             
                             //redirect to student dashboard
                             if($mainActionOnLogin == '' || $mainActionOnLogin == null && $mainActionOnLoginId == '' || $mainActionOnLoginId == null)
@@ -161,5 +187,6 @@ if(isset($_POST['proceedForLogin']))
 }
 
 echo $showThisMsgOnLoginPage;
+echo $showThisMsgOnLoginPageNew;
 
 ?>

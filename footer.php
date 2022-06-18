@@ -59,9 +59,9 @@
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Get Free Current Affairs Updates <b class="basecolor">Pragma</b></h4>
                     <p>Please Enter Your Email ID and Hit the Subscribe Button Below to Join others to Receive Free Updates</p>
-                    <form action="" method="post">
-                        <input type="email" placeholder="Enter Email Address" name="email"><input type="submit" value="Subscribe">
-                    </form>
+                    <form>
+                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="subscribeNowAction" placeholder="Enter Email Address" name="email" required><input type="button" class="btn" style="color:#E31E26;text-weight:bold" name="subscribeNow" onclick="callSubscribeNow()" value="Subscribe">   
+                    </form><g class="text-center"><small class="text-center" id="subscribeInt"></small></g>
                     <hr>
                     OR, you can contact us at <a class="basecolor" href="mailto:<?php echo $mainContactEmail; ?>"><?php echo $mainContactEmail; ?></a>
                 </div>
@@ -93,6 +93,44 @@
 <div id="preloader"></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
+
+
+        <script>
+    function callSubscribeNow()
+    {
+        var subEmail = document.getElementById('subscribeNowAction').value;
+
+        if(subEmail == '' || subEmail == null)
+        {
+            document.getElementById('subscribeInt').innerHTML = "<center><b style='color:red'>Email is Required!</b></center>";
+        }
+        else
+        {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var resultOnCheck = this.responseText;
+                        if(resultOnCheck == 0)
+                        {
+                            console.log('Email Error');
+                            document.getElementById('subscribeInt').innerHTML = "<center><b style='color:red'>Server issue, try again later!</b></center>";
+                        }
+                        else if(resultOnCheck == 1)
+                        {
+                            console.log('Subscribe Success');
+                            document.getElementById('subscribeInt').innerHTML = "<center><b style='color:green'>Subscribe Success, Thanks</b></center>";
+                        }
+                        else
+                        {
+                            document.getElementById('subscribeInt').innerHTML = "<center><b style='color:green'>Already Subscribed, Thanks</b></center>";
+                        }
+                }
+            };
+            xmlhttp.open("GET", 'functions/subscribe-mail.php?email='+subEmail, true);
+            xmlhttp.send();
+        }
+    }
+</script>
 
 <!-- Vendor JS Files -->
 <script src="<?php echo $baseURL; ?>assets/vendor/purecounter/purecounter.js"></script>

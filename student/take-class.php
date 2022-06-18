@@ -76,7 +76,8 @@
                             preload="auto"
                             height="auto"
                             poster=""
-                            data-setup="{}"
+                            data-setup="{}" 
+                            style = "width:100%"
                         >
                         <source id="dynamicTopicVideo" src="https://drive.google.com/uc?id=<?php echo $topic_video_Topic; ?>&export=download" type="video/mp4">
                         </video>
