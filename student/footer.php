@@ -95,7 +95,7 @@
             }
 
             // setInterval(makeAcheckOnLoginNow, 600000);
-             setInterval(makeAcheckOnLoginNow, 25000);
+             setInterval(makeAcheckOnLoginNow, 50000);
             
         </script>
 

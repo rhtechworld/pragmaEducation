@@ -100,10 +100,8 @@
     </main>
     <?php
 
-    require('payment/config.php');
-    require('payment/razorpay-php/Razorpay.php');
 
-    //CreateNewTrasactionId
+    //CreateNewTrasactionId 
 
     $newTransId = "T".date('dmy')."".rand(10000,99999)."";
     $_SESSION['assign_new_txn_id'] = $newTransId;
@@ -128,6 +126,11 @@
 
     $_SESSION['offerOnThisPayment'] = $offer_at;
     $_SESSION['offerAmountThisPayment'] = $addOfferHere;
+
+    require('payment/config.php');
+    require('payment/razorpay-php/Razorpay.php');
+
+    
 
     // Create the Razorpay Order
 

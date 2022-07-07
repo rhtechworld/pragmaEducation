@@ -48,7 +48,7 @@ else
 
         echo '
                 <div class="mb-2 col-md-4 col-lg-4 p-2 text-center">
-                    <div class="card p-2 shadow" style="border:1px solid red">
+                    <div class="card p-2 shadow" style="border:1px solid #E31E26">
                         <b class="mt-2 mb-2" style="font-size:18px">'.$course_name.'</b>
                         <hr style="margin:0">
                         <div class="row">

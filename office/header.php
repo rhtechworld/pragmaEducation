@@ -103,6 +103,29 @@
                                 </nav>
                             </div>
 
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTestSeries" aria-expanded="false" aria-controls="collapseTestSeries">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                                Test Series's
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse <?php if ($first_part=="test-series-list") {echo "show active"; } else  {echo "notActive";}?>" id="collapseTestSeries" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link <?php if ($first_part=="test-series-list") {echo "active"; } else  {echo "notActive";}?>" href="test-series-list">Test Series's List</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseQuiz" aria-expanded="false" aria-controls="collapseQuiz">
+                                <div class="sb-nav-link-icon"><i class="fas fa-question-circle"></i></div>
+                                Quiz Controls
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse <?php if ($first_part=="add-new-quiz") {echo "show active"; } else  {echo "notActive";}?>" id="collapseQuiz" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link <?php if ($first_part=="add-new-quiz") {echo "active"; } else  {echo "notActive";}?>" href="add-new-quiz">Add New Quiz</a>
+                                    <a class="nav-link <?php if ($first_part=="quiz-list") {echo "active"; } else  {echo "notActive";}?>" href="quiz-list">Quiz List</a>
+                                </nav>
+                            </div>
+
                             <div class="sb-sidenav-menu-heading">UI Addons</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsTwoNine" aria-expanded="false" aria-controls="collapseLayoutsTwoNine">
                                 <div class="sb-nav-link-icon"><i class="fas fa-display"></i></div>

@@ -13,7 +13,7 @@ if(isset($_POST['addNewSubjectTopic']))
     $topic_id_input = "T".rand(100000000,999999999)."";
 
     //check topic name in db
-    $checkSameTopicName = mysqli_query($conn,"SELECT * FROM subject_topics WHERE topic_name='$topicNameInput' AND isDeleted='0'");
+    $checkSameTopicName = mysqli_query($conn,"SELECT * FROM subject_topics WHERE topic_name='$topicNameInput' AND course_id='$course_id' AND subject_id='$subject_id' AND isDeleted='0'");
     $checkSameNameCount = mysqli_num_rows($checkSameTopicName);
 
     if($checkSameNameCount == 0)

@@ -50,7 +50,14 @@ if(isset($_POST['proceedTwoFactror']))
         $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1', session_key='$running_session_key' WHERE student_id='$student_id'");
 
         //redirect to student dashboard
-        header('location:/student/');
+        if(isset($_GET['redirectUri']))
+        {
+            header('location:'.$_GET['redirectUri'].'');
+        }
+        else
+        {
+            header('location:./student-main/');
+        }
     }
     else
     {

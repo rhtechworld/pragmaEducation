@@ -363,6 +363,60 @@ $(document).ready(function () {
     });
   });
 
+  //quiz edit
+  $(".quiz-js-edit").on("click", function () {
+    var button = $(this);
+    var actionID = button.attr("data-action-id");
+
+    $("#E" + actionID).html('<i class="fa fa-spinner fa-spin"></i>');
+
+    $.ajax({
+    url: "functions/ajax-functions/fetch-quizdetails.php",
+    method: "POST",
+    data: { quizId: actionID },
+    dataType: "json",
+    success: function (data) {
+        if (data == "error") {
+        alert("Bad Request!, Something went wrong try again!");
+        location.reload();
+        } else {
+        $("#quizKaId").val(data.qz_id);
+        $("#quizNameKaId").text(data.qz_name);
+        $("#quizKastatus").val(data.status);
+        $("#editModalForQuiz").modal("show");
+        $("#E" + actionID).html('<i class="fa fa-edit"></i>');
+        }
+    },
+    });
+});
+
+//quiz delete 
+$(".quiz-js-delete").on("click", function () {
+    var button = $(this);
+    var actionID = button.attr("data-action-id");
+
+    $("#D" + actionID).html('<i class="fa fa-spinner fa-spin"></i>');
+
+    $.ajax({
+    url: "functions/ajax-functions/fetch-quizdetails.php",
+    method: "POST",
+    data: { quizId: actionID },
+    dataType: "json",
+    success: function (data) {
+        if (data == "error") {
+        alert("Bad Request!, Something went wrong try again!");
+        location.reload();
+        } else {
+        $("#delete_quizKaId").val(data.qz_id);
+        $("#delete_quizNameKaId").text(data.qz_name);
+        $("#delete_quizKastatus").val(data.status);
+        $("#deleteModalForQuiz").modal("show");
+        $("#D" + actionID).html('<i class="pl-3 fa fa-trash"></i>'); 
+        }
+    },
+    });
+});
+
 });
 
 document.getElementById("addCourseUpdatesHere").style.display = "none";

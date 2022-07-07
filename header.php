@@ -68,8 +68,8 @@ $first_part = $components[1];
             ?>
             <li class="dropdown"><a href="#"><span><u><?php echo $_SESSION['student_name']; ?></u></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="<?php echo $baseURL; ?>student/">Dashboard</a></li>
-              <li><a href="<?php echo $baseURL; ?>student/logout">Logout</a></li>
+              <li><a href="<?php echo $baseURL; ?>student-main/">Dashboard</a></li>
+              <li><a href="<?php echo $baseURL; ?>student-main/logout">Logout</a></li>
             </ul>
             <?php
           }

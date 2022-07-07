@@ -1,4 +1,30 @@
+<? ob_start(); ?>
 <?php
+
+if(isset($_GET['action']) && isset($_GET['id']))
+{
+    $mainActionOnLogin = mysqli_real_escape_string($conn,$_GET['action']);
+    $mainActionOnLoginId = mysqli_real_escape_string($conn,$_GET['id']);
+}
+
+if(!isset($_SESSION['student_email']))
+{
+    //do nothing
+}
+else
+{
+    if(isset($_GET['action']) && isset($_GET['id']))
+    {
+        $mainActionOnLogin = mysqli_real_escape_string($conn,$_GET['action']);
+        $mainActionOnLoginId = mysqli_real_escape_string($conn,$_GET['id']);
+
+        header('location:./student-main/enroll-course?cid='.$mainActionOnLoginId.'');
+    }
+    else
+    {
+        header('location:./student-main/');
+    }
+}
 
 error_reporting(0);
 
@@ -44,12 +70,6 @@ if(isset($_GET['singleLogin']))
 else
 {
     $showThisMsgOnLoginPageNew = "";
-}
-
-if(isset($_GET['action']) && isset($_GET['id']))
-{
-    $mainActionOnLogin = mysqli_real_escape_string($conn,$_GET['action']);
-    $mainActionOnLoginId = mysqli_real_escape_string($conn,$_GET['id']);
 }
 
 if(isset($_POST['proceedForLogin']))
@@ -101,7 +121,6 @@ if(isset($_POST['proceedForLogin']))
                         if($verify_state == 0)
                         {
                             //if not verifies
-                            session_start();
                             $_SESSION['student_session_id'] = $student_id;
                             header('location:./functions/student-functions/send-verification-email?sessionUser='.$student_mobile.'&sessionUserId='.$student_id.'&sessionKey='.$session_key.'&action=newUser');
                         }
@@ -123,11 +142,19 @@ if(isset($_POST['proceedForLogin']))
                             //redirect to student dashboard
                             if($mainActionOnLogin == '' || $mainActionOnLogin == null && $mainActionOnLoginId == '' || $mainActionOnLoginId == null)
                             {
-                                header('location:./student/');
+                                header('location:./student-main/');
+                            }
+                            else if($mainActionOnLogin == 'subscribe')
+                            {
+                                header('location:./student-main/enroll-course?cid='.$mainActionOnLoginId.'');
+                            }
+                            else if(isset($_GET['redirectUri']))
+                            {
+                                header('location:'.$_GET['redirectUri'].'');
                             }
                             else
                             {
-                                header('location:./student/enroll-course?cid='.$mainActionOnLoginId.'');
+                                header('location:./student-main/');
                             }
                         }
                     }
@@ -190,3 +217,4 @@ echo $showThisMsgOnLoginPage;
 echo $showThisMsgOnLoginPageNew;
 
 ?>
+<? ob_flush(); ?>
