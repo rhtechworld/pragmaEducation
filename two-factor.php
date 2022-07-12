@@ -1,4 +1,5 @@
 <?php include('config.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,10 +23,11 @@
                         <h4 style="font-size:20px;"><span>Two-Factor</span> Auth.</h4>
                     </div>
                     <?php include('functions/student-functions/two-factor-verify.php'); ?>
+                    
                     <form action="" method="POST">
                     <div class="form-group mb-3">
                             <input type="text" class="form-control" id="otphere" name="otphere"
-                                 placeholder="Enter 6 digit OTP" required>
+                                 placeholder="OTP Sent to your Email Address, Enter 6 digit OTP" required>
                         </div>
                         
                         <button type="submit" id="proceedRegisterButton" name="proceedTwoFactror" class="btn btn-block btn-primary w-100 newButtonEffect">Verify Me</button>

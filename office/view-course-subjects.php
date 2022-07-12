@@ -13,10 +13,10 @@
         <?php include('header.php'); ?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h5 class="mt-3"><g style="font-size:16px">Subjects On: </g> <b><?php echo $course_name; ?> / <?php echo $subjectType; ?> / Paper - <?php echo $subjectPaper; ?></b></h5>
+                        <h5 class="mt-3"><g style="font-size:16px">Subjects On: </g> <b><?php echo $course_name; ?> / <?php echo $subjectType; ?> / <?php echo $subjectPaper_show; ?></b></h5>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                            <li class="breadcrumb-item active"><a href="course-subjects">Course Subjects</a> &nbsp;/ &nbsp;<b><?php echo $course_name; ?> (<?php echo $subjectType; ?>)(Paper-<?php echo $subjectPaper; ?>)</b> &nbsp;/ &nbsp;<b><a class="subject-js-add" id="<?php echo $course_id; ?>" courseNameAtt="<?php echo $course_name; ?>" courseSubjectType="<?php echo $subjectType; ?>" CourseSubjectPaper="<?php echo $subjectPaper; ?>" data-action-id="<?php echo $course_id; ?>" href="#"><i class="fa fa-plus"></i> Add New Subject</a></b></li>
+                            <li class="breadcrumb-item active"><a href="course-subjects">Course Subjects</a> &nbsp;/ &nbsp;<b><?php echo $course_name; ?> (<?php echo $subjectType; ?>)(<?php echo $subjectPaper_show; ?>)</b> &nbsp;/ &nbsp;<b><a class="subject-js-add" id="<?php echo $course_id; ?>" courseNameAtt="<?php echo $course_name; ?>" courseSubjectType="<?php echo $subjectType; ?>" CourseSubjectPaper="<?php echo $subjectPaper; ?>" data-action-id="<?php echo $course_id; ?>" href="#"><i class="fa fa-plus"></i> Add New Subject</a></b></li>
                         </ol>
                         <?php include('functions/all-course-subject-actions.php'); ?>
                         <div class="card mb-4">
@@ -27,7 +27,7 @@
                                         {
                                             echo '
                                             <div class="alert alert-primary text-primary">
-                                                No Subjects Found On This Course Types '.$subjectType.' & Paper - '.$subjectPaper.'!
+                                                No Subjects Found On This Course Types '.$subjectType.' & '.$subjectPaper_show.'!
                                             </div>
                                             ';
                                         }

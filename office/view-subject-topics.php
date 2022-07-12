@@ -13,10 +13,10 @@
         <?php include('header.php'); ?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h5 class="mt-3"><g style="font-size:16px">Topics On: </g> <b><?php echo $course_name; ?> / <?php echo $subject_type; ?> / Paper - <?php echo $subject_paper; ?> / <?php echo $subject_name; ?></b></h5>
+                        <h5 class="mt-3"><g style="font-size:16px">Topics On: </g> <b><?php echo $course_name; ?> / <?php echo $subject_type; ?> / <?php echo $subject_paper_show; ?> / <?php echo $subject_name; ?></b></h5>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                            <li class="breadcrumb-item active"><a href="course-subjects">Subject Topics</a> &nbsp;/ &nbsp;<b><?php echo $course_name; ?> (<?php echo $subject_type; ?>)(Paper-<?php echo $subject_paper; ?>): <?php echo $subject_name; ?></b> &nbsp;/ &nbsp;<b><a id="<?php echo $course_id; ?>" courseNameAtt="<?php echo $course_name; ?>" courseSubjectType="<?php echo $subjectType; ?>" CourseSubjectPaper="<?php echo $subjectPaper; ?>" data-action-id="<?php echo $course_id; ?>" href="add-new-subject-topic?course_id=<?php echo $course_id; ?>&subject_id=<?php echo $subject_id; ?>&verifyCourse=true&verifySubject=true#"><i class="fa fa-plus"></i> Add New Topic</a></b></li>
+                            <li class="breadcrumb-item active"><a href="course-subjects">Subject Topics</a> &nbsp;/ &nbsp;<a href="view-course-subjects?courseTab=<?php echo $course_tab_id; ?>&course=<?php echo $course_id; ?>&subjectType=<?php echo $subject_type; ?>&paperType=<?php echo $subject_paper; ?>&action=View"><b><?php echo $course_name; ?> (<?php echo $subject_type; ?>)(<?php echo $subject_paper_show; ?>): <?php echo $subject_name; ?></b></a> &nbsp;/ &nbsp;<b><a id="<?php echo $course_id; ?>" courseNameAtt="<?php echo $course_name; ?>" courseSubjectType="<?php echo $subjectType; ?>" CourseSubjectPaper="<?php echo $subjectPaper; ?>" data-action-id="<?php echo $course_id; ?>" href="add-new-subject-topic?course_id=<?php echo $course_id; ?>&subject_id=<?php echo $subject_id; ?>&verifyCourse=true&verifySubject=true#"><i class="fa fa-plus"></i> Add New Topic</a></b></li>
                         </ol>
                         <?php include('functions/all-course-subject-actions.php'); ?>
                         <div class="card mb-4">

@@ -14,7 +14,7 @@
     <?php include('header.php'); ?>
     <main>
         <div class="container-fluid px-4 mt-3">
-            <h5>Enroll Course : <b><?php echo $course_name; ?></b> <button class="btn btn-primary btn-sm">Subscribe Now</button></h5>
+            <h5>Enroll Course : <b><?php echo $course_name; ?></b> </h5>
             <hr>
             <b>Course Details : </b>
             <div class="row pl-3 mt-2">
@@ -37,15 +37,36 @@
                         <?php
                         if($getCOuntOfOffers == 0)
                         {
-                            //do nothing
+                            //do nothing 
+                            $passThisIntoPaymentFrOrDb = '-';
+                            $offer_at = 0;
                         }
                         else
                         {
                             echo 
                             '
                             <tr>
-                                <th scope="row">'.$offer_name.' : </th>
-                                <td>'.$offer_at.'%</td>
+                                <th scope="row">'.$offer_name.' @ '.$offer_at.'% : </th>
+                                <td>- ₹'.$addOfferHere.'</td>
+                            </tr>
+
+                            ';
+                            $passThisIntoPaymentFrOrDb = ''.$offer_name.'@'.$offer_at.'%';
+                        }
+                        ?>
+                        <?php
+                        if($taxEnabled == false)
+                        {
+                            //do nothing 
+                         
+                        }
+                        else
+                        {
+                            echo 
+                            '
+                            <tr>
+                                <th scope="row">'.$database_tax_name.' @ '.$database_tax_at.'% : </th>
+                                <td>₹'.$calsi_TaxNow.'</td>
                             </tr>
 
                             ';
@@ -53,22 +74,34 @@
                         ?>
                         <tr>
                             <th scope="row">Final Price : </th>
-                            <td>₹<b><?php echo number_format($finalPriceToPay,2); ?></b></td>
+                            <td>₹<b><?php echo number_format($AfterTaxFinalPriceIsThisToPay,2); ?></b></td>
                         </tr>
                     </tbody>
                     </table>
                     <hr>
-                    <button id="rzp-button1" class="btn btn-primary brn-sm">Subscribe Now</button>
+                    <?php
+                    if($AfterTaxFinalPriceIsThisToPay == 0 || $AfterTaxFinalPriceIsThisToPay == null || $AfterTaxFinalPriceIsThisToPay == '')
+                    {
+                        $AfterTaxFinalPriceIsThisToPay = 163045; //for razorpay
+                        echo '<a href="enroll-free-course?courseTab='.$course_tab_id.'&course='.$course_id.'&cf='.$AfterTaxFinalPriceIsThisToPay.'&enroll=free" class="btn btn-primary brn-sm">Subscribe For Free</a>';
+                    }
+                    else if($AfterTaxFinalPriceIsThisToPay > 0)
+                    { 
+                        echo '<button id="rzp-button1" class="btn btn-primary brn-sm">Subscribe Now</button>';
+                    }
+                    else
+                    {
+                        echo '<b class="text-danger">ERROR</b>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </main>
     <?php
 
-    require('payment/config.php');
-    require('payment/razorpay-php/Razorpay.php');
 
-    //CreateNewTrasactionId
+    //CreateNewTrasactionId 
 
     $newTransId = "T".date('dmy')."".rand(10000,99999)."";
     $_SESSION['assign_new_txn_id'] = $newTransId;
@@ -76,7 +109,28 @@
     $_SESSION['assign_student_email'] = $student_email_session;
     $_SESSION['assign_course_tab_id'] = $course_tab_id;
     $_SESSION['assign_course_id'] = $course_id;
-    $_SESSION['razorpay_paid_amount'] = $finalPriceToPay;
+    $_SESSION['razorpay_paid_amount'] = $AfterTaxFinalPriceIsThisToPay;
+
+    $_SESSION['course_amount_basic'] = $course_price;
+
+    //pay in details amount
+    $_SESSION['stuTrxn_pay_tax_at'] = $database_tax_nameNew;
+    $_SESSION['stuTrxn_pay_tax'] = $calsi_TaxNow;
+    $_SESSION['stuTrxn_pay_discount'] = $addOfferHere;
+    $_SESSION['stuTrxn_pay_coupon'] = $passThisIntoPaymentFrOrDb;
+    $_SESSION['stuTrxn_pay_total'] = $AfterTaxFinalPriceIsThisToPay;
+
+
+    $_SESSION['taxAtOnThisPayment'] = $database_tax_at;
+    $_SESSION['taxAtAmountThisPayment'] = $calsi_TaxNow;
+
+    $_SESSION['offerOnThisPayment'] = $offer_at;
+    $_SESSION['offerAmountThisPayment'] = $addOfferHere;
+
+    require('payment/config.php');
+    require('payment/razorpay-php/Razorpay.php');
+
+    
 
     // Create the Razorpay Order
 
@@ -90,7 +144,7 @@
     //
     $orderData = [
         'receipt'         => 3456,
-        'amount'          => $finalPriceToPay * 100, // 2000 rupees in paise
+        'amount'          => $AfterTaxFinalPriceIsThisToPay * 100, // 2000 rupees in paise
         'currency'        => 'INR',
         'payment_capture' => 1 // auto capture
     ];
@@ -120,7 +174,7 @@
 
     $data = [
         "key"               => $keyId,
-        "amount"            => $finalPriceToPay,
+        "amount"            => $AfterTaxFinalPriceIsThisToPay,
         "name"              => "Pragma Edu.",
         "description"       => $course_name,
         "image"             => "https://stage.pragmaeducation.com/assets/new-img/favicon.png",

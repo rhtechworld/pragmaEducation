@@ -1,4 +1,32 @@
+<? ob_start(); ?>
 <?php
+
+if(isset($_GET['action']) && isset($_GET['id']))
+{
+    $mainActionOnLogin = mysqli_real_escape_string($conn,$_GET['action']);
+    $mainActionOnLoginId = mysqli_real_escape_string($conn,$_GET['id']);
+}
+
+if(!isset($_SESSION['student_email']))
+{
+    //do nothing
+}
+else
+{
+    if(isset($_GET['action']) && isset($_GET['id']))
+    {
+        $mainActionOnLogin = mysqli_real_escape_string($conn,$_GET['action']);
+        $mainActionOnLoginId = mysqli_real_escape_string($conn,$_GET['id']);
+
+        header('location:./student-main/enroll-course?cid='.$mainActionOnLoginId.'');
+    }
+    else
+    {
+        header('location:./student-main/');
+    }
+}
+
+error_reporting(0);
 
 if(isset($_GET['logoutAccounts']))
 {
@@ -21,6 +49,27 @@ if(isset($_GET['logoutAccounts']))
 else
 {
     $showThisMsgOnLoginPage = "";
+}
+
+if(isset($_GET['singleLogin']))
+{
+    $singleLoginIssueThis = $_GET['singleLogin'];
+
+    if($singleLoginIssueThis == true)
+    {
+        $showThisMsgOnLoginPageNew = 
+        '<div class="alert alert-warning text-center">
+         New Device Login Alert, Sorry we are allowing only one login for account. <a href="./functions/student-functions/logout-all-accounts"><b>Logout All & Login again</b></a>
+        </div>';
+    }
+    else
+    {
+        $showThisMsgOnLoginPageNew = "";
+    }
+}
+else
+{
+    $showThisMsgOnLoginPageNew = "";
 }
 
 if(isset($_POST['proceedForLogin']))
@@ -72,24 +121,41 @@ if(isset($_POST['proceedForLogin']))
                         if($verify_state == 0)
                         {
                             //if not verifies
-                            session_start();
                             $_SESSION['student_session_id'] = $student_id;
                             header('location:./functions/student-functions/send-verification-email?sessionUser='.$student_mobile.'&sessionUserId='.$student_id.'&sessionKey='.$session_key.'&action=newUser');
                         }
                         else
                         {
+
+                            $running_session_key = md5(rand());
+
                             //if verified
                             session_start();
                             $_SESSION['student_id'] = $student_id;
                             $_SESSION['student_email'] = $student_email;
-                            $_SESSION['session_key'] = $session_key;
+                            $_SESSION['session_key'] = $running_session_key;
                             $_SESSION['student_name'] = $studentNameInDB;
 
                             //makelogincount
-                            $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1' WHERE student_id='$student_id'");
+                            $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1', session_key='$running_session_key' WHERE student_id='$student_id'");
                             
                             //redirect to student dashboard
-                            header('location:./student/');
+                            if($mainActionOnLogin == '' || $mainActionOnLogin == null && $mainActionOnLoginId == '' || $mainActionOnLoginId == null)
+                            {
+                                header('location:./student-main/');
+                            }
+                            else if($mainActionOnLogin == 'subscribe')
+                            {
+                                header('location:./student-main/enroll-course?cid='.$mainActionOnLoginId.'');
+                            }
+                            else if(isset($_GET['redirectUri']))
+                            {
+                                header('location:'.$_GET['redirectUri'].'');
+                            }
+                            else
+                            {
+                                header('location:./student-main/');
+                            }
                         }
                     }
                     else
@@ -148,5 +214,7 @@ if(isset($_POST['proceedForLogin']))
 }
 
 echo $showThisMsgOnLoginPage;
+echo $showThisMsgOnLoginPageNew;
 
 ?>
+<? ob_flush(); ?>

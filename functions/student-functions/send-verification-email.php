@@ -1,6 +1,6 @@
 <?php
 
-include('./config.php');
+include('../../config.php');
 
 session_start();
 $getMobileNumber = mysqli_real_escape_string($conn,$_GET['sessionUser']);
@@ -70,7 +70,7 @@ else
         ';
 
         $to = $sendEMailAddress;
-        $subject = "Your OTP for access to ".$getSessionUserId."-#".date('dmY')."";
+        $subject = "Your OTP for access to ".$getSessionUserId."-#".date('d/m/Y')."";
                 
         $header = "From:".$emailSendFromName." <".$emailSendFrom."> \r\n";
         $header .= "MIME-Version: 1.0\r\n";
@@ -86,7 +86,7 @@ else
             }
             else if($getSessionAction == 'twoFactor')
             {
-                header('location:/two-factor');
+                header('location:/two-factor?mailSent=true');
             }
             else
             {

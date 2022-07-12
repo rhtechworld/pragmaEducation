@@ -14,16 +14,34 @@
     <?php include('header.php'); ?>
     <main>
         <div class="container-fluid px-4">
-            <h5 class="mt-4">Prelims Papers : <?php echo $course_name_CourseDashboard; ?></h5>
+            <h5 class="mt-4">Prelims : <?php echo $course_name_CourseDashboard; ?></h5>
             <b><?php echo $assigned_assign_id; ?></b> | <b><a
                     href="course-prelims?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Prelims</a></b>
             <hr>
+            <?php echo $showInactiveNote; ?>
             <div class="accordion" id="accordionCoursePrelims">
             <div class="row">
+            <?php 
+                    if($CourseThingsAccessOnStatus == '0')
+                    {
+                        ?>
+                            <?php include('functions/course-prelims-access.php'); ?>
+                        <?php
+                    }
+                    else
+                    {
+                        //do nothing
+                    }
+                ?>
 
-                <?php include('functions/course-prelims-access.php'); ?>
-                
             </div>
         </div>
     </main>
-    <?php include('footer.php');
+    <?php include('footer.php'); ?>
+    <script>
+    var actionCourseId = '<?php echo $assigned_course_id; ?>';
+    $("#collapseArrow"+actionCourseId).html('<i class="fas fa-angle-down"></i>');
+    $("#Clps"+actionCourseId).addClass("active");
+    $("#prelims"+actionCourseId).addClass("active");
+    $("#sidenavAccordionCourse"+actionCourseId).addClass("show");
+    </script>

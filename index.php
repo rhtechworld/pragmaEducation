@@ -21,25 +21,167 @@
 
     <main id="main">
 
-    <!-- ======= Popular Courses Section ======= -->
-    <section id="features" class="features section-bg">
+
+        <!-- ======= Popular Courses Section ======= -->
+        <section id="aboutus" class="aboutus">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="section-head col-sm-12 mb-0 text-left">
+                            <h4 style="font-size:20px;"><span>About</span> Us</h4>
+                        </div>
+                        <p>PRAGMA EDUCATION is a birthchild of ideas from persons who themselves had faced lot of challenges in their examination preparation journey in life. However, one unique thing about us is that we believe in quote- “If you are in a mess, you get yourself out of that mess by helping others get out of theirs”.</p>
+                        <p>Hence, we believe that only by helping others succeed would we succeed; and it is an eternal process that offers scope for vast treasures of knowledge and experiences on the way. Pragma Education is precisely here to provide a direction to the efforts of millions of aspirants like us.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="section-head col-sm-12 mb-0 text-left">
+                            <h4 style="font-size:20px;"><span>Our</span> Moto</h4>
+                        </div>
+                        <p>OUR MOTTO: Pragma Education aims at providing an affordable, accessible and accomplishment-oriented modules to the aspirants of various competitive examinations.</p>
+                        <p>A mid-term to long-term guidance shall be provided to all the students that enrol with us just to ensure that your journey is as beautiful as ours. 
+Address the issues faced by consumer market and creating an utilizable value to the modules. In short, we really want to help the aspirants in their journeys.
+Provide the students with a perspective and confidence to continue their journey nevertheless without us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= Popular Courses Section ======= -->
+        <section id="features" class="features section-bg">
             <div class="container" data-aos="fade-up">
 
                 <div class="text-center mt-5">
                     <h3><b>Our Popular Courses</b></h3>
                 </div>
 
-                <div class="row my-auto d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="accordion text-center" id="accordionExample">
-                        <?php include('functions/main-functions/getCourseTabs.php'); ?>
-                    </div>
+                <div class="row my-auto mt-3 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                <?php 
+
+                    $getListOfCoursesList = mysqli_query($conn,"SELECT * FROM courses WHERE isDeleted='0' AND status='0' ORDER BY id DESC");
+                    $getCountOnLstOfDataCoursesList = mysqli_num_rows($getListOfCoursesList);
+
+                    $slNo = 1;
+                    while($row = mysqli_fetch_array($getListOfCoursesList))
+                    {
+                        $course_tab_id_ref = $row['course_tab_id'];
+                        $course_id = $row['course_id'];
+                        $course_name = $row['course_name'];
+                        $status = $row['status'];
+                        $isDeleted = $row['isDeleted'];
+                        $date = $row['date'];
+                        $last_updated = $row['last_updated'];
+
+                        //status show
+                        if($status == 0)
+                        {
+                            $showThisStatus = '<span class="badge badge-success">Active</span>';
+                        }
+                        else
+                        {
+                            $showThisStatus = '<span class="badge badge-danger">InActive</span>';
+                        }
+
+
+                        echo '
+                                <div class="mb-2 col-md-4 col-lg-4 p-2 text-center">
+                                    <div class="card p-2 shadow" style="border:1px solid #E31E26">
+                                        <b class="mt-2 mb-2" style="font-size:18px">'.$course_name.'</b>
+                                        <hr style="margin:0">
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12 text-center mt-2 mb-1">
+                                                <a href="course-details?course_id='.$course_id.'" class="btn btn-primary btn-sm newButtonEffect">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        ';
+                    }
+
+                ?>
+            
                 </div>
 
             </div>
-        </section><!-- End Popular Courses Section -->
+        </section>
+        <!-- End Popular Courses Section -->
+
+        <!-- ======= Popular Courses Section ======= -->
+        <section id="features" class="features">
+            <div class="container" data-aos="fade-up">
+
+                <div class="text-center mt-5">
+                    <h3><b>Our Test Series's</b></h3>
+                </div>
+
+                <div class="row my-auto mt-3 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                <?php 
+
+                    $getListOfTestSeries = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE isDeleted='0' ORDER BY id DESC");
+                    $getCountOnLstOfData = mysqli_num_rows($getListOfTestSeries);
+
+                    $slNo = 1;
+                    while($row = mysqli_fetch_array($getListOfTestSeries))
+                    {
+                        $ts_id = $row['ts_id'];
+                        $course_id = $row['course_id'];
+                        $ts_name = $row['ts_name'];
+                        $ts_price = $row['ts_price'];
+                        $ts_type = $row['ts_type'];
+                        $ts_desc = $row['ts_desc'];
+                        $pass_mark = $row['pass_mark'];
+                        $status = $row['status'];
+                        $isDeleted = $row['isDeleted'];
+                        $last_updated = $row['last_updated'];
+
+                        //check course details in db
+                        $checkCourseDetailsInDB = mysqli_query($conn,"SELECT * FROM course_details WHERE course_id='$course_id'");
+                        while($row = mysqli_fetch_array($checkCourseDetailsInDB))
+                        {
+                            $course_id = $row['course_id'];
+                            $course_name = $row['course_name'];
+                        }
+
+                        //count of schedule now
+                        $getTheCountOfScheduleNowHere = mysqli_query($conn,"SELECT * FROM test_series_schedule WHERE ts_id='$ts_id' AND isDeleted='0'");
+                        $thisIsCountOfListOfAllScedules = mysqli_num_rows($getTheCountOfScheduleNowHere);
+
+                        //status show
+                        if($status == 0)
+                        {
+                            $showThisStatus = '<span class="badge badge-success">Active</span>';
+                        }
+                        else
+                        {
+                            $showThisStatus = '<span class="badge badge-danger">InActive</span>';
+                        }
+
+
+                        echo '
+                                <div class="mb-2 col-md-4 col-lg-4 p-2 text-center">
+                                    <div class="card p-2 shadow" style="border:1px solid #E31E26">
+                                        <b class="mt-2 mb-2" style="font-size:18px">'.$ts_name.'<br> ( '.$course_name.' )</b>
+                                        <hr style="margin:0">
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12 text-center mt-2 mb-1">
+                                            <a href="test-series-enroll-now?tsId='.$ts_id.'" class="btn btn-primary btn-sm newButtonEffect">Enroll Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        ';
+                    }
+
+                ?>
+            
+                </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Popular Courses Section -->
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+        <section id="about" class="about section-bg">
             <div class="container" data-aos="fade-up">
 
                 <div class="row">

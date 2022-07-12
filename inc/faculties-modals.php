@@ -131,3 +131,66 @@
         </div>
     </div>
 </div>
+
+<!-- Dr. NarreddyPrabhanjanReddy Modal -->
+<div class="modal fade" id="NarreddyPrabhanjanReddy" tabindex="-1" role="dialog" aria-labelledby="NarreddyPrabhanjanReddy"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DrMounikaDasari">Narreddy Prabhanjan Reddy ( Btech, LLb, MA PubAd. )</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row my-auto text-center">
+                    <div class="col-md-4 col-lg-4 my-auto">
+                        <img src="photos/prb.jpeg" class="rounded shadow" height="290" width="230">
+                    </div>
+                    <div class="col-md-8 col-lg-8 p-2 my-auto">
+                        <p>
+                        Faculty with over 6 years of experience specialised in History, Society & Economy , who can implement effective strategies at the UPSC and the other State Public service commissions competitive levels. Striving to leverage efficiency in Answer writing and enabling the stream line standards of the board.Attendend Five mains for UPSC and currently working with the AP Government
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dr. DevishankarTumbali Modal -->
+<div class="modal fade" id="DevishankarTumbali" tabindex="-1" role="dialog" aria-labelledby="DevishankarTumbali"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DrMounikaDasari">Devishankar Tumbali ( MA PubAdm, LB, PGDCJ, BTech )</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row my-auto text-center">
+                    <div class="col-md-4 col-lg-4 my-auto">
+                        <img src="photos/devt.jpeg" class="rounded shadow" height="290" width="230">
+                    </div>
+                    <div class="col-md-8 col-lg-8 p-2 my-auto">
+                        <p>
+                        Motivating and talented Civils Services Faculty driven to inspire students to pursue academic and personal excellence. Consistently strive to create a challenging and engaging learning environment in which students become serious aspirants to reach their goal. Being young, energetic, proactive and accessible faculty never get tires of guiding students towards excellence, having an experience of more than 8 years.
+                        </p>
+                        <p>
+                        Civil Services Faculty offering a wealth of talent in the development and implementation of educational technology tools and applications in the classroom. In-depth knowledge of Indian Polity , History and other General Studies papers of UPSC; adept in creative teaching strategies that fully engage students in the learning process. Deeply invested in achieving tenure through administrative service committee contributions and an accomplishment-oriented approach to teaching. I had Attended UPSC Interview consecutively in 2014 year and 2015 year for Agarwal sir Board and BirenderSingh sir Board respectively.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

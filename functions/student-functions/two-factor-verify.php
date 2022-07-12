@@ -36,18 +36,28 @@ if(isset($_POST['proceedTwoFactror']))
 
     if($otp_for_access == $otphere)
     {
+
+        $running_session_key = md5(rand());
+
         //otp verified success
         session_start();
         $_SESSION['student_id'] = $student_id;
         $_SESSION['student_email'] = $student_email;
-        $_SESSION['session_key'] = $session_key;
+        $_SESSION['session_key'] = $running_session_key;
         $_SESSION['student_name'] = $studentNameInDB;
 
         //makelogincount
-        $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1' WHERE student_id='$student_id'");
+        $updateLoginCount = mysqli_query($conn,"UPDATE student_access SET count_login='1', session_key='$running_session_key' WHERE student_id='$student_id'");
 
         //redirect to student dashboard
-        header('location:/student/dashboard');
+        if(isset($_GET['redirectUri']))
+        {
+            header('location:'.$_GET['redirectUri'].'');
+        }
+        else
+        {
+            header('location:./student-main/');
+        }
     }
     else
     {

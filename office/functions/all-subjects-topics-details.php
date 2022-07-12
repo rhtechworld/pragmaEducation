@@ -30,12 +30,24 @@ if(isset($_GET['course_id']) && isset($_GET['subject_id']))
             $isDeleted = $row['isDeleted'];
             $last_updated = $row['last_updated'];
 
+            if($subject_paper == 0)
+            {
+                $subject_paper = '0';
+                $subject_paper_show = 'Direct Access';
+            }
+            else
+            {
+                $subject_paper = $subject_paper;
+                $subject_paper_show = 'Paper-'.$subject_paper.'';
+            }
+
             //getCourseNameFromDbForSubjects
             $getCourseNameFromDbForSubjects = mysqli_query($conn,"SELECT * FROM courses WHERE course_id='$course_id'");
             while($row = mysqli_fetch_array($getCourseNameFromDbForSubjects))
             {
                 $course_name = $row['course_name'];
                 $course_id = $row['course_id'];
+                $course_tab_id = $row['course_tab_id'];
             }
 
             //get count on topics

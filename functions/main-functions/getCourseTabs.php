@@ -4,7 +4,7 @@ include('./config.php');
 
 //get course tabs from db
 
-$sqlGetCourceTabs = mysqli_query($conn,"SELECT * FROM course_tabs WHERE isDeleted='0' ORDER BY id DESC");
+$sqlGetCourceTabs = mysqli_query($conn,"SELECT * FROM course_tabs WHERE isDeleted='0' AND status ='0' ORDER BY id DESC");
 
 $getCountsqlGetCourceTabs = mysqli_num_rows($sqlGetCourceTabs);
 
@@ -27,7 +27,7 @@ else
         $passthisIncrement = $cardIncrement++;
 
         //getlistofcourseshere
-        $getCoursesRelatedCourseTab = mysqli_query($conn,"SELECT * FROM courses WHERE course_tab_id='$course_tab_id' AND isDeleted='0'");
+        $getCoursesRelatedCourseTab = mysqli_query($conn,"SELECT * FROM courses WHERE course_tab_id='$course_tab_id' AND status ='0' AND isDeleted='0'");
         $cntofcourses = mysqli_num_rows($getCoursesRelatedCourseTab);
 
             echo 

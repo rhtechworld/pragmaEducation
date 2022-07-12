@@ -26,13 +26,13 @@
         <div class="w-100 p-3 mt-3">  
             <?php echo $ca_desc; ?>
             <?php 
-            if($ca_link != '' || $ca_link == null) 
+            if($ca_link == '#' || $ca_link == null) 
             { 
-                echo '<br><br><b><a href="'.$ca_link.'" target="_blank" style="color:#E61F26">CLICK HERE TO DOWNLOAD</a></b>'; 
+                echo '';
             }
             else
             {
-                echo '';
+                echo '<br><br><b><a href="'.$ca_link.'" target="_blank" style="color:#E61F26">CLICK HERE TO DOWNLOAD</a></b>'; 
             } 
             ?>
         </div>

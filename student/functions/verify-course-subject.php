@@ -39,6 +39,17 @@ else
             $isDeleted_ForHead = $row['isDeleted'];
             $last_updated_ForHead = $row['last_updated'];
 
+            if($subject_paper_ForHead == 0)
+            {
+                $subject_paper_ForHead = '0';
+                $subject_paper_ForHead_show = 'Direct Access';
+            }
+            else
+            {
+                $subject_paper_ForHead = $subject_paper_ForHead;
+                $subject_paper_ForHead_show = 'P'.$subject_paper_ForHead.'';
+            }
+
             if($subject_type_ForHead == 'Prelims')
             {
                 $prilimsForwardLinkIs = "course-prelims";

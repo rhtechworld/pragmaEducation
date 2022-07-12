@@ -9,7 +9,7 @@ if(empty($course_id_url) && $course_id_url)
 else
 {
     //check coursein db
-    $checkCourseInDb = mysqli_query($conn,"SELECT * FROM course_details WHERE course_id='$course_id_url' AND isDeleted='0'");
+    $checkCourseInDb = mysqli_query($conn,"SELECT * FROM course_details WHERE  course_id='$course_id_url' AND isDeleted='0'");
     $getCuntOfCourseInDb = mysqli_num_rows($checkCourseInDb);
 
     if($getCuntOfCourseInDb == 0)
@@ -48,7 +48,7 @@ else
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
-                            <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                            <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
@@ -65,7 +65,7 @@ else
                     </tr>
                     <tr>
                         <th>
-                        <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                        <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </th>
                         <td>
                         <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$view_schedule_link.'" target="_blank">View Schedule</a>
@@ -86,6 +86,9 @@ else
                     $date = $row['date'];
                     $isDeleted = $row['isDeleted'];
                     $last_updated = $row['last_updated'];
+
+                    $discountAmountNow = $course_price * $offer_at / 100;
+                    $finalPayNowAsperCals = $course_price - $discountAmountNow;
                 }
 
 
@@ -96,16 +99,21 @@ else
 
                         <div class="course-info d-flex justify-content-between align-items-center">
                             <h5>Course Fee</h5>
-                            <p>₹'.$course_price.'</p>
+                            <p>₹'.number_format($course_price,2).'</p>
                         </div>
 
                         <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5>'.$offer_name.'</h5>
-                            <p>'.$offer_at.'%</p>
+                            <h5>'.$offer_name.' ('.$offer_at.'%)</h5>
+                            <p>- ₹'.number_format($discountAmountNow,2).'</p>
+                        </div>
+
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Enroll Course @</h5>
+                            <p><b>₹'.number_format($finalPayNowAsperCals,2).'</b></p>
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
-                            <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                            <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
@@ -119,15 +127,19 @@ else
                 <tbody>
                     <tr>
                         <th scope="row">Course Fee</th>
-                        <td>₹'.$course_price.'</td>
+                        <td>₹'.number_format($course_price,2).'</td>
                     </tr>
                     <tr>
-                        <th scope="row">'.$offer_name.'</th>
-                        <td>'.$offer_at.'%</td>
+                        <th scope="row">'.$offer_name.' ('.$offer_at.'%)</th>
+                        <td>- ₹'.number_format($discountAmountNow,2).'</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Final @ </th>
+                        <td><b>₹'.number_format($finalPayNowAsperCals,2).'</b></td>
                     </tr>
                     <tr>
                         <th>
-                        <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                        <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </th>
                         <td>
                         <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$view_schedule_link.'" target="_blank">View Schedule</a>

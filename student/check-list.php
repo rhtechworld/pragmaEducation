@@ -16,7 +16,7 @@
         <div class="container-fluid px-4 mt-3">
             <h5>Check List : <?php echo $dbCoureseTabName; ?></h5>
             <hr>
-            <div class="row mt-2">
+            <div class="row mt-2 my-auto">
                 <?php include('functions/list-of-courses.php'); ?>
             </div>
         </div>

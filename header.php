@@ -52,20 +52,36 @@ $first_part = $components[1];
           <li><a class="<?php if ($first_part=="videos") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>videos">Videos</a></li>
           <li><a class="<?php if ($first_part=="faculties") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>faculties">Faculties</a></li>
           <li><a class="<?php if ($first_part=="courses") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>courses">Courses</a></li>
-          <li><a class="<?php if ($first_part=="downloads") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>downloads">Downloads</a></li>
-          <li><a class="<?php if ($first_part=="current-affairs") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>current-affairs">Current Affairs</a></li>
-          <li class="dropdown"><a href="#" class="<?php if ($first_part=="about" || $first_part=="why-us") {echo "active"; } else  {echo "notActive";}?>"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" class="<?php if ($first_part=="downloads" || $first_part=="current-affairs") {echo "active"; } else  {echo "notActive";}?>"><span>Resources</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a class="<?php if ($first_part=="about") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>about">About Pragma</a></li>
-              <li><a class="<?php if ($first_part=="why-us") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>why-us">why choose us</a></li>
+              <li><a class="<?php if ($first_part=="downloads") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>downloads">Downloads</a></li>
+              <li><a class="<?php if ($first_part=="current-affairs") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>current-affairs">Current Affairs</a></li>
             </ul>
           </li>
           <li><a class="<?php if ($first_part=="contact") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>contact">Contact</a></li>
-          <li class="dropdown"><a href="#" class="<?php if ($first_part=="login" || $first_part=="register") {echo "active"; } else  {echo "notActive";}?>"><span>Student Access</span> <i class="bi bi-chevron-down"></i></a>
+          <?php
+          session_start();
+          if(isset($_SESSION['student_email']) && isset($_SESSION['student_id']))
+          {
+            ?>
+            <li class="dropdown"><a href="#"><span><u><?php echo $_SESSION['student_name']; ?></u></span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="<?php echo $baseURL; ?>student-main/">Dashboard</a></li>
+              <li><a href="<?php echo $baseURL; ?>student-main/logout">Logout</a></li>
+            </ul>
+            <?php
+          }
+          else
+          {
+            ?>
+            <li class="dropdown"><a href="#" class="<?php if ($first_part=="login" || $first_part=="register") {echo "active"; } else  {echo "notActive";}?>"><span>Student Access</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="<?php if ($first_part=="login") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>login">Login</a></li>
               <li><a class="<?php if ($first_part=="register") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>register">Register</a></li>
             </ul>
+            <?php
+          }
+          ?>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

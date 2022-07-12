@@ -30,7 +30,7 @@ if($checkSubjectTypesgetCountOfDetails == 0)
     <option value="7">Paper - 7</option>
     <option value="8">Paper - 8</option>
     <option value="9">Paper - 9</option>
-    <option value="0">No Paper</option>';
+    <option value="0">No Paper / Direct Access</option>';
     echo '</select>';
 }
 else
@@ -55,7 +55,7 @@ else
     <option value="7">Paper - 7</option>
     <option value="8">Paper - 8</option>
     <option value="9">Paper - 9</option>
-    <option value="0">No Paper</option>';
+    <option value="0">No Paper / Direct Access</option>';
     echo '</select>';
 
 }

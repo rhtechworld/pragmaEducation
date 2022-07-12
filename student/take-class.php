@@ -17,7 +17,7 @@
     <main>
         <div class="container-fluid px-4">
             <h6 class="mt-4">Course Topics : <?php echo $course_name_CourseDashboard; ?></h6>
-            <b><?php echo $assigned_assign_id; ?></b> | <b><a href="course-prelims?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Prelims</a></b> | <b>P<?php echo $subject_paper_ForHead; ?></b> | <b><a href="#" class="js-get-subject-info" id="<?php echo $subject_id_ForHead; ?>" data-subject-id="<?php echo $subject_id_ForHead; ?>" data-subject-name="<?php echo $subject_name_ForHead; ?>"><?php echo $subject_name_ForHead; ?> <i style="font-size:13px" class="fa fa-info-circle"></i></a></b><br>
+            <b><?php echo $assigned_assign_id; ?></b> | <b><a href="course-prelims?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Prelims</a></b> | <b><?php echo $subject_paper_ForHead_show; ?></b> | <b><a href="#" class="js-get-subject-info" id="<?php echo $subject_id_ForHead; ?>" data-subject-id="<?php echo $subject_id_ForHead; ?>" data-subject-name="<?php echo $subject_name_ForHead; ?>"><?php echo $subject_name_ForHead; ?> <i style="font-size:13px" class="fa fa-info-circle"></i></a></b><br>
             <hr>
              <h5>Topic : <a href="#"><b><i><?php echo $topic_name_Topic; ?></i></b></a></h5>
             <div class="accordion mt-3" id="accordionCoursePrelims">
@@ -76,7 +76,8 @@
                             preload="auto"
                             height="auto"
                             poster=""
-                            data-setup="{}"
+                            data-setup="{}" 
+                            style = "width:100%"
                         >
                         <source id="dynamicTopicVideo" src="https://drive.google.com/uc?id=<?php echo $topic_video_Topic; ?>&export=download" type="video/mp4">
                         </video>

@@ -13,7 +13,7 @@ if(empty($dwn_id))
 else
 {
     //check annid in database
-    $searchInDb = mysqli_query($conn,"SELECT * FROM downloads WHERE dwn_id='$dwn_id' AND isDeleted='0'");
+    $searchInDb = mysqli_query($conn,"SELECT * FROM downloads WHERE status='0' AND dwn_id='$dwn_id' AND isDeleted='0'");
     $getCountOfList = mysqli_num_rows($searchInDb);
 
     if($getCountOfList == 0)
@@ -36,7 +36,7 @@ else
     }
 
     //selectfirstrandpost
-    $getRandOnePost = mysqli_query($conn,"SELECT * FROM downloads WHERE isDeleted='0' AND dwn_id<>'$dwn_id' ORDER BY RAND() LIMIT 1");
+    $getRandOnePost = mysqli_query($conn,"SELECT * FROM downloads WHERE status='0' AND isDeleted='0' AND dwn_id<>'$dwn_id' ORDER BY RAND() LIMIT 1");
     while($row = mysqli_fetch_array($getRandOnePost))
         {
             $dwn_id_refOne = $row['dwn_id'];
@@ -48,7 +48,7 @@ else
 
 
         //selectsecondrandpost
-    $getRandTwoPost = mysqli_query($conn,"SELECT * FROM downloads WHERE isDeleted='0' AND dwn_id<>'$dwn_id' ORDER BY RAND() LIMIT 1");
+    $getRandTwoPost = mysqli_query($conn,"SELECT * FROM downloads WHERE status='0' AND isDeleted='0' AND dwn_id<>'$dwn_id' ORDER BY RAND() LIMIT 1");
     while($row = mysqli_fetch_array($getRandTwoPost))
         {
             $dwn_id_refTwo = $row['dwn_id'];

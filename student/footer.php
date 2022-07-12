@@ -3,7 +3,7 @@
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Pragma Education <?php echo date('Y'); ?></div>
                             <div>
-                                <a href="#" data-toggle="modal" data-target="#aboutSoftwareModal"><i class="fa fa-info"></i> About</a>
+                                <a href="#" data-toggle="modal" data-target="#aboutSoftwareModal"><i class="fa fa-info-circle"></i> About</a>
                             </div>
                             <!-- Modal -->
                             <div class="modal fade" id="aboutSoftwareModal" tabindex="-1" role="dialog" aria-labelledby="aboutSoftwareModal" aria-hidden="true">
@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <b>Version :</b>  1.0 ( initial release )<br>
-                                    <b>Software By :</b> <a href="https://ganeshbondla.in/"><i>Ganesh Bondla</i></a>
+                                    <b>Software By :</b> <a href="https://ganeshbondla.in/" target="_blank"><i>Ganesh Bondla</i></a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -58,10 +58,69 @@
 
         <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
         
+        <script>
+            var currentSession = '<?php echo $_SESSION['session_key']; ?>';
+            function makeAcheckOnLoginNow()
+            {
+                $.ajax({
+                    url : 'functions/login-session-verify.php',
+                    type : 'POST',
+                    data : {
+                        'currentSession' : currentSession
+                    },
+                    dataType:'json',
+                    success : function(data) {              
+                        var resultOnCheck = data;
+                        if(resultOnCheck == 0)
+                        {
+                            console.log('single login valid.');
+                            // alert('single login valid');
+                        }
+                        else
+                        {
+                            //redirect to logout
+                            console.log('Single login NOT valid.');
+                           // alert('single login NOT valid');
+                            window.location.href = "../login?singleLogin=false";
+                        }
+                    },
+                    error : function(request,error)
+                    {
+                        //redirect to logout
+                        console.log('Bad Request, Single login NOT valid.'+error);
+                        window.location.href = "../login?singleLogin=false";
+                       // alert('Bad Request, Single login NOT valid');
+                    }
+                });
+            }
+
+            // setInterval(makeAcheckOnLoginNow, 600000);
+             setInterval(makeAcheckOnLoginNow, 50000);
+            
+        </script>
 
         <script src="js/custom.js"></script>
 
-        
+        <script>
+            document.onkeydown = function(e) {
+            if(event.keyCode == 123) {
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            }
+        </script>
+
         <script>
 
             $(document).ready(function() {

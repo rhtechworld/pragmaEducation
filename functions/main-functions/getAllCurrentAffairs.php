@@ -4,7 +4,7 @@ include('./config.php');
 
 //get course tabs from db
 
-$sqlGetCurrentAf = mysqli_query($conn,"SELECT * FROM current_affairs WHERE isDeleted='0' ORDER BY id DESC");
+$sqlGetCurrentAf = mysqli_query($conn,"SELECT * FROM current_affairs WHERE status='0' AND isDeleted='0' ORDER BY id DESC");
 
 $getCountsqlGetCurrentAf = mysqli_num_rows($sqlGetCurrentAf);
 

@@ -22,25 +22,25 @@
                             <div class="card-body">
                                 <form action="" method="POST">
                                     <div class="form-group">
-                                        <label for="course-tab-name"><b>Select Course Tab:</b> </label>
-                                        <select class="form-control" id="course-tab" name="courseTab" onchange="getCourseListOnCourseTab(this.value)" required>
-                                            <option value="">-- Select Course Tab --</option>
+                                        <label for="courseInputSelect"><b>Select Course:</b> </label>
+                                        <select class="form-control" id="courseInputSelect" name="courseInputSelect" onchange="getSubjectBasedOnCourse(this.value);" required>
+                                            <option value="">-- Select Course --</option>
                                             <?php
                                                 //query to run show list drop down of course tabs
-                                                $showDropDownCouseTabs = mysqli_query($conn,"SELECT * FROM course_tabs WHERE isDeleted='0'");
-                                                while($row = mysqli_fetch_array($showDropDownCouseTabs))
+                                                $showDropDownCouseList = mysqli_query($conn,"SELECT * FROM courses WHERE isDeleted='0'");
+                                                while($row = mysqli_fetch_array($showDropDownCouseList))
                                                 {
-                                                    $runningCourseTabId = $row['course_tab_id'];
-                                                    $runningCourseTabName = $row['course_tab_name'];
+                                                    $runningcourse_id = $row['course_id'];
+                                                    $runningcourse_name = $row['course_name'];
                                                     
-                                                    echo '<option value="'.$runningCourseTabId.'">'.$runningCourseTabName.'</option>';
+                                                    echo '<option value="'.$runningcourse_id.'">'.$runningcourse_name.'</option>';
                                                 }
                                             ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         
-                                         <div id="getCoursesByTab"></div>
+                                         <div id="getSubjectsBasedOnCourse"></div>
                                         
                                     </div>
                                     <div class="form-group">
@@ -56,6 +56,7 @@
                                         <button type="submit" name="AddNewCourseSubjects" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Add New Course Subject / Topics</button>
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -63,4 +64,19 @@
                 </main>
                <?php include('inc/modals.php'); ?>
                <?php include('footer.php'); ?>
+
+               <script>
+                    //get Courses List By Courses Tab
+                    function getSubjectBasedOnCourse(courseid)
+                    {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("getSubjectsBasedOnCourse").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "functions/ajax-functions/fetch-course-subjects.php?courseId="+courseid, true);
+                    xhttp.send();
+                    }
+               </script>
                

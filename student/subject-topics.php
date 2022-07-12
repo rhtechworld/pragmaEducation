@@ -16,7 +16,7 @@
     <main>
         <div class="container-fluid px-4">
             <h6 class="mt-4">Course Topics : <?php echo $course_name_CourseDashboard; ?></h6>
-            <b><?php echo $assigned_assign_id; ?></b> | <b><a href="<?php echo $prilimsForwardLinkIs; ?>?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>"><?php echo $subject_type_ForHead; ?></a></b> | <b>P<?php echo $subject_paper_ForHead; ?></b> | <b><a href="#" class="js-get-subject-info" id="<?php echo $subject_id_ForHead; ?>" data-subject-id="<?php echo $subject_id_ForHead; ?>" data-subject-name="<?php echo $subject_name_ForHead; ?>"><?php echo $subject_name_ForHead; ?> <i style="font-size:13px" class="fa fa-info-circle"></i></a></b>
+            <b><?php echo $assigned_assign_id; ?></b> | <b><a href="<?php echo $prilimsForwardLinkIs; ?>?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>"><?php echo $subject_type_ForHead; ?></a></b> | <b><?php echo $subject_paper_ForHead_show; ?></b> | <b><a href="#" class="js-get-subject-info" id="<?php echo $subject_id_ForHead; ?>" data-subject-id="<?php echo $subject_id_ForHead; ?>" data-subject-name="<?php echo $subject_name_ForHead; ?>"><?php echo $subject_name_ForHead; ?> <i style="font-size:13px" class="fa fa-info-circle"></i></a></b>
             <hr>
             <div class="accordion" id="accordionCoursePrelims">
             <div class="row d-flex justify-content-center">

@@ -14,7 +14,7 @@ if(isset($_POST['addAnnDetails']))
 
     if($getcntOnCheck == 0)
     {
-        $newAnnId = "A".rand(100000,999999)."";
+        $newAnnId = "A".rand(100000000,999999999)."";
 
         //insert new Ann
         $insertIntoDb = mysqli_query($conn,"INSERT INTO announcements(ann_id, ann_title, ann_date, ann_by, ann_desc, status, isDeleted, date, last_updated)

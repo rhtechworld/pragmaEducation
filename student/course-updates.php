@@ -18,10 +18,30 @@
             <b><?php echo $assigned_assign_id; ?></b> | <b><a
                     href="course-updates?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Updates</a></b>
             <hr>
+            <?php echo $showInactiveNote; ?>
             <div class="accordion" id="accordionCoursePrelims">
             <div class="row">
-                <?php include('functions/course-updates-access.php'); ?>
+            <?php 
+                    if($CourseThingsAccessOnStatus == '0')
+                    {
+                        ?>
+                            <?php include('functions/course-updates-access.php'); ?>
+                        <?php
+                    }
+                    else
+                    {
+                        //do nothing
+                    }
+                ?>
+                
             </div>
         </div>
     </main>
-    <?php include('footer.php');
+    <?php include('footer.php'); ?>
+    <script>
+    var actionCourseId = '<?php echo $assigned_course_id; ?>';
+    $("#collapseArrow"+actionCourseId).html('<i class="fas fa-angle-down"></i>');
+    $("#Clps"+actionCourseId).addClass("active");
+    $("#updates"+actionCourseId).addClass("active");
+    $("#sidenavAccordionCourse"+actionCourseId).addClass("show");
+    </script>
