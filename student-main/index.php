@@ -28,11 +28,6 @@
                 <?php include('functions/student-dashboard-access-courses.php'); ?>
             </div>
             <hr>
-            <h5>Our Top Courses</h5>
-            <div class="row mt-2">
-                <?php include('functions/dashboard-top-tabs.php'); ?>
-            </div>
-            <hr>
 
         <!-- enrolled courses -->
         <h5>Our Test Series's</h5>

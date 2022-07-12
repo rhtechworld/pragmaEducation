@@ -6,24 +6,24 @@ $assigned_course_subject_tid = mysqli_real_escape_string($conn, $_GET['tid']);
 if(empty($assigned_course_topic_id) && empty($assigned_course_subject_tid))
 {
     echo '<script>alert("Invalid Subject Access, Try again!")</script>';
-    header('location:./?topicAccess=failed');
+    header("Refresh:0; url=./?subjectAccess=failedFromTopic");
 }
 else
 {
     //check course enrollment
-    $verifySubjectTopicsNow_Topic = mysqli_query($conn,"SELECT * FROM subject_topics WHERE topic_id='$assigned_course_topic_id' AND id='$assigned_course_subject_tid' AND isDeleted='0'");
+    $verifySubjectTopicsNow_Topic = mysqli_query($conn,"SELECT * FROM chapter_topics WHERE topic_id='$assigned_course_topic_id' AND id='$assigned_course_subject_tid' AND isDeleted='0'");
     $verifySubjectTopicsNowCount = mysqli_num_rows($verifySubjectTopicsNow_Topic);
 
     if($verifySubjectTopicsNowCount == 0)
     {
-        echo '<script>alert("Invalid Subject Access, Try again!")</script>';
-        header('location:./?subjectAccess=failed');
+        echo '<script>alert("Invalid Subject Access Not Found, Try again!")</script>';
+        header("Refresh:0; url=./?subjectAccess=failedFromTopic");
     }
     else
     {
         //do nothing
         //getSubjectDetailsDb
-        $getSubjectDetailsForHeadFromDb_Topic = mysqli_query($conn,"SELECT * FROM subject_topics WHERE topic_id='$assigned_course_topic_id'");
+        $getSubjectDetailsForHeadFromDb_Topic = mysqli_query($conn,"SELECT * FROM chapter_topics WHERE topic_id='$assigned_course_topic_id'");
         while($row = mysqli_fetch_array($getSubjectDetailsForHeadFromDb_Topic))
         {
 
@@ -39,6 +39,7 @@ else
             $status_Topic = $row['status'];
             $isDeleted_Topic = $row['isDeleted'];
             $last_updated_Topic = $row['last_updated'];
+            
 
         }
     }

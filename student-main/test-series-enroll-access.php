@@ -84,7 +84,21 @@ else
         </div>
 
         <div class="container mb-4">
-        <div class="accordion" id="accordionExample">
+
+            <div class="row my-auto text-center">
+                <div class="col-lg-6 col-md-6 my-auto">
+                    <b class="text-center"><?php echo $ts_assigned_id; ?></b> | <b><a href="#" style="color:#E31E26">Dashboard</a></b>
+                </div>
+                <div class="col-lg-6 col-md-6 text-right my-auto">
+                        <select class="form-control form-control-sm" style="border:1px solid #E31E26" id="ActionOnCourseEnrolled" onchange="takePageActionNow()">
+                            <option value="">-- Action To --</option>
+                            <option value="test-series-enroll-access">Dashboard/Schedules</option>
+                            <option value="test-series-enroll-access-payment">Payment History</option>
+                        </select>
+                </div>
+            </div>
+
+        <div class="accordion mt-3" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
@@ -115,6 +129,7 @@ else
                                         <th>Test Date</th>
                                         <th>Test Day</th>
                                         <th>Attend Test</th>
+                                        <th>Attempts</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -156,13 +171,24 @@ else
 
                                                     $todayIdNow = date('Y-m-d');
 
-                                                    if($todayIdNow >= $sc_test_date)
+                                                    //getAttempCount
+                                                    $getExamAttempCountHereNow = mysqli_query($conn,"SELECT * FROM test_series_attends WHERE ts_id='$ts_id' AND sc_id='$sc_id' AND student_id='$student_id_session' AND status='1' AND isDeleted='0'");
+                                                    $cntOnExamAttempCountHereNow = mysqli_num_rows($getExamAttempCountHereNow);
+
+                                                    if($cntOnExamAttempCountHereNow >= 3)
                                                     {
-                                                        $attendTestActionOnThis = '<a href="test-series-attend-test?scId='.$sc_id.'&tsId='.$ts_id.'&enId='.$ts_assigned_id.'" class="btn btn-sm btn-primary newButtonEffect shadow">Attend Test</a>';
+                                                        $attendTestActionOnThis = '<button class="btn btn-sm newButtonEffect shadow" disabled>Attends Completed</button>';
                                                     }
                                                     else
                                                     {
-                                                        $attendTestActionOnThis = '<button class="btn btn-sm newButtonEffect shadow" disabled>Attend Test</button>';
+                                                        if($todayIdNow >= $sc_test_date)
+                                                        {
+                                                            $attendTestActionOnThis = '<a href="test-series-attend-test?scId='.$sc_id.'&tsId='.$ts_id.'&enId='.$ts_assigned_id.'" class="btn btn-sm btn-primary newButtonEffect shadow">Attend Test</a>';
+                                                        }
+                                                        else
+                                                        {
+                                                            $attendTestActionOnThis = '<button class="btn btn-sm newButtonEffect shadow" disabled>Attend Test</button>';
+                                                        }
                                                     }
 
                                                     echo '
@@ -173,6 +199,7 @@ else
                                                         <td><b>'.date('d-m-Y',strtotime($sc_test_date)).'</b></td>
                                                         <td>'.date('l',strtotime($sc_test_date)).'</td>
                                                         <td>'.$attendTestActionOnThis.'</td>
+                                                        <td>Attended ( <b>'.$cntOnExamAttempCountHereNow.'</b> / 3 )</td>
                                                     </tr>
                                                     ';
                                                 }
@@ -188,6 +215,25 @@ else
     </main><!-- End #main -->
 
     <?php include('footer.php'); ?>
+
+    <script>
+            function takePageActionNow()
+            {
+                var ActionOnCourseEnrolled = document.getElementById('ActionOnCourseEnrolled').value;
+
+               // alert(ActionOnCourseEnrolled);
+
+                if(ActionOnCourseEnrolled == '')
+                {
+                    window.location.replace('test-series-enroll-access?tsId=<?php echo $ts_id; ?>&enId=<?php echo $ts_assigned_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+                else
+                {
+                    window.location.replace(''+ActionOnCourseEnrolled+'?tsId=<?php echo $ts_id; ?>&enId=<?php echo $ts_assigned_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+            }
+    </script>
+
 
     <script>
     $('.collapse').collapse()

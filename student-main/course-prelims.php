@@ -48,6 +48,26 @@
     </main><!-- End #main -->
 
     <?php include('footer.php'); ?>
+
+    <script>
+            function takePageActionNow()
+            {
+                var ActionOnCourseEnrolled = document.getElementById('ActionOnCourseEnrolled').value;
+
+                alert(ActionOnCourseEnrolled);
+
+                if(ActionOnCourseEnrolled == '')
+                {
+                    window.location.replace('course-dashboard?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+                else
+                {
+                    window.location.replace(''+ActionOnCourseEnrolled+'?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+            }
+    </script>
+
+    
     <script>
     var actionCourseId = '<?php echo $assigned_course_id; ?>';
     $("#collapseArrow"+actionCourseId).html('<i class="fas fa-angle-down"></i>');

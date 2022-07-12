@@ -12,18 +12,18 @@ date_default_timezone_set('Asia/Kolkata'); //indian time
 $todayDate = date('d-m-Y'); // 04-05-2022
 $timeNow = date('h:i:s'); // 12:16:00
 $timeDiv = date('A'); // AM or PM
-$lastUpdated = date('d-m-Y, h:i A');
+$lastUpdated = date('d-m-Y h:i A');
 //database Config
 $conn = mysqli_connect('localhost','root','','pragma_education');
 
 //project setups
-$mainContactNumberOne = "+91 1234567891";
-$mainContactNumberTwo = "+91 1234567891";
-$mainContactNumberOnLink = "911234567891";
+$mainContactNumberOne = "+91 7896747985";
+$mainContactNumberTwo = "+91 9491002123";
+$mainContactNumberOnLink = "917896747985";
 
-$mainContactEmail = "123@somthing.com";
+$mainContactEmail = "pragmaeducation2022@gmail.com";
 
-$mainContactLocation = "Hyderabad, Madhapur";
+$mainContactLocation = "Reg. Uppal, Hyderabad, Telangana";
 
 $mainContactLocationMap = '
 <div class="mt-5" data-aos="fade-up">

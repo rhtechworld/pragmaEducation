@@ -1,5 +1,5 @@
 <?php
-
+ 
 $assigned_course_id = mysqli_real_escape_string($conn, $_GET['course_id']);
 $assigned_assign_id = mysqli_real_escape_string($conn, $_GET['assign_id']);
 

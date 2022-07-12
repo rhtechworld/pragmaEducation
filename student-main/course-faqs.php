@@ -22,9 +22,21 @@
         </div>
 
         <div class="container mb-4">
-   
-        <b><?php echo $assigned_assign_id; ?></b> | <b><a
-                    href="course-faqs?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">FAQs</a></b>
+        <div class="row my-auto text-center">
+                <div class="col-lg-6 col-md-6 my-auto">
+                    <b class="text-center"><?php echo $assigned_assign_id; ?></b> | <b><a href="course-faqs?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>" style="color:#E31E26">Course FAQ's</a></b>
+                </div>
+                <div class="col-lg-6 col-md-6 text-right my-auto">
+                        <select class="form-control form-control-sm" style="border:1px solid #E31E26" id="ActionOnCourseEnrolled" onchange="takePageActionNow()">
+                            <option value="">-- Action To --</option>
+                            <option value="course-dashboard">Dashboard</option>
+                            <option value="course-classes">Course Classes</option>
+                            <option value="course-updates">Course Updates</option>
+                            <option value="course-faqs">Course Faq's</option>
+                            <option value="course-payment">Payment History</option>
+                        </select>
+                </div>
+            </div>
                     <hr>
                     <?php echo $showInactiveNote; ?>
                     <div class="accordion" id="accordionCoursePrelims">
@@ -49,6 +61,25 @@
     </main><!-- End #main -->
 
     <?php include('footer.php'); ?>
+
+    <script>
+            function takePageActionNow()
+            {
+                var ActionOnCourseEnrolled = document.getElementById('ActionOnCourseEnrolled').value;
+
+              //  alert(ActionOnCourseEnrolled);
+
+                if(ActionOnCourseEnrolled == '')
+                {
+                    window.location.replace('course-dashboard?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+                else
+                {
+                    window.location.replace(''+ActionOnCourseEnrolled+'?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+            }
+    </script>
+
     <script>
     var actionCourseId = '<?php echo $assigned_course_id; ?>';
     $("#collapseArrow"+actionCourseId).html('<i class="fas fa-angle-down"></i>');

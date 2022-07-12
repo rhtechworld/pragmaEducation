@@ -22,29 +22,29 @@
         </div>
 
         <div class="container mb-4">
-        <b class="text-center"><?php echo $assigned_assign_id; ?></b> | <b><a href="course-dashboard?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Dashboard</a></b>
+            <div class="row my-auto text-center">
+                <div class="col-lg-6 col-md-6 my-auto">
+                    <b class="text-center"><?php echo $assigned_assign_id; ?></b> | <b><a href="course-dashboard?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>" style="color:#E31E26">Dashboard</a></b>
+                </div>
+                <div class="col-lg-6 col-md-6 text-right my-auto">
+                        <select class="form-control form-control-sm" style="border:1px solid #E31E26" id="ActionOnCourseEnrolled" onchange="takePageActionNow()">
+                            <option value="">-- Action To --</option>
+                            <option value="course-dashboard">Dashboard</option>
+                            <option value="course-classes">Course Classes</option>
+                            <option value="course-updates">Course Updates</option>
+                            <option value="course-faqs">Course Faq's</option>
+                            <option value="course-payment">Payment History</option>
+                        </select>
+                </div>
+            </div>
         <hr>
         <?php echo $showInactiveNote; ?>
             <?php 
                     if($CourseThingsAccessOnStatus == '0')
                     {
                         ?>
-                            <div class="row mt-2 text-center my-auto border">
-                                <div class="col-md-4 col-lg-4 p-2 my-auto">
-                                <table class="table text-left">
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row"><b>Prelims <i class="fa fa-arrow-circle-right"></i></th>
-                                        <td><b><?php echo $countgetCountOfPrimlisFromDataBase; ?></b></td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row"><b>Mains <i class="fa fa-arrow-circle-right"></i></th>
-                                        <td><b><?php echo $countgetCountOfMainsFromDataBase; ?></b></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                </div>                              
-                                <div class="col-md-8 col-lg-8 p-2 text-center my-auto">
+                            <div class="row mt-2 text-center my-auto border">                      
+                                <div class="col-md-12 col-lg-12 p-2 text-center my-auto">
                                     <b>Advertisement</b>
                                 </div>
                             </div>
@@ -65,6 +65,24 @@
     </main><!-- End #main -->
 
     <?php include('footer.php'); ?>
+
+    <script>
+            function takePageActionNow()
+            {
+                var ActionOnCourseEnrolled = document.getElementById('ActionOnCourseEnrolled').value;
+
+               // alert(ActionOnCourseEnrolled);
+
+                if(ActionOnCourseEnrolled == '')
+                {
+                    window.location.replace('course-dashboard?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+                else
+                {
+                    window.location.replace(''+ActionOnCourseEnrolled+'?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+            }
+    </script>
 
     <script>
     var actionCourseId = '<?php echo $assigned_course_id; ?>';

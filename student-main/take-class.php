@@ -2,8 +2,56 @@
 <?php include('../config.php'); ?>
 <?php include('functions/verify-session.php'); ?>
 <?php include('functions/verify-course-enrollment.php'); ?>
-<?php include('functions/verify-course-subject.php'); ?>
+<?php include('functions/verify-course-subject.php'); ?> 
 <?php include('functions/verify-subject-topic.php'); ?>
+<?php
+
+$chapter_id_get = mysqli_real_escape_string($conn, $_GET['chapter_id']);
+
+//chapters
+$checkCourseTabandCourseSubjectChapters = mysqli_query($conn,"SELECT * FROM subject_chapters WHERE chapter_id='$chapter_id_get' AND isDeleted='0'");
+$getCntOnCheckSubjectChapters = mysqli_num_rows($checkCourseTabandCourseSubjectChapters);
+
+if($getCntOnCheckSubjectChapters == 0)
+{
+    echo '<script>alert("Internal Server Error, Try again!")</script>';
+    header("Refresh:0; url=course-classes?course_id=".$assigned_course_id."&assign_id=".$assigned_assign_id."&msg=ChapterIdNotFound");
+}
+else
+{
+    while($row = mysqli_fetch_array($checkCourseTabandCourseSubjectChapters))
+    {
+        $chapter_id_in_db = $row['chapter_id'];
+        $subject_id_in_db = $row['subject_id'];
+        $chapter_name_in_db = $row['chapter_name'];
+        $date_in_db = $row['date'];
+        $status_in_db = $row['status'];
+        $isDeleted_in_db = $row['isDeleted'];
+        $last_updated_in_db = $row['last_updated'];
+    }
+
+}
+
+
+//check CourseId
+$checkCourseIdValable = mysqli_query($conn,"SELECT * FROM courses WHERE course_id='$course_id_ForHead' AND isDeleted='0'");
+$makeCOuntOnCourses = mysqli_num_rows($checkCourseIdValable);
+
+if($makeCOuntOnCourses == 0)
+{
+    echo '<script>alert("Internal Server Error, Try again!")</script>';
+    header("Refresh:0; url=course-classes?course_id=".$assigned_course_id."&assign_id=".$assigned_assign_id."&msg=CourseIdNotFound");
+}
+else
+{
+    while($row = mysqli_fetch_array($checkCourseIdValable))
+    {
+        $course_id_in_db = $row['course_id'];
+        $course_name_in_db = $row['course_name'];
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,11 +68,27 @@
     <main id="main">
 
         <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
-            <h4 style="font-size:20px"><span>Course Topics :</span> <?php echo $course_name_CourseDashboard; ?></h4>
+            <h4 style="font-size:20px"><span>Topic :</span> <?php echo $topic_name_Topic; ?></h4>
         </div>
 
         <div class="container mb-4">
-        <b><?php echo $assigned_assign_id; ?></b> | <b><a href="course-prelims?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>">Prelims</a></b> | <b><?php echo $subject_paper_ForHead_show; ?></b> | <b><a href="#" class="js-get-subject-info" id="<?php echo $subject_id_ForHead; ?>" data-subject-id="<?php echo $subject_id_ForHead; ?>" data-subject-name="<?php echo $subject_name_ForHead; ?>"><?php echo $subject_name_ForHead; ?> <i style="font-size:13px" class="fa fa-info-circle"></i></a></b><br>
+        <div class="row my-auto text-center">
+                <div class="col-lg-6 col-md-6 my-auto">
+                    <b class="text-center"><?php echo $assigned_assign_id; ?></b> | <b><a href="course-classes?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>" style="color:#E31E26">Course Classes</a></b>
+                </div>
+                <div class="col-lg-6 col-md-6 text-right my-auto">
+                        <select class="form-control form-control-sm" style="border:1px solid #E31E26" id="ActionOnCourseEnrolled" onchange="takePageActionNow()">
+                            <option value="">-- Action To --</option>
+                            <option value="course-dashboard">Dashboard</option>
+                            <option value="course-classes">Course Classes</option>
+                            <option value="course-updates">Course Updates</option>
+                            <option value="course-faqs">Course Faq's</option>
+                            <option value="course-payment">Payment History</option>
+                        </select>
+                </div>
+            </div>
+            <hr>
+        <b><?php echo $assigned_assign_id; ?></b> | <b><?php echo $course_name_in_db; ?></b> / <b><?php echo $subject_name_ForHead; ?></b> / <b><?php echo $chapter_name_in_db; ?></b> / <b><?php echo $topic_name_Topic; ?></b><br>
             <hr>
              <h5>Topic : <a href="#"><b><i><?php echo $topic_name_Topic; ?></i></b></a></h5>
             <div class="accordion mt-3" id="accordionCoursePrelims">
@@ -126,6 +190,24 @@
 
 
     <?php include('footer.php'); ?>
+
+    <script>
+            function takePageActionNow()
+            {
+                var ActionOnCourseEnrolled = document.getElementById('ActionOnCourseEnrolled').value;
+
+               // alert(ActionOnCourseEnrolled);
+
+                if(ActionOnCourseEnrolled == '')
+                {
+                    window.location.replace('course-dashboard?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+                else
+                {
+                    window.location.replace(''+ActionOnCourseEnrolled+'?course_id=<?php echo $assigned_course_id; ?>&assign_id=<?php echo $assigned_assign_id; ?>&verifyenrolled=true&accessCourse=true');
+                }
+            }
+    </script>
 
     <script>
     $('.collapse').collapse()

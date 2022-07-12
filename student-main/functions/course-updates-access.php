@@ -27,7 +27,7 @@
 
                         echo '
                         <div class="col-md-12 col-lg-12">
-                        <div class="card mb-3 rounded" style="border:1px solid black">
+                        <div class="card mb-3 rounded" style="border:1px solid #E31E26">
                             <div class="card-header" id="headingOne'.$update_id_OnUpdates.'">
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'.$update_id_OnUpdates.'" aria-expanded="true" aria-controls="collapse'.$update_id_OnUpdates.'">

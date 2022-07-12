@@ -54,7 +54,7 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tablet"></i></div>
                                 Course Tabs
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -64,7 +64,7 @@
                                     <a class="nav-link <?php if ($first_part=="course-tabs") {echo "active"; } else  {echo "notActive";}?>" href="course-tabs">Courses Tabs</a>
                                     <a class="nav-link <?php if ($first_part=="add-new-courseTab") {echo "active"; } else  {echo "notActive";}?>" href="add-new-courseTab">Add New Course Tab</a>
                                 </nav>
-                            </div>
+                            </div> -->
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsOne" aria-expanded="false" aria-controls="collapseLayoutsOne">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -80,12 +80,14 @@
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsSeven" aria-expanded="false" aria-controls="collapseLayoutsSeven">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Courses & Updates
+                                Courses Main Controls
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse <?php if ($first_part=="course-subjects" || $first_part=="course-updates-actions") {echo "show active"; } else  {echo "notActive";}?>" id="collapseLayoutsSeven" aria-labelledby="headingSeven" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse <?php if ($first_part=="menu-subjects-list" || $first_part=="menu-chapters-list" || $first_part=="menu-topics-list" || $first_part=="course-updates-actions") {echo "show active"; } else  {echo "notActive";}?>" id="collapseLayoutsSeven" aria-labelledby="headingSeven" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link <?php if ($first_part=="course-subjects") {echo "active"; } else  {echo "notActive";}?>" href="course-subjects">Course -> Subjects</a>
+                                    <a class="nav-link <?php if ($first_part=="menu-subjects-list") {echo "active"; } else  {echo "notActive";}?>" href="menu-subjects-list">All Subjects</a>
+                                    <a class="nav-link <?php if ($first_part=="menu-chapters-list") {echo "active"; } else  {echo "notActive";}?>" href="menu-chapters-list">All Chapters</a>
+                                    <a class="nav-link <?php if ($first_part=="menu-topics-list") {echo "active"; } else  {echo "notActive";}?>" href="menu-topics-list">All Topics</a>
                                     <a class="nav-link <?php if ($first_part=="course-updates-actions") {echo "active"; } else  {echo "notActive";}?>" href="course-updates-actions">Course Updates</a>
                                 </nav>
                             </div>

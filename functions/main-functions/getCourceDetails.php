@@ -48,7 +48,7 @@ else
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
-                            <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                            <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
@@ -65,7 +65,7 @@ else
                     </tr>
                     <tr>
                         <th>
-                        <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                        <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </th>
                         <td>
                         <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$view_schedule_link.'" target="_blank">View Schedule</a>
@@ -113,7 +113,7 @@ else
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
-                            <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                            <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </div>
 
                         <div class="course-info d-flex justify-content-center">
@@ -139,7 +139,7 @@ else
                     </tr>
                     <tr>
                         <th>
-                        <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$baseURL.'login?action=subscribe&id='.$course_id.'">Subscribe Now</a>
+                        <a class="btn btn-primary newButtonEffect" style="color:white" href="student-main/enroll-course?cid='.$course_id.'">Subscribe Now</a>
                         </th>
                         <td>
                         <a class="btn btn-primary newButtonEffect" style="color:white" href="'.$view_schedule_link.'" target="_blank">View Schedule</a>

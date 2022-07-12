@@ -34,7 +34,7 @@
                                                 <th>TS.Title</th>
                                                 <th>TS.Course</th>
                                                 <th>TS.Price</th>
-                                                <th>TS.Schedule's</th>
+                                                <th>TS.Test's</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -88,7 +88,7 @@
                                                         <td>'.$ts_name.'</td>
                                                         <td><b>'.$course_name.'</b></td>
                                                         <td>₹'.number_format($ts_price,2).'</td>
-                                                        <td><a href="test-series-schedule?ts_id='.$ts_id.'"><b>Test Scheduled ( '.$thisIsCountOfListOfAllScedules.' )</b></a></td>
+                                                        <td><a href="test-series-schedule?ts_id='.$ts_id.'"><b>Tests ( '.$thisIsCountOfListOfAllScedules.' )</b></a></td>
                                                         <td>'.$showThisStatus.'</td>
                                                         <td><a href="test-series-list-actions?ts_id='.$ts_id.'&courseId='.$course_id.'&action=edit" data-action-id="'.$ts_id.'"><i class="fa fa-edit"></i></a> <a href="test-series-list-actions?ts_id='.$ts_id.'&courseId='.$course_id.'&action=delete" id="D'.$ts_id.'" data-action-id="'.$ts_id.'"><i class="pl-3 fa fa-trash"></i></a></td>
                                                     </tr>

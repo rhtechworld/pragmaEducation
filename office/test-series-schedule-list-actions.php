@@ -67,7 +67,7 @@ if(isset($_GET['sc_id']) && isset($_GET['ts_id']) && isset($_GET['action']))
                 $sc_test_name_db = $row['sc_test_name'];
                 $sc_test_type_db = $row['sc_test_type'];
                 $sc_test_date_db = $row['sc_test_date'];
-                $status_db = $row['status'];
+                $status_db = $row['status']; 
                 $isDeleted_db = $row['isDeleted'];
                 $last_updated_db = $row['last_updated'];
             }
@@ -118,6 +118,7 @@ else
                             </div>
                             <div class="card-body">
                                 <form action="" method="POST">
+                                    <input type="hidden" name="testSeriesSyncIdInDb" value="<?php echo $ts_id_db; ?>">
                                     <div class="form-group">
                                         <label for="testSeriesSceduleStatus"><b>Test Series Schedule Status :</b> </label>
                                         <select class="form-control" id="testSeriesSceduleStatus" name="testSeriesSceduleStatus" required <?php echo $pageInputActionsShow; ?>>

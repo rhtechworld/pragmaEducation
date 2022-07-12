@@ -26,8 +26,7 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                 <img src="<?php echo $baseURL; ?>assets/new-img/Pragma-Education-Web.png" width="170" height="60">
                     <p class="mt-2">
-                        Madhapur <br>
-                        Hyderabad, 500081<br>
+                    Reg. Uppal, Hyderabad,<br> Telangana <br>
                         India <br><br>
                         <strong>Phone:</strong> <a class="basecolor" href="tel:<?php echo $mainContactNumberOnLink; ?>"><?php echo $mainContactNumberOne; ?></a><br>
                         <strong>Email:</strong> <a class="basecolor" href="mailto:<?php echo $mainContactEmail; ?>"><?php echo $mainContactEmail; ?></a><br>

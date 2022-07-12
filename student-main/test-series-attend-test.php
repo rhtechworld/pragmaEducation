@@ -43,6 +43,20 @@ if(isset($_GET['tsId']) && isset($_GET['enId']))
             $isDeleted = $row['isDeleted'];
             $last_updated = $row['last_updated'];
 
+
+            //getAttempCount
+            $getExamAttempCountHereNow = mysqli_query($conn,"SELECT * FROM test_series_attends WHERE ts_id='$ts_id' AND sc_id='$sc_id' AND student_id='$student_id_session' AND status='1' AND isDeleted='0'");
+            $cntOnExamAttempCountHereNow = mysqli_num_rows($getExamAttempCountHereNow);
+            if($cntOnExamAttempCountHereNow >= 3)
+            {
+                echo '<script>alert("Attempts Completed!")</script>';
+                header("Refresh:0; url=test-series-enroll-access?tsId=".$ts_id."&enId=".$ts_enrollId."&msg=TestAttemptsCompleted");
+            }
+            else
+            {
+                $cntOnExamAttempCountHereNow = $cntOnExamAttempCountHereNow + 1;
+            }
+
             //getNumberOfQuestionsNow 
             $getNumberOfQuestionsNow = mysqli_query($conn,"SELECT * FROM test_series_qtns WHERE ts_id='$ts_id' AND sc_id='$sc_id' AND isDeleted='0'");
             $getNumberOfCountgetNumberOfQuestionsNow = mysqli_num_rows($getNumberOfQuestionsNow);
@@ -58,6 +72,9 @@ if(isset($_GET['tsId']) && isset($_GET['enId']))
         }
     }
 
+    date_default_timezone_set('Asia/Kolkata');
+    $today = date('d-m-Y');
+
     //insertdataOnAttends
     $sqlForInsertDataInAttends = mysqli_query($conn,"SELECT * FROM test_series_attends WHERE test_session_id='$examSessionIdIs' AND ts_id='$ts_id' AND sc_id='$sc_id' AND student_id='$student_id_session' AND isDeleted='0'");
     $takeCountOnThisResults = mysqli_num_rows($sqlForInsertDataInAttends);
@@ -66,8 +83,8 @@ if(isset($_GET['tsId']) && isset($_GET['enId']))
 
     if($takeCountOnThisResults == 0)
     {
-        $insertNowFromHere = mysqli_query($conn,"INSERT INTO test_series_attends(test_session_id,ts_id, sc_id, student_id, student_email, total_qtns, result, status, isDeleted, date, last_updated)
-        VALUES('$examSessionIdIs','$ts_id','$sc_id','$student_id_session','$student_email_session','$numberOfQuestions','0','0','0','$lastUpdated','$lastUpdated')");
+        $insertNowFromHere = mysqli_query($conn,"INSERT INTO test_series_attends(test_session_id,ts_id, sc_id, student_id, student_email, total_qtns, result, status, isDeleted, date, start_time, last_updated)
+        VALUES('$examSessionIdIs','$ts_id','$sc_id','$student_id_session','$student_email_session','$numberOfQuestions','0','0','0','$today','$lastUpdated','$lastUpdated')");
     }
     else
     {
@@ -151,7 +168,7 @@ else
 
         <div class="container mb-4">
             <div  data-spy="affix" data-offset-top="50">
-                <p><b><?php echo $sc_test_name; ?></b> <b>|</b> No. Of Questions : <b><?php echo $numberOfQuestions; ?></b> <b>|</b> Date : <b><?php echo date('d-m-Y',strtotime($sc_test_date)); ?> (<?php echo date('l',strtotime($sc_test_date)); ?>)</b></p>
+                <p><b><?php echo $sc_test_name; ?></b> <b>&nbsp;|&nbsp;</b> No. Of Questions : <b><?php echo $numberOfQuestions; ?></b> <b>&nbsp;|&nbsp;</b> Test Attempt : <b><?php echo $cntOnExamAttempCountHereNow; ?></b> / 3 <b>&nbsp;|&nbsp;</b> Date : <b><?php echo date('d-m-Y',strtotime($sc_test_date)); ?> (<?php echo date('l',strtotime($sc_test_date)); ?>)</b></p>
                 <hr>
             </div>
             

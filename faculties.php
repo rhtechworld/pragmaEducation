@@ -39,10 +39,10 @@
                 <div class="row my-auto d-flex justify-content-center">
                     <div class="col-md-12 col-lg-12 p-4 border rounded">
                         <div class="row d-flex justify-content-center">
-                            <div class="col-md-3 col-lg-3 p-3 text-center">
+                            <div class="col-md-3 col-lg-3 mb-2 p-3 text-center">
                                 <img src="photos/nb.png" class="rounded shadow" height="230" width="230">
                                 <h5 class="mt-2"><b>Narasimha Bhoopati</b></h5>
-                                <p><b>Faculty</b> | <a href="#" data-toggle="modal" data-target="#NarasimhaBhoopati" style="color:#E61F26;font-size:13px">View Details</a></p>
+                                <p><b>Honorary Faculty</b> | <a href="#" data-toggle="modal" data-target="#NarasimhaBhoopati" style="color:#E61F26;font-size:13px">View Details</a></p>
                             </div>
                             <div class="col-md-3 col-lg-3 p-3 text-center">
                                 <img src="photos/vk.png" class="rounded shadow" height="230" width="230">
@@ -53,6 +53,16 @@
                                 <img src="photos/dm.jpeg" class="rounded shadow" height="230" width="230">
                                 <h5 class="mt-2"><b>Dr. Mounika Dasari</b></h5>
                                 <p><b>Faculty</b> | <a href="#" data-toggle="modal" data-target="#DrMounikaDasari" style="color:#E61F26;font-size:13px">View Details</a></p>
+                            </div>
+                            <div class="col-md-3 col-lg-3 p-3 text-center">
+                                <img src="photos/prb.jpeg" class="rounded shadow" height="230" width="230">
+                                <h5 class="mt-2"><b>Narreddy Prabhanjan Reddy</b></h5>
+                                <p><b>Faculty</b> | <a href="#" data-toggle="modal" data-target="#NarreddyPrabhanjanReddy" style="color:#E61F26;font-size:13px">View Details</a></p>
+                            </div>
+                            <div class="col-md-3 col-lg-3 p-3 text-center">
+                                <img src="photos/devt.jpeg" class="rounded shadow" height="230" width="230">
+                                <h5 class="mt-2"><b>Devishankar Tumbali</b></h5>
+                                <p><b>Faculty</b> | <a href="#" data-toggle="modal" data-target="#DevishankarTumbali" style="color:#E61F26;font-size:13px">View Details</a></p>
                             </div>
                         </div>
                     </div>

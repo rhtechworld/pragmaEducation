@@ -7,9 +7,10 @@ if(isset($_POST['addtestSeriesScheduleDetails']))
     $testSeriesScheduleName = mysqli_real_escape_string($conn, $_POST['testSeriesScheduleName']);
     $testSeriesScheduleType = mysqli_real_escape_string($conn, $_POST['testSeriesScheduleType']);
     $testSeriesScheduleDate = mysqli_real_escape_string($conn, $_POST['testSeriesScheduleDate']);
+    $testSeriesSyncIdInDb = mysqli_real_escape_string($conn, $_POST['testSeriesSyncIdInDb']);
 
-    //check existing one
-    $checkBeforeInsertNew = mysqli_query($conn,"SELECT * FROM test_series_schedule WHERE ts_id='$ts_id_db' AND sc_test_name='$testSeriesScheduleName' AND isDeleted='0'");
+    //check existing one 
+    $checkBeforeInsertNew = mysqli_query($conn,"SELECT * FROM test_series_schedule WHERE ts_id='$testSeriesSyncIdInDb' AND sc_test_name='$testSeriesScheduleName' AND isDeleted='0'");
     $getCountOnInsertNewBefore = mysqli_num_rows($checkBeforeInsertNew);
 
     if($getCountOnInsertNewBefore != 0)

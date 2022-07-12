@@ -30,6 +30,11 @@ if(isset($_GET['testId']))
             $start_date = $row['date'];
             $end_date = $row['last_updated'];
 
+            //getAttempCount
+            $getExamAttempCountHereNow = mysqli_query($conn,"SELECT * FROM test_series_attends WHERE ts_id='$ts_id' AND sc_id='$sc_id' AND student_id='$student_id_session' AND status='1' AND isDeleted='0'");
+            $cntOnExamAttempCountHereNow = mysqli_num_rows($getExamAttempCountHereNow);
+            $cntOnExamAttempCountHereNow = $cntOnExamAttempCountHereNow;
+
 
             $getListOfTestSeries = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE ts_id='$ts_id' AND isDeleted='0'");
             $getCountOnLstOfData = mysqli_num_rows($getListOfTestSeries);
@@ -118,7 +123,7 @@ else
 
         <div class="container mb-4">
             <div  data-spy="affix" data-offset-top="50">
-                <p><b><?php echo $sc_test_name; ?></b> <b>|</b> No. Of Questions : <b><?php echo $numberOfQuestions; ?></b> <b>|</b> Date : <b><?php echo date('d-m-Y',strtotime($sc_test_date)); ?> (<?php echo date('l',strtotime($sc_test_date)); ?>)</b></p>
+                <p><b><?php echo $sc_test_name; ?></b> <b>&nbsp;|&nbsp;</b> No. Of Questions : <b><?php echo $numberOfQuestions; ?></b> <b>&nbsp;|&nbsp;</b> Test Attempt : <b><?php echo $cntOnExamAttempCountHereNow; ?></b> / 3 <b>&nbsp;|&nbsp;</b> Date : <b><?php echo date('d-m-Y',strtotime($sc_test_date)); ?> (<?php echo date('l',strtotime($sc_test_date)); ?>)</b></p>
                 <hr>
                 <div class="row">
                     <div class="col-md-6 col-lg-6 p-3 border">
@@ -133,8 +138,12 @@ else
                         </div>
                         <a href="test-series" class="btn btn-primary newButtonEffect"> Retake Test Again! </a>
                     </div>
-                    <div class="col-md-6 col-lg-6 p-3 border">
-
+                    <div class="col-md-6 col-lg-6 p-3 border my-auto">
+                        <div class="text-center my-auto">
+                            <h4><b>Your Score : <b class="text-success" style="font-size:26px"><?php echo $result; ?></b></b></h4>
+                            <hr>
+                            <a target="_blank" href="test-series-liveScoreAnswerKeyView?examSessionId=<?php echo $test_session_id; ?>" class="btn btn-primary newButtonEffect">View/Download Live Score Answer Key</a>
+                        </div>
                     </div>
                 </div>
             </div>

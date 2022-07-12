@@ -58,18 +58,18 @@ else
         <?php include('header.php'); ?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h3 class="mt-4">Test Series Schedule</h3>
+                        <h3 class="mt-4">Test Series Test's</h3>
                         <?php include('functions/announcement-actions.php'); ?>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
                             <li class="breadcrumb-item active"><a href="test-series-list">Test Series List</a></li>
                             <li class="breadcrumb-item active"><b><?php echo $ts_name; ?> ( <?php echo $course_name; ?> )</b></li>
-                            <li class="breadcrumb-item active"><a href="test-series-schedule-list-actions?sc_id=<?php echo rand(100000,999999); ?>&ts_id=<?php echo $ts_id; ?>&action=add"><b><i class="fa fa-plus"></i> Add New Schedule</a></b></li>
+                            <li class="breadcrumb-item active"><a href="test-series-schedule-list-actions?sc_id=<?php echo rand(100000,999999); ?>&ts_id=<?php echo $ts_id; ?>&action=add"><b><i class="fa fa-plus"></i> Add New Test</a></b></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                List of all Schedule : <b><?php echo $ts_name; ?> ( <?php echo $course_name; ?> )</b>
+                                List of all Tests : <b><?php echo $ts_name; ?> ( <?php echo $course_name; ?> )</b>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

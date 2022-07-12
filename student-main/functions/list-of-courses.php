@@ -117,7 +117,7 @@
                             }
 
                             $giveAccessToEnrollCourse = '
-                            <a class="btn btn-success btn-sm" name="actionAccessCourse" href="course-dashboard?course_id='.$course_id.'&assign_id='.$assign_id.'&verifyenrolled=true&accessCourse=true">Access Course</a>
+                            <a class="btn btn-success btn-sm newButtonEffect" name="actionAccessCourse" href="course-dashboard?course_id='.$course_id.'&assign_id='.$assign_id.'&verifyenrolled=true&accessCourse=true">Access Course</a>
                             ';
                         }
 
