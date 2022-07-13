@@ -38,9 +38,9 @@
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>">Home</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>about">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>courses">Courses</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>why-us">Why choose us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>contact">Contact</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>terms-conditions">Terms and Conditions</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>privacy-policy">Privacy Policy</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>return-refund-policy">Return and Refund Policy</a></li>
                     </ul>
                 </div>
 
@@ -51,7 +51,7 @@
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>videos">Videos</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>downloads">Downloads</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>current-affairs">Current Affairs</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>faculties">Faculties</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>contact">Contact Us</a></li>
                     </ul>
                 </div>
 
