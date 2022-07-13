@@ -36,7 +36,7 @@
                                     <div class="form-group">
                                         <label for="course-tab"><b>Select Course Tab :</b> </label>
                                         <select class="form-control" id="course-tab" name="courseTab" required>
-                                            <option value="">-- Select Course Tab --</option>
+                                            <option value="NA">-- No Course Tab --</option>
                                             <?php
                                                 //query to run show list drop down of course tabs
                                                 $showDropDownCouseTabs = mysqli_query($conn,"SELECT * FROM course_tabs WHERE isDeleted='0'");

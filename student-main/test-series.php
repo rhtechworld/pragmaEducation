@@ -24,7 +24,7 @@
         <div class="row mt-2">
                 <?php 
 
-                    $getListOfTestSeries = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE isDeleted='0' ORDER BY id DESC");
+                    $getListOfTestSeries = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE isDeleted='0' AND status='0' ORDER BY id DESC");
                     $getCountOnLstOfData = mysqli_num_rows($getListOfTestSeries);
 
                     $slNo = 1;

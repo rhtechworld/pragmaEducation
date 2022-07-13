@@ -132,38 +132,7 @@ else
                                     <div class="form-group">
                                         <label for="testSeriesCourse"><b>Select Test Series Course:</b> </label>
                                         <select class="form-control" id="testSeriesCourse" name="testSeriesCourse" required <?php echo $pageInputActionsShow; ?>>
-                                            <option value="">-- Select Course --</option>
-                                            <?php
-
-                                                $checkCoursesByTabInDB = mysqli_query($conn,"SELECT * FROM courses WHERE isDeleted='0' ORDER BY id DESC");
-                                                while($row = mysqli_fetch_array($checkCoursesByTabInDB))
-                                                {
-                                                    $course_tab_id = $row['course_tab_id'];
-                                                    $course_id = $row['course_id'];
-                                                    $course_name = $row['course_name'];
-                                                    $status = $row['status'];
-                                                    $isDeleted = $row['isDeleted'];
-                                                    $date = $row['date'];
-                                                    $last_updated = $row['last_updated'];
-
-                                                    if($course_id_db == $course_id)
-                                                    {
-                                                        $makeThisSelected = 'selected';
-                                                    }
-                                                    else
-                                                    {
-                                                        $makeThisSelected = '';
-                                                    }
-
-                                                    echo 
-                                                    '
-                                                        <option value="'.$course_id.'" '.$makeThisSelected.'>'.$course_name.'</option>
-                                                    
-                                                    ';
-
-                                                }
-
-                                            ?>
+                                            <option value="Na">-- No Course --</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

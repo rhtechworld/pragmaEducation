@@ -112,6 +112,9 @@
     </script>
 
     <?php
+    
+    require('payment/config.php');
+    require('payment/razorpay-php/Razorpay.php');
 
     //CreateNewTrasactionId 
 
@@ -138,10 +141,6 @@
 
     $_SESSION['offerOnThisPayment'] = $offer_at;
     $_SESSION['offerAmountThisPayment'] = $addOfferHere;
-
-    require('payment/config.php');
-    require('payment/razorpay-php/Razorpay.php');
-
     
 
     // Create the Razorpay Order
