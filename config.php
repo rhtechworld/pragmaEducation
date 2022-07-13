@@ -5,7 +5,7 @@
 $ProjectName = "Pragma Education";
 
 //Base URL
-$baseURL = "https://pragmaeducation.com/";
+$baseURL = "http://localhost:3045/RHtechWorld/pragmaEducation/";
 
 //Defulat Time Zone
 date_default_timezone_set('Asia/Kolkata'); //indian time 
@@ -14,16 +14,16 @@ $timeNow = date('h:i:s'); // 12:16:00
 $timeDiv = date('A'); // AM or PM
 $lastUpdated = date('d-m-Y h:i A');
 //database Config
-$conn = mysqli_connect('localhost','pragmaed_ganesh','Ganesh@3045','pragmaed_live');
+$conn = mysqli_connect('localhost','root','','pragma_education');
 
 //project setups
-$mainContactNumberOne = "+91 7896747985";
-$mainContactNumberTwo = "+91 9491002123";
-$mainContactNumberOnLink = "917896747985";
+$mainContactNumberOne = "+91 123456789";
+$mainContactNumberTwo = "+91 123456789";
+$mainContactNumberOnLink = "91123456789";
 
-$mainContactEmail = "pragmaeducation2022@gmail.com";
+$mainContactEmail = "test@gmail.com";
 
-$mainContactLocation = "Reg. Uppal, Hyderabad, Telangana";
+$mainContactLocation = "Hyderabad, Telangana";
 
 $mainContactLocationMap = '
 <div class="mt-5" data-aos="fade-up">
