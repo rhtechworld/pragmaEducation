@@ -48,7 +48,7 @@
 
                     <div class="col-lg-8 mt-lg-0">
 
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="" method="post" onsubmit="contactMainFunction()" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name"
@@ -64,12 +64,12 @@
                                     placeholder="Subject" required>
                             </div>
                             <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message"
                                     required></textarea>
                             </div>
                             <div class="my-3">
                                 <div class="loading">Loading</div>
-                                <div class="error-message"></div>
+                                <div class="error-message">Facing issue! Try after sometime</div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
                             <div class="text-center"><button type="submit">Send Message</button></div>
@@ -111,3 +111,13 @@
     </main><!-- End #main -->
 
     <?php include('footer.php'); ?>
+
+    <script>
+        function contactMainFunction()
+        {
+            var name = $('name').val();
+            var email = $('email').val();
+            var subject = $('subject').val();
+            var message = $('message').val();
+        }
+    </script>
