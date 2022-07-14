@@ -48,7 +48,7 @@
 
                     <div class="col-lg-8 mt-lg-0">
 
-                        <form action="" method="post" onsubmit="contactMainFunction()" class="php-email-form">
+                        <form id="contactPragma">
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name"
@@ -60,6 +60,10 @@
                                 </div>
                             </div>
                             <div class="form-group mt-3">
+                                <input type="number" class="form-control" name="mobile" id="mobile"
+                                    placeholder="Mobile Number" required>
+                            </div>
+                            <div class="form-group mt-3">
                                 <input type="text" class="form-control" name="subject" id="subject"
                                     placeholder="Subject" required>
                             </div>
@@ -68,15 +72,15 @@
                                     required></textarea>
                             </div>
                             <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message">Facing issue! Try after sometime</div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                                <div class="alert alert-warning loading">Loading...</div>
+                                <div class="alert alert-danger alert-sm error-message">Facing issue! Try after sometime</div>
+                                <div class="alert alert-success alert-sm sent-message">Your message has been sent. Thank you!</div>
                             </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center"><button type="button" onclick="submitFormPragma()" class="btn btn-primary newButtonEffect">Send Message</button></div>
                         </form>
 
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mt-3">
                         <div class="info">
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
@@ -100,8 +104,6 @@
 
                     </div>
 
-
-
                 </div>
 
             </div>
@@ -112,12 +114,112 @@
 
     <?php include('footer.php'); ?>
 
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+
     <script>
-        function contactMainFunction()
+
+            $('.loading').hide();
+            $('.sent-message').hide();
+            $('.error-message').hide();
+
+        function submitFormPragma()
         {
-            var name = $('name').val();
-            var email = $('email').val();
-            var subject = $('subject').val();
-            var message = $('message').val();
+
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var subject = $('#subject').val();
+                var message = $('#message').val();
+                var mobile = $('#mobile').val();
+
+                var submit = true;
+                console.log(submit);
+
+                if(name == '' || name == null || name == undefined)
+                {
+                    alert('Name is Required!');
+                    $('.error-message').text('Name is Required!');
+                    $('.error-message').show();
+                    submit = false;
+                    console.log('Name is Required!');
+                    console.log(submit);
+                }
+                else if(email == '' || email == null || email == undefined)
+                {
+                    alert('Email is Required!');
+                    $('.error-message').text('Email is Required!');
+                    $('.error-message').show();
+                    submit = false;
+                    console.log('Email is Required!');
+                    console.log(submit);
+                }
+                else if(subject == '' || subject == null || subject == undefined)
+                {
+                    alert('Subject is Required!');
+                    $('.error-message').text('Subject is Required!');
+                    $('.error-message').show();
+                    submit = false;
+                    console.log('Subject is Required!');
+                    console.log(submit);
+                }
+                else if(message == '' || message == null || message == undefined)
+                {
+                    alert('Message is Required!');
+                    $('.error-message').text('Message is Required!');
+                    $('.error-message').show();
+                    submit = false;
+                    console.log('Message is Required!');
+                    console.log(submit);
+                }
+                else if(mobile == '' || mobile == null || mobile == undefined)
+                {
+                    alert('Mobile Number is Required!');
+                    $('.error-message').text('Mobile Number is Required!');
+                    $('.error-message').show();
+                    submit = false;
+                    console.log('Mobile Number is Required!');
+                    console.log(submit);
+                }
+                else
+                {
+                    $('.error-message').hide();
+                    submit = true;
+                    console.log('Submitting...');
+                    console.log(submit);
+                }
+                //$('.loading').show();
+
+                if(submit)
+                {
+
+                    $.ajax({
+                    url: 'forms/contact.php',
+                    type: 'POST',
+                    data: {name: name, email:email, subject:subject, message:message, mobile:mobile},
+                    success: function(response){
+                        if(response == '1')
+                        {
+                            $('.loading').hide();
+                            $('.sent-message').text('Your message has been sent. Thank you!');
+                            $('.sent-message').show();
+                            $('.error-message').hide();
+                            console.log('Your message has been sent. Thank you!');
+                        }
+                        else
+                        {
+                            $('.sent-message').hide();
+                            $('.loading').hide();
+                            $('.error-message').text('Facing issue! Try after sometime!');
+                            $('.error-message').show();
+                            console.log('Facing issue! Try after sometime!');
+                        }
+                    }
+                    
+                    });
+
+                }
+
         }
+
     </script>
