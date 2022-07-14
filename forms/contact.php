@@ -40,11 +40,11 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) &
     </div>
     ';
 
-    $to = "ganeshbondla@gmail.com";
-   // $to = $emailSendFromName;
+    // $to = "ganeshbondla@gmail.com";
+    $to = $mainContactEmail;
     $subject = "Web Contact #".$ticketId." - ".$subject."";
             
-    $header = "From:".$emailSendFromName." <".$name."> \r\n";
+    $header = "From:".$name." <".$emailSendFrom."> \r\n";
     $header .= "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html\r\n";
         

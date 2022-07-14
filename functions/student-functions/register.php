@@ -30,7 +30,7 @@ if(isset($_POST['proceedRegsiter']))
         $insertIntoStudentAccess = mysqli_query($conn,"INSERT INTO student_access(student_id, student_email, student_mobile, student_password, count_login, last_login, two_fa, otp_for_access, verify_state, session_key, status, isDeleted)
         VALUES('$passTudentID','$username','$number','$secondLayerEncription','0','$todayDate','0','$verifyOTP','0','$sessionKey','0','0')");
 
-        session_start();
+       // session_start();
         $_SESSION['student_session_id'] = $passTudentID;
         header('location:./functions/student-functions/send-verification-email?sessionUser='.$number.'&sessionUserId='.$passTudentID.'&sessionKey='.$sessionKey.'&action=newUser');
 

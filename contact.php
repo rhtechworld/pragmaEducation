@@ -205,6 +205,12 @@
                             $('.sent-message').show();
                             $('.error-message').hide();
                             console.log('Your message has been sent. Thank you!');
+
+                            $('#name').val('');
+                            $('#email').val('');
+                            $('#subject').val('');
+                            $('#message').val('');
+                            $('#mobile').val('');
                         }
                         else
                         {

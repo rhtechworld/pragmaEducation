@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+// session_start();
 $getSessionUserId = $_SESSION['student_session_id'];
 
 if($getSessionUserId == '')
