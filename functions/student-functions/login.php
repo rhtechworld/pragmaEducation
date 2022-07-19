@@ -64,7 +64,7 @@ if(isset($_GET['singleLogin']))
     }
     else
     {
-        $showThisMsgOnLoginPageNew = "";
+        $showThisMsgOnLoginPageNew = ""; 
     }
 }
 else
@@ -104,6 +104,9 @@ if(isset($_POST['proceedForLogin']))
             //check valid username and password
             if($student_email == $username && $student_password == $secondLayerEncription)
             {
+                // Session Start
+                session_start();
+
                 //get student name
                 $getStudentNameFromDB = mysqli_query($conn,"SELECT * FROM students WHERE student_id='$student_id'");
                 while($row = mysqli_fetch_array($getStudentNameFromDB))
@@ -114,10 +117,10 @@ if(isset($_POST['proceedForLogin']))
                 // check login count
                 if($count_login == 0)
                 {
-                    //no Login Count -> check two factor enable
+                    //no Login Count -> check two factor enable 
                     if($two_fa == 0)
                     {
-                        //no 2FA -> check verification state
+                        //no 2FA -> check verification state 
                         if($verify_state == 0)
                         {
                             //if not verifies
@@ -130,7 +133,6 @@ if(isset($_POST['proceedForLogin']))
                             $running_session_key = md5(rand());
 
                             //if verified
-                            session_start();
                             $_SESSION['student_id'] = $student_id;
                             $_SESSION['student_email'] = $student_email;
                             $_SESSION['session_key'] = $running_session_key;
@@ -166,7 +168,6 @@ if(isset($_POST['proceedForLogin']))
                         $updateToNewOTPLogin = rand(100000,999999);
                         $verifyUpdateLogin = mysqli_query($conn,"UPDATE student_access SET otp_for_access='$updateToNewOTPLogin' WHERE student_id='$student_id'");
 
-                        session_start();
                         $_SESSION['student_session_id'] = $student_id;
                         header('location:./functions/student-functions/send-verification-email?sessionUser='.$student_mobile.'&sessionUserId='.$student_id.'&sessionKey='.$session_key.'&action=twoFactor');
 
@@ -175,7 +176,6 @@ if(isset($_POST['proceedForLogin']))
                 else
                 {
                     // already login somewhere
-                    session_start();
                     $_SESSION['student_session_id'] = $student_id;
                     $showThisMsgOnLoginPage =
                     '

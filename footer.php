@@ -47,7 +47,7 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Top Useful Links</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>toppers">Toppers</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>toppers">Compendium</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>videos">Videos</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>downloads">Downloads</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo $baseURL; ?>current-affairs">Current Affairs</a></li>

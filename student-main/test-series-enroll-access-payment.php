@@ -127,7 +127,7 @@ else
     </script>
 
     <script>
-    var actionCourseId = '<?php echo $assigned_course_id; ?>';
+    var actionCourseId = '';
     $("#collapseArrow"+actionCourseId).html('<i class="fas fa-angle-down"></i>');
     $("#Clps"+actionCourseId).addClass("active");
     $("#payment"+actionCourseId).addClass("active");

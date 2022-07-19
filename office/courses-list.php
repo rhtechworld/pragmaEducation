@@ -31,7 +31,6 @@
                                             <th>SNo.</th>
                                             <th>CourseId</th>
                                             <th>CourseName</th>
-                                            <th>CourseTab</th>
                                             <th>Status</th>
                                             <th>LastUpdated</th>
                                             <th>Actions</th>

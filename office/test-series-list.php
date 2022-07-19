@@ -32,7 +32,6 @@
                                                 <th>SNo.</th>
                                                 <th>TS.Id</th>
                                                 <th>TS.Title</th>
-                                                <th>TS.Course</th>
                                                 <th>TS.Price</th>
                                                 <th>TS.Test's</th>
                                                 <th>Status</th>
@@ -49,7 +48,7 @@
                                                 while($row = mysqli_fetch_array($getListOfTestSeries))
                                                 {
                                                     $ts_id = $row['ts_id'];
-                                                    $course_id = $row['course_id'];
+                                                    $course_id = "NA";
                                                     $ts_name = $row['ts_name'];
                                                     $ts_price = $row['ts_price'];
                                                     $ts_type = $row['ts_type'];
@@ -60,12 +59,12 @@
                                                     $last_updated = $row['last_updated'];
 
                                                     //check course details in db
-                                                    $checkCourseDetailsInDB = mysqli_query($conn,"SELECT * FROM course_details WHERE course_id='$course_id'");
-                                                    while($row = mysqli_fetch_array($checkCourseDetailsInDB))
-                                                    {
-                                                        $course_id = $row['course_id'];
-                                                        $course_name = $row['course_name'];
-                                                    }
+                                                    // $checkCourseDetailsInDB = mysqli_query($conn,"SELECT * FROM course_details WHERE course_id='$course_id'");
+                                                    // while($row = mysqli_fetch_array($checkCourseDetailsInDB))
+                                                    // {
+                                                    //     $course_id = $row['course_id'];
+                                                    //     $course_name = $row['course_name'];
+                                                    // }
 
                                                     //count of schedule now
                                                     $getTheCountOfScheduleNowHere = mysqli_query($conn,"SELECT * FROM test_series_schedule WHERE ts_id='$ts_id' AND isDeleted='0'");
@@ -86,7 +85,6 @@
                                                         <td>'.$slNo++.'</td>
                                                         <td>#'.$ts_id.'</td>
                                                         <td>'.$ts_name.'</td>
-                                                        <td><b>'.$course_name.'</b></td>
                                                         <td>₹'.number_format($ts_price,2).'</td>
                                                         <td><a href="test-series-schedule?ts_id='.$ts_id.'"><b>Tests ( '.$thisIsCountOfListOfAllScedules.' )</b></a></td>
                                                         <td>'.$showThisStatus.'</td>

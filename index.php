@@ -35,17 +35,20 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
         <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-            <h1>Learning Today,<br>Leading Tomorrow</h1>
+            <h1>Pragma Education</h1>
+            <b style="color:white;font-size:20px">For All Career Aspirants</b><br>
             <a href="<?php echo $baseURL; ?>courses" class="btn-get-started">Browse Courses</a>
         </div>
     </section><!-- End Hero -->
 
     <main id="main">
 
-
         <!-- ======= Popular Courses Section ======= -->
         <section id="aboutus" class="aboutus">
             <div class="container" data-aos="fade-up">
+                <div class="text-center mt-0 p-2 mb-2">
+                    <h4 style="color:#E31E26"><b>Learning Today, Leading Tomorrow</b></h4>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="section-head col-sm-12 mb-0 text-left">
@@ -56,9 +59,9 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="section-head col-sm-12 mb-0 text-left">
-                            <h4 style="font-size:20px;"><span>Our</span> Moto</h4>
+                            <h4 style="font-size:20px;"><span>Our</span> Motto</h4>
                         </div>
-                        <p>OUR MOTO: Pragma Education aims at providing an affordable, accessible and accomplishment-oriented modules to the aspirants of various competitive examinations.</p>
+                        <p>OUR MOTTO: Pragma Education aims at providing an affordable, accessible and accomplishment-oriented modules to the aspirants of various competitive examinations.</p>
                         <p>A mid-term to long-term guidance shall be provided to all the students that enrol with us just to ensure that your journey is as beautiful as ours. 
 Address the issues faced by consumer market and creating an utilizable value to the modules. In short, we really want to help the aspirants in their journeys.
 Provide the students with a perspective and confidence to continue their journey nevertheless without us.</p>

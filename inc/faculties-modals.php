@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<!-- Dr. Vijay Kumar C Modal -->
+<!-- Dr. Vijay Kumar C Modal --> 
 <div class="modal fade" id="DrVijayKumar" tabindex="-1" role="dialog" aria-labelledby="DrVijayKumar" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -162,13 +162,13 @@
     </div>
 </div>
 
-<!-- Dr. DevishankarTumbali Modal -->
+<!-- Dr. DevishankarTumbali Modal --> 
 <div class="modal fade" id="DevishankarTumbali" tabindex="-1" role="dialog" aria-labelledby="DevishankarTumbali"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="DrMounikaDasari">Devishankar Tumbali ( MA PubAdm, LB, PGDCJ, BTech )</h5>
+                <h5 class="modal-title" id="DrMounikaDasari">Devishankar Tumbali ( MA PubAdm, LLB, PGDCJ, BTech )</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

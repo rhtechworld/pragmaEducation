@@ -48,7 +48,7 @@ $first_part = $components[1];
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="<?php if ($first_part=="" || $first_part=="index") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>">Home</a></li>
-          <li><a class="<?php if ($first_part=="toppers") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>toppers">Toppers</a></li>
+          <li><a class="<?php if ($first_part=="toppers") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>toppers">Compendium</a></li>
           <li><a class="<?php if ($first_part=="videos") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>videos">Videos</a></li>
           <li><a class="<?php if ($first_part=="faculties") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>faculties">Faculties</a></li>
           <li><a class="<?php if ($first_part=="courses") {echo "active"; } else  {echo "notActive";}?>" href="<?php echo $baseURL; ?>courses">Courses</a></li>
