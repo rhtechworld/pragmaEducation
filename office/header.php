@@ -136,7 +136,8 @@
                             </a>
                             <div class="collapse <?php if ($first_part=="display-toppers" || $first_part=="display-downloads" || $first_part=="display-current-affairs") {echo "show active"; } else  {echo "notActive";}?>" id="collapseLayoutsTwoNine" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link <?php if ($first_part=="display-toppers") {echo "active"; } else  {echo "notActive";}?>" href="display-toppers">Toppers</a>
+                                    <a class="nav-link <?php if ($first_part=="display-toppers") {echo "active"; } else  {echo "notActive";}?>" href="display-toppers">Compendium</a>
+                                    <a class="nav-link <?php if ($first_part=="display-videos") {echo "active"; } else  {echo "notActive";}?>" href="display-videos">Videos</a>
                                     <a class="nav-link <?php if ($first_part=="display-downloads") {echo "active"; } else  {echo "notActive";}?>" href="display-downloads">Downloads</a>
                                     <a class="nav-link <?php if ($first_part=="display-current-affairs") {echo "active"; } else  {echo "notActive";}?>" href="display-current-affairs">Current Affairs</a>
                                 </nav>

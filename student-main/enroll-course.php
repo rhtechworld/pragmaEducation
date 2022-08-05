@@ -2,6 +2,9 @@
 <?php include('../config.php'); ?>
 <?php include('functions/verify-session.php'); ?>
 <?php include('functions/course-details.php'); ?>
+<?php
+$newTransId = "T".date('dmy')."".rand(10000,99999)."";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +95,8 @@
                     }
                     else if($AfterTaxFinalPriceIsThisToPay > 0)
                     { 
-                        echo '<button id="rzp-button1" class="btn btn-primary brn-sm">Subscribe Now</button>';
+                       // echo '<button id="rzp-button1" class="btn btn-primary brn-sm">Subscribe Now</button>'; 
+                       echo '<a href="https://pragma-education-payment.docrafts.in/sessionCreate.php?studentId='.base64_encode($student_id_session).'&actionId='.base64_encode($course_id).'&actionType=course&txnId='.base64_encode($newTransId).'&baseUrl='.base64_encode($baseURL).'&action='.base64_encode($AfterTaxFinalPriceIsThisToPay).'" class="btn btn-primary brn-sm">Subscribe Now</a>';
                     }
                     else
                     {
@@ -118,7 +122,7 @@
 
     //CreateNewTrasactionId 
 
-    $newTransId = "T".date('dmy')."".rand(10000,99999)."";
+   // $newTransId = "T".date('dmy')."".rand(10000,99999)."";
     $_SESSION['assign_new_txn_id'] = $newTransId;
     $_SESSION['assign_student_id'] = $student_id_session;
     $_SESSION['assign_student_email'] = $student_email_session;

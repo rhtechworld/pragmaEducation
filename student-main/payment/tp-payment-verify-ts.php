@@ -39,7 +39,7 @@ session_start();
 
 $error = "Payment Failed";
 
-if ($success === true)
+if ($success == 'true')
 {
     
     //insert Transaction

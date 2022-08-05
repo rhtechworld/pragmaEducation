@@ -50,7 +50,7 @@ if(isset($_GET['tsId']) && isset($_GET['enId']))
                 while($row = mysqli_fetch_array($checkCourseDetailsInDB))
                 {
                     $course_id = $row['course_id'];
-                    $course_name = $row['course_name'];
+                    $course_name = "";
                 }
             }
         }
@@ -80,7 +80,7 @@ else
     <main id="main">
 
         <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
-            <h4 style="font-size:20px"><span><?php echo $ts_name; ?> </span> (<?php echo $course_name; ?>) </h4>
+            <h4 style="font-size:20px"><span><?php echo $ts_name; ?> </span> </h4>
         </div>
 
         <div class="container mb-4">

@@ -49,7 +49,34 @@
                 <iframe width="853" height="480" src="https://www.youtube.com/embed/K4TOrB7at0Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div> -->
             <div class="alert">
-                    No Videos
+                    <?php
+
+                        $checkVideosInDb = mysqli_query($conn,"SELECT * FROM videos WHERE vid_status='0' AND isDeleted='0'");
+                        $checkCountOnVideos = mysqli_num_rows($checkVideosInDb);
+
+                        if($checkCountOnVideos == 0)
+                        {
+                            echo 'No Videos!';
+                        }
+                        else
+                        {
+                            while($row = mysqli_fetch_array($checkVideosInDb))
+                            {
+                                $vid_id = $row['vid_id'];
+                                $vid_link = $row['vid_link'];
+                                $vid_status = $row['vid_status'];
+                                $date = $row['date'];
+                                $last_updated = $row['last_updated'];
+                                $isDeleted = $row['isDeleted'];
+
+                                echo '
+                                <div class="row mb-2">
+                                    <iframe width="853" height="480" src="https://www.youtube.com/embed/'.$vid_link.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                ';
+                            }
+                        }
+                    ?>
             </div>
         </div>
     </div>

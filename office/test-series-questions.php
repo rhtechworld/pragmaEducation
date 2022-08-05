@@ -85,7 +85,7 @@ else
         <?php include('header.php'); ?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h5 class="mt-4">Questions List ( <?php echo $ts_name; ?> ) ( <?php echo $course_name; ?> )</h5>
+                        <h5 class="mt-4">Questions List ( <?php echo $ts_name; ?> )</h5>
                         <?php include('functions/test-series-questions-actions.php'); ?>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="./">Dashboard</a></li>

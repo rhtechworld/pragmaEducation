@@ -64,8 +64,7 @@ else
     <main id="main">
 
     <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
-            <h4 style="font-size:20px"><span> Test Series : </span> <?php echo $ts_name_db; ?> (
-                <?php echo $course_name; ?> )</h4>
+            <h4 style="font-size:20px"><span> Test Series : </span> <?php echo $ts_name_db; ?></h4>
         </div>
 
         <div class="container mb-3">

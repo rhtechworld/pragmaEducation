@@ -18,7 +18,7 @@ session_start();
     $courseOriginalAmount = $_SESSION['course_amount_basic'];
 
     //tax and otther details
-    $stuTrxn_pay_tax_at = $_SESSION['stuTrxn_pay_tax_at'];
+    $stuTrxn_pay_tax_at = $_SESSION['stuTrxn_pay_tax_at']; 
     $stuTrxn_pay_tax = $_SESSION['stuTrxn_pay_tax'];
     $stuTrxn_pay_discount = $_SESSION['stuTrxn_pay_discount'];
     $stuTrxn_pay_coupon = $_SESSION['stuTrxn_pay_coupon'];
@@ -55,7 +55,7 @@ if ($success === true)
 
     $html = "<p>Your payment was successful</p>
              <p>Payment ID: {$_POST['razorpay_payment_id']}</p>";
-
+ 
     //unsetting payment sessions
     unset($_SESSION['assign_student_id']);
     unset($_SESSION['assign_student_email']);

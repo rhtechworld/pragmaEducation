@@ -65,8 +65,7 @@ else
     <main id="main">
 
         <div class="section-head col-sm-12 mb-0" style="margin-top:105px;">
-            <h4 style="font-size:20px"><span> Test Series : </span> <?php echo $ts_name_db; ?> (
-                <?php echo $course_name; ?> )</h4>
+            <h4 style="font-size:20px"><span> Test Series : </span> <?php echo $ts_name_db; ?></h4>
         </div>
 
         <div class="container mb-3">
@@ -94,7 +93,21 @@ else
 
                                     if($getCountOnThisNowTs == 0)
                                     {
-                                        $showNewButtonActionOnTs = '<a class="btn btn-primary newButtonEffect" id="rzp-button1" style="color:white" href="#">Subscribe Now</a>';
+                                        if($AfterTaxFinalPriceIsThisToPay == 0 || $AfterTaxFinalPriceIsThisToPay == null || $AfterTaxFinalPriceIsThisToPay == '')
+                                        {
+                                            $AfterTaxFinalPriceIsThisToPay = 163045; //for razorpay
+                                            $showNewButtonActionOnTs = '<a href="enroll-free-test-series?tsId='.$ts_id_db.'&cf='.$AfterTaxFinalPriceIsThisToPay.'&enroll=free" class="btn btn-primary newButtonEffect" style="color:white" href="#">Subscribe For Free</a>';
+                                           //  echo '<a href="enroll-free-course?courseTab='.$course_tab_id.'&course='.$course_id.'&cf='.$AfterTaxFinalPriceIsThisToPay.'&enroll=free" class="btn btn-primary brn-sm">Subscribe For Free</a>';
+                                        }
+                                        else if($AfterTaxFinalPriceIsThisToPay > 0)
+                                        { 
+                                        // echo '<button id="rzp-button1" class="btn btn-primary brn-sm">Subscribe Now</button>'; 
+                                            $showNewButtonActionOnTs = '<a class="btn btn-primary newButtonEffect" id="rzp-button1" style="color:white" href="#">Subscribe Now</a>';
+                                        }
+                                        else
+                                        {
+                                            $showNewButtonActionOnTs = '<b class="text-danger">ERROR</b>';
+                                        }
                                     }
                                     else
                                     {
@@ -109,7 +122,6 @@ else
                                     echo $showNewButtonActionOnTs;
 
                                 ?>
-                                    
                                 </th>
                                 <td>
                                     <a class="btn btn-primary newButtonEffect" style="color:white" href="#sceduleThis">View Schedule</a>
@@ -210,7 +222,7 @@ else
     $_SESSION['assign_student_id'] = $student_id_session;
     $_SESSION['assign_student_email'] = $student_email_session;
     $_SESSION['assign_ts_id'] = $ts_id_db;
-    $_SESSION['assign_course_id'] = $course_id;
+    $_SESSION['assign_course_id'] = 'NA';
     $_SESSION['razorpay_paid_amount'] = $AfterTaxFinalPriceIsThisToPay;
 
     $_SESSION['course_amount_basic'] = $ts_price_db;
@@ -286,7 +298,7 @@ else
         "contact"           => $student_number_session,
         ],
         "notes"             => [
-        "address"           => "TestSeries:".$ts_id_db.", CourseId:".$course_id."",
+        "address"           => "TestSeries:".$ts_id_db."",
         "merchant_order_id" => $newTransId,
         ],
         "theme"             => [
