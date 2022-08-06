@@ -117,41 +117,30 @@ else
                         <i class="fa fa-video-camera"></i> Topic Video
                         </button>
                     </h5>
-                    </div>
+                    </div> 
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <?php
 
-                        $simple_string = $topic_video_Topic;
-
-                        $ciphering = "AES-128-CTR";
-  
-                        // Use OpenSSl Encryption method
-                        $iv_length = openssl_cipher_iv_length($ciphering);
-                        $options = 0;
+                        $simple_string = base64_encode($topic_video_Topic);
                         
-                        // Non-NULL Initialization Vector for encryption
-                        $encryption_iv = "3045160714733045";
+                        //insert Into Video Tracking
                         
-                        // Store the encryption key
-                        $encryption_key = $student_email_session;
-
-                        $encryptionString = openssl_encrypt($simple_string, $ciphering,
-                        $encryption_key, $options, $encryption_iv);
+                        $trackIdNow = rand(1000000000,9999999999);
+                        
+                        $oneTimeTokenTrack = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 56);
+                        
+                        $insertIntoVideoTracking = mysqli_query($conn,"INSERT INTO course_video_tracking(track_id, course_id, video_id, student_id, access_token, token_count, date)
+                        VALUES('$trackIdNow','$course_id_in_db','$topic_video_Topic','$student_id_session','$oneTimeTokenTrack','0','$lastUpdated')");
 
                     ?>
                     <div class="card-body">
-                        <video 
-                            id="my-video"
-                            class="video-js"
-                            controls
-                            preload="auto"
-                            height="auto"
-                            poster=""
-                            data-setup="{}" 
-                            style = "width:100%"
-                        >
-                        <source id="dynamicTopicVideo" src="https://drive.google.com/uc?id=<?php echo $topic_video_Topic; ?>&export=download" type="video/mp4">
-                        </video>
+                        <div  style="position: relative;">
+
+                            <iframe src="encryptedVideo?token=<?php echo $oneTimeTokenTrack; ?>&trackId=<?php echo $trackIdNow; ?>" style="width:100%;" height="680" allow="autoplay" sandbox="allow-same-origin allow-scripts" allowFullScreen></iframe>
+                            
+                            <div style="width: 80px; height: 80px; position: absolute; opacity: 0; right: 0px; top: 0px;">&nbsp;</div>
+                        
+                        </div>
                     </div>
                     </div>
                 </div>

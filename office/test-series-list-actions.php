@@ -18,7 +18,7 @@ if(isset($_GET['ts_id']) && isset($_GET['courseId']) && isset($_GET['action']))
     else if($inputOfTestAction == 'edit')
     {
         //getDetailsByTestSeries
-        $getDetailsOfTestSeriesFromDb = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE ts_id='$inputOfTestId' AND course_id='$inputOfTestCourseId'");
+        $getDetailsOfTestSeriesFromDb = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE ts_id='$inputOfTestId'");
         $getCOuntOnDetailsOfTestSeriesFromDb  = mysqli_num_rows($getDetailsOfTestSeriesFromDb);
 
         if($getCOuntOnDetailsOfTestSeriesFromDb == 0)
@@ -52,7 +52,7 @@ if(isset($_GET['ts_id']) && isset($_GET['courseId']) && isset($_GET['action']))
     else if($inputOfTestAction == 'delete')
     {
         //getDetailsByTestSeries
-        $getDetailsOfTestSeriesFromDb = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE ts_id='$inputOfTestId' AND course_id='$inputOfTestCourseId'");
+        $getDetailsOfTestSeriesFromDb = mysqli_query($conn,"SELECT * FROM test_series_manage WHERE ts_id='$inputOfTestId'");
         $getCOuntOnDetailsOfTestSeriesFromDb  = mysqli_num_rows($getDetailsOfTestSeriesFromDb);
 
         if($getCOuntOnDetailsOfTestSeriesFromDb == 0)
